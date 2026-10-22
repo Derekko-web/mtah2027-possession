@@ -1,0 +1,54 @@
+{
+  "reference": "Selected seven-model broadcast closure SHA dcb3a8d2ec3fbc1d2308c85303a995f6102112d4976e466942556626223a05ce;1177 prior score rows preserved.",
+  "hypothesis": "Nearest-team identity and ball impulse alone failed. Unambiguous local player position matches and ball-relative co-motion, especially from independent broadcast tracking, may distinguish brief physical control and time existing broad source proposals.",
+  "data": "Reuse verified strictly aligned local observation cache from control_broadcast_v1/inputs, no media, jersey features, private labels, manual labels, target-driven alignment or uploads. Feature construction reads no possession targets.",
+  "native_motion": {
+    "steps": [
+      5,
+      25
+    ],
+    "directions": [
+      "past",
+      "future"
+    ],
+    "matching": "For each current player and same-team frame offset, require mutual nearest position match,second-best distance margin>=.25m,and displacement speed<=15m/s. Ball velocity<=80m/s. Native source time differences avoid mapped-frame rounding artifacts. Missing or ambiguous points stay missing.",
+    "features": "Nearest-player relative velocity, minimum relative velocity within3m, close-control kernel max exp(-.5*(distance/2)^2-.5*(relative_velocity/5)^2), mutual-match fraction per team/direction/step; team kernel is min of past/future5-frame max kernels. No player IDs,absolute positions or timestamps as features.",
+    "summaries": "Past/future means at25/75/125tactical frames of per-team kernel; independent ordered broadcast distance/control/nearest-speed taps at+/-5,+/-25,+/-50tactical frames."
+  },
+  "alignment_validity": "For broadcast5-frame motion require mapping valid and same orientation throughout tactical+/-10frames and mapped endpoints enclosing source+/-5. For25-frame motion use tactical+/-35 and enclosing source+/-25. Compute velocities in native broadcast coordinates; scalar relative measures are reflection invariant. No extrapolation. Total new tactical observation footprint<=210frames including alignment50,summary125,and35 for native-motion enclosure; existing250-frame fold buffers cover it. Require actual18935vs19060public feature parity.",
+  "heads": {
+    "broadcast_taps": "Original ordered+68broadcast geometry+fixed ordered taps; original joint-frame XGBoost.",
+    "tactical_motion": "Original ordered+tactical pair-motion features.",
+    "broadcast_motion": "Original ordered+broadcast geometry/taps+native broadcast pair-motion.",
+    "fused_motion": "Original ordered+broadcast geometry/taps+tactical and broadcast pair-motion."
+  },
+  "training": "Unchanged fit_renewal(frame),depth3/160trees,frame-balanced eligible public training targets,team-symmetrized inference,no calibration/early stopping; seed42 screen with existing3 protocols. Four heads*13 folds=52checkpoints.",
+  "decoders": {
+    "replace_current": "Where head observations valid, replace only original current ordered raw probability; elsewhere retain original. Other six selected model checkpoints/probabilities unchanged, shared decode_broadcast_closure per validation block. D may change and is audited.",
+    "live_replace": "ConditionalH/A through existing ownership_prediction replace_live inside selected reference live episodes; restore reference outside valid source; D exact.",
+    "motion_events": "Source kernel winner>=.2 and lead>=.1 defines strong frames. Join same-team strong episodes only across<=5 observed nonstrong frames. Pad5frames within observed episode; require8..125frames,>=3 source exclusive contacts(distance<2,opponent advantage>.5),conditional learned mean>=.65,no referenceD,>=one opposite13frame flank and closed other flank,and no enclosure by opposite reference run8..250. All gates read unchanged arrays. For an event core overlapping a same-owner7vs6changed component, use original6model flanks and island protection; otherwise use selected7model. D overlap always checks selected7model. For accepted event, restore original6model labels on any connected same-owner 7vs6 changed component overlapped by its core, then place bounded event label. This refines automatically generated source extents, never target endpoints. Outside affected components/events retain selected7; D exact. For fused sources use per-team maximum kernel and minimum source distance; require at least one source valid."
+  },
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "rows": 39,
+    "decoders": [
+      "replace_current",
+      "live_replace",
+      "motion_events"
+    ]
+  },
+  "promotion": "Before seeds43/44 freeze at most one unchanged finalist. Require buffered+.04 and extra shortIoU.5match per seed; no primary/mean-shortIoU/prior-mostly-recovered-short regression in any pair;Macro>=reference-.001;falseD<=reference;Drecall>=reference-.02;no additional mostly missed stoppages;no more officialIoU.5spurious/missed possessions. Full valid reproducible artifact, all source/input/model/padding/shared-replay checks and independent review before selection. Smaller gains are leads, not passing this plan.",
+  "limitations": "Local nearest set matches approximate correspondence,not verified identities. Broadcast timing has no correspondence answer key. Same-match public adaptive selection is not independent/private accuracy or verified maximum score.",
+  "synthetic_revision": {
+    "reason": "A synthetic extent-refinement test showed selected7model flanks reject an event contained within its own broad added ownership run. Use original6model closure gates only for refining an overlapping source-added component. Original plan/source/test and failure log preserved; no possession fitting, scores or new tracking-feature diagnostics existed before this repair.",
+    "original_plan_sha256": "c3a0721cce38162ad703980121374439364dd0b734fd25fbefad3852a7dba766",
+    "promotion_gates_unchanged": true
+  }
+}

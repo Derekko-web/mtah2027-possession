@@ -1,0 +1,53 @@
+{
+  "reference": "Protected six-model stoppage consensus; unchanged frame_closure from adaptive seed42 intersection screen.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "methods": [
+    "current",
+    "broadcast_closure"
+  ],
+  "objective_history": "All earlier broadcast plans fail their short-match and/or substantial gates. This separate prospective confirmation tests an incremental primary-score gain; it does not claim passing those plans. Seeds43/44 have not yet been evaluated for this method.",
+  "inference": "Unchanged decode_broadcast_closure: strictly aligned broadcast geometry, joint-frame classifier only where broadcast ball is observed, fixed11-frame source closure without intersection, all referenceD preserved. No frame IDs or true endpoints in inference.",
+  "training": "Unchanged original eligible public folds and frame-balanced joint XGBoost; seed42 must reproduce stored raw probabilities and source-closure predictions exactly.",
+  "promotion": {
+    "all_pairs": "Primary>=reference+.01; MacroF1>=reference-.001; mean short IoU>=reference; no previously mostly recovered short run lost; identical D masks; official IoU.5 spurious and missed possession counts may not increase.",
+    "each_protocol": "Strictly positive mean primary gain across seeds.",
+    "report_substantial_separately": "Original buffered+.04 criterion must be reported separately; it is not the incremental criterion.",
+    "deployment": "Before selection: official scoring, all model/source/input/cache and shared-inference checks, reproducible full-match candidate and independent Standards/Spec review. Record all clipped-block regressions."
+  },
+  "source_sha256": {
+    "confirm_broadcast_closure.py": "83966cf6a6a154d6be6cf72dd44649d38978769d0f33f7ff6d7deffecb34cd13",
+    "broadcast_refinement.py": "0134febe45ca93f6aaa8becb181959115d793f1e1f496ec9f58e10fec0f791c5",
+    "broadcast_intersection.py": "1b722add1c07fb05a97050c9f3d2e94cdae7209a39f6ce731c89951172e3b05c",
+    "broadcast_consensus.py": "098db4d8f4ad408584962511f75578c1b01ea73d0243aef92fca29e6c7fb4058",
+    "broadcast_alignment.py": "d9949985ed90b51b522f25648386ca46c3fb3bfe2554e786fe474a56057f2076",
+    "broadcast_features.py": "90fe342ad6eece9d26b3bd047d7afc944112e0a2b526e7ceb0dba9d252514c68",
+    "research_control_renewal.py": "383fa7507d41fbfd276abadd77d3925c94354d56d5cd8190a53ddd20db956371",
+    "control_refinement.py": "51a8a21ac5c170e99128295047d624a04e26710b7fb386d2b9f0ea8ce67c5189",
+    "stoppage_consensus.py": "fb7657d3128580e072d81371f9c0303c81a336c2a5a8b2b3bd20f1429660b068",
+    "broadcast_provenance.py": "9c3b68942f74d22fccfaa125b486b87a312d85259d6dffdadde50f74d04deda6"
+  },
+  "input_sha256": {
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_broadcast_v1/inputs/combined_inputs.pkl": "ef4f92b99b1de9477002d1f0dbbf29b33b9e1feef64263fdaeec88dbd07d3841",
+    "data/control_broadcast_v1/intersection_screen/scores.csv": "d124264c2ac8bffba2ef25e701a703776d8d6d90d7b5071f83b5d79dc1df80ef",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f",
+    "data/advanced_validation/ordered.pkl": "749dc86c612ec552af5cd98c1627bb7517f00241ed395994ec5cdba9a8bd63d3",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487"
+  },
+  "limitations": "Adaptive same-match repeated-label development; unused seeds are correlated stress checks, not independent labels or selection-adjusted evidence. Maximum/private full-match accuracy remains unverified.",
+  "provenance_revision": {
+    "reason": "Independent review required path-independent camera asset identities; no method, threshold, split, target, feature or prediction change. Original frozen plan and all pre-repair artifacts preserved at data/control_broadcast_v1/provenance_before/.",
+    "original_plan_sha256": "ea719dabdfe3d1bd0cdfb7108144a89f7167303f558ca07030efb406c350f9d4",
+    "prefix_cache_byte_parity": true
+  }
+}

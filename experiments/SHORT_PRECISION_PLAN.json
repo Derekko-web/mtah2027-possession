@@ -1,0 +1,33 @@
+{
+  "reference": "Six-model stoppage consensus, CSV SHA256 dac48e6be66f4395089cae4eee3cfb5daeadcd7963480f399fe079d871be534c; preserved under data/control_precision_v1/.",
+  "intent": "Improve primary interval score using finer ownership endpoints while preserving every reference D/live decision.",
+  "feedback_loop": "The selected buffered seed42 has 3 of 6 short true possessions matched at IoU>=.5. Require at least 4; diagnostics use public labels, inference never does.",
+  "hypotheses_ranked": [
+    "The 51-frame older proposal envelope extends short ownership runs. Fine conditional ownership from the same older model should improve existing short endpoints without changing topology or D.",
+    "Probability averaging dilutes sharp ownership evidence. Mean log likelihood from the older and fast heads should improve endpoints relative to mean probabilities under the same constraints.",
+    "The missing short controls have no correct ownership signal before gating. Aggregate raw-head accuracy on short true runs will distinguish absent model evidence from a decoder-only failure; topology-preserving methods cannot create a missed run."
+  ],
+  "data": "Existing local padded observations and cached OOF probabilities only; no new labels, media, raw tracking output, hosted processing or frame patches. No model fitting or calibration in this screen.",
+  "screen": {
+    "seeds": [42],
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "methods": {
+      "previous_raw13": {"source": "previous", "half_window": 0, "log_pool": false, "radius": 13},
+      "previous_mean11_13": {"source": "previous", "half_window": 5, "log_pool": false, "radius": 13},
+      "fast_raw13": {"source": "fast", "half_window": 0, "log_pool": false, "radius": 13},
+      "fast_mean11_13": {"source": "fast", "half_window": 5, "log_pool": false, "radius": 13},
+      "joint_mean11_13": {"source": "joint", "half_window": 5, "log_pool": false, "radius": 13},
+      "joint_log11_13": {"source": "joint", "half_window": 5, "log_pool": true, "radius": 13},
+      "joint_mean11_25": {"source": "joint", "half_window": 5, "log_pool": false, "radius": 25},
+      "joint_log11_25": {"source": "joint", "half_window": 5, "log_pool": true, "radius": 25}
+    }
+  },
+  "inference": "Decode the unchanged six-model reference first. Eligible islands have 8..125 frames and opposite-team live neighbors on both sides. Only their two adjacent boundaries may move, by at most radius frames. Joint dynamic programming keeps the entire original run-label sequence, every D frame, at least 8 frames for each eligible island, and positive length for other runs. Boundaries cannot cross. Equal likelihood prefers the reference positions. Evidence is conditional H/A probability from the chosen original head(s); joint mean averages probabilities, joint log averages log probabilities, followed by optional centered 11-frame averaging in the corresponding space. Evidence never crosses decode blocks.",
+  "confirmation": "Freeze at most one unchanged finalist and reference before seeds43/44. Compare all three protocols and seeds42/43/44 with official scorer and shared inference parity.",
+  "promotion": {
+    "all_pairs": "Stitched spellF1, MacroF1, mean short IoU and number of short IoU>=.5 matches must not regress. No previously mostly recovered short run may become mostly missed. D masks must be identical.",
+    "each_buffered_seed": "Primary spellF1 gain >=.04 and at least one additional short IoU>=.5 match.",
+    "selection": "Among screen finalists that satisfy all available gates prefer the larger minimum primary gain across protocols, then mean short IoU, then smaller radius; otherwise preserve the selected model. Report all block regressions."
+  },
+  "limitations": "Adaptive same-fixture development on 17 repeatedly inspected public possessions. The eight variants are dependent comparisons, not independent evidence. A pass does not establish maximum score or private/generalization accuracy."
+}

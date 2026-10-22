@@ -1,0 +1,15 @@
+{
+  "reason": "Centered models fail(.55..61 balanced);pooled shape models improve to.73711 but stillfail unchanged.8accuracy/.5confidencecoverage gates. Test genuinely new temporal evidence rather than lowering thresholds.",
+  "reference": "Selected8 unchanged,1291 ledger rows. First8weakmodels remainrejected;no publicpossessionfitting sofar.",
+  "inputs": {
+    "data/control_ball_appearance_v1/feasibility/manifest.json": "8bdf597f187d9f0041b4f7d9ec4b13bab9fdd83ebed373659eea14c6711338bd",
+    "data/control_ball_appearance_v1/pooled_feasibility/manifest.json": "11eb33977039f3b34e262d75bdba27c1601e0538f7ddb4dcd4448a27c351fbe7"
+  },
+  "observations": "Locally decode full1920x1080 frames at center\u00b15. For each crop,project every16x16 currentpixel location through inversecurrenthomography and adjacenthomographies;bilinearsample all3images on the same ground-plane patch. Subtract eachpatch outer-ring channelmedian,then current minus meanpast/future. This distinguishes moving compact objects from stationarypaint/turf under camera motion.",
+  "features": "For originalprofiles1/2,concatenate103pooled appearance features ofcurrentpatch with103pooled features of the clipped/.25 normalized RGB temporal residual. Temporal residual tail usesringmedian3,innermean3,std3,positive-residualfraction. No time/coordinates/scale/identity feature. Existing allsource3camera matrices finite/invertible andsamplepixelsinsideimage;otherwisemissing.",
+  "weak_fitting": "Same160originalfittingframes,60originalvalidationframes andweakpositive/negative crop locations;five1pixeljitterpositivefittingcrops,onevalidationpositive. All3imageshavecentersoutsidepublic/reserved\u00b1250;additional\u00b15contextfitsbuffers. Fit/report all4same logisticC1/forest200 depth10leaf5 settings. Trainonly preprocessing. No refit on validation.",
+  "gates": "Exact original BALL_APPEARANCE_PLAN gates unchanged:>=40positive/>=120negative validvalidation crops,positivevalid>=.5,balancedaccuracy>=.8,confidence.8 coverage>=.5/agreement>=.9,exactmodelreload.",
+  "fresh_confirmation": "Onlyif firstpassingmodel exists,choose60new originalweakeligible grid25frames seed43,excluding public/reserved\u00b1250 andall original220centers\u00b1250. Decode same3framefeatures;neverrefit. Allsamegatesmustpass. Rejectinsufficientcandidateframes orfailedconfirmation. No publicpossessionfitting unlessbothpass.",
+  "privacy": "Localffmpeg/numpy/scipy only;no newdeps,hostedmodels,image/pixel/trackdisplay/upload,manualannotations,privateGT,finalframepatch,commit/submission/publication/contact.",
+  "limits": "Moving-ball track proxies,not independentlyverifiedballpresence,stationaryballaccuracy,possessiontruth orindependentmatchgeneralization. Same oldweakvalidationreused adaptively;freshweakcheck ifeligible remainsa correlatedsame-match proxy. Maximumscoreunknown."
+}

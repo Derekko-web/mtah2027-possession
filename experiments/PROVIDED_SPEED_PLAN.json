@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "reference": "Selected8 native-motion dead trim; selected CSV SHA3b559d4e89eb687b818b66732b250b917774391763346d038d35413d9132fbea;1291 prior score rows preserved.",
+  "hypothesis": "The supplied third ball field is metadata-declared speed, discarded by coordinate-only loaders. Its value and missingness, including scalar-only observations, may add evidence for live/dead transitions and short control.",
+  "observation": "Read only supplied local automatic tracking and verified metadata; no video/detector/weak-label fitting in this experiment. Require ball references exactly x/y/s; recognize declared km/h or m/s and convert nominally to m/s. No independent calibration claim. Negative/nonfinite scalar is missing. Do not change existing selected loaders/inputs.",
+  "features": "Per source: provided scalar,seen,scalar_seen_without_xy,centered5-frame-coordinate speed,given-minus-coordinate speed;provided-scalar past/future25/75/125 mean/std and observed fraction;per-team nearest signed/absolute provided player-speed gap and minimum absolute gap within3/5m;past/future25mean of per-team5m gap. Player scalar uses same declared speed unit. No coordinates,time,slot IDs as predictors. Fused adds signed/absolute source scalar difference,both-seen andseen-xor flags. Keep missing values,zero observed flags;no target preprocessing or imputation.",
+  "alignment": "Use original strict label-free formation mapping unchanged. Compute native centered5-frame coordinate speed,mask derivative at missing/invalid observations and>80m/s. Aligned broadcast core requires mapping/enclosure5native,10tactical as existing pair geometry. Apply temporal summaries on tactical timeline within official halves. Maximum footprint<=185tacticalframes including50alignment+10enclosure+125summary;250-frame exclusion preserved. Actual18935vs19060feature parity required.",
+  "heads": {
+    "tactical_speed": {
+      "source": "tactical"
+    },
+    "broadcast_speed": {
+      "source": "broadcast"
+    },
+    "fused_speed": {
+      "source": "fused"
+    }
+  },
+  "fitting": "Each new head:102ordered+68existingcombinedbroadcast+new feature view. Unchanged fit_renewal frame objective,depth3/160trees,seed42,eligible training labels only,team-symmetric fitting/prediction,no calibration/early stopping. Save training/validation indices and objective targets/weights;39 new checkpoints over13folds.",
+  "matched_control": "Reuse verified existing OOF broadcast_joint_frame probability arrays (ordered+68broadcast,identical fit_renewal hyperparameters/splits). Record source artifacts and verify their view/model provenance. Score same3decoders as new heads;not extra fits. Candidate improvements must exceed same-decoder control as well as selected8.",
+  "decoders": {
+    "replace_current": "Replace only retained ordered raw probability with new head;other7checkpoints/probabilities unchanged;decode shared selected8 with explicit validation blocks.",
+    "live_replace": "Keep selected8 D exact;within each existing live episode use fixed conditionalH/A probability,existing weak_ownership replace_live smooth5/decode. No validation labels/endpoints read.",
+    "dead_trim": "Compute replace_current alternative,accept H/A only where selected8reference saysD;all referenceH/A/X exact;cannotaddD."
+  },
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "decoders": [
+      "replace_current",
+      "live_replace",
+      "dead_trim"
+    ],
+    "rows": 39,
+    "definition": "3selectedreference+9matchedcontrol+27newhead/decoder rows;dependent checks,not independent experiments."
+  },
+  "promotion": "At most one unchanged finalist before seeds43/44. Require same variant passes all3protocols at seed42:primary>=reference,Macro>=reference-.001,mean shortIoU>=reference,retain >=.5recall on previouslymostlyrecovered shorts,falseD<=reference,Drecall>=reference-.02,noextra missedstoppages/noextra officialIoU.5spurious/missed. Buffered primary>=reference+.04and>=1extra shortIoU.5match. Also primary>=same-decoder matchedcontrol in everyprotocol. Then unchanged finalist must pass all9seed/protocol protections,fullsource/input/model/padding/replayintegrity,reproduciblevalidfullCSV and independent review. No smaller gain claimed as passing.",
+  "privacy": "No privateGT,manualannotations,finalframepatches,hostedcompetitionextracts,commits,uploads,submission,publication,contact. All derived tracking/features/checkpoints in ignoreddata. Preserve frozen24annotationwindows and untouched60weakconfirmation schedule.",
+  "limitations": "Supplied speed is automatic and sparse;declared units do not establish calibrated physicalspeed. Same-match adaptive public validation is correlated,not independent/private accuracy or verifiedmaximum."
+}

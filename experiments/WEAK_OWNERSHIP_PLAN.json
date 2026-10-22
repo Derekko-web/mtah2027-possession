@@ -1,0 +1,32 @@
+{
+  "reference": "Protected six-model stoppage consensus under data/control_precision_v1/.",
+  "hypotheses_ranked": [
+    "Public-only ownership training is too narrow. Contact-derived ownership samples elsewhere in the match should improve out-of-fold short ownership evidence relative to identical public-only heads.",
+    "Automatic attacking/defending phases offer information when ball proximity is misleading. Stable exclusive phase samples, screened for observed moving ball and contradictory contact, may improve a semantic head without needing corrected labels.",
+    "Phase proxies may overmerge control. Requiring phase/contact agreement for weak samples and accepting only brief independently supported proposals may retain precision better than replacing all live ownership."
+  ],
+  "data": "Local cached full tracking features and supplied automatic tags only. All public frames11185..18684 plus250 and all24 frozen annotation windows plus250 are excluded from weak samples. Every tenth eligible frame inside official half bounds. No media, private labels, annotations, hosted processing or final frame patches.",
+  "features": "Compact raw observations excluding absolute pitch-line distances, existing contact_memory and temporal_taps. Semantic view adds phase_control's eight symmetric automatic-phase features. No fitted preprocessing. Maximum bounded observation context125frames; phase membership can span the supplied tagged phase.",
+  "weak_rules": {
+    "contact": "Existing control_evidence per team, then centered25 mean. Exactly one team>=.5 and the other<=.05. Labels are H/A from that team.",
+    "phase": "Exactly one team's phase_control_support>=.5 and the other==0 throughout a centered25 window; ball_observed_radius25>=.7, ball_iqr_radius25>2, no active automatic restart, no contradictory sustained contact. Drop phase/contact conflicts.",
+    "agreement": "Both contact and phase targets exist and agree. All regimes independently enforce public/reserved exclusions. These are noisy algorithmic proxies, not corrected ground truth."
+  },
+  "screen": {
+    "seeds": [42],
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "models": {
+      "geometry_public": {"semantic": false, "weak": "none", "weak_mass": 0},
+      "semantic_public": {"semantic": true, "weak": "none", "weak_mass": 0},
+      "semantic_contact": {"semantic": true, "weak": "contact", "weak_mass": 0.5},
+      "semantic_phase": {"semantic": true, "weak": "phase", "weak_mass": 0.5},
+      "semantic_agreement": {"semantic": true, "weak": "agreement", "weak_mass": 0.5}
+    },
+    "training": "Binary H/A XGBoost depth3,200trees,learning_rate.04,lambda20,min_child20,subsample.8,colsample.9,n_jobs2. Public eligible live rows class balanced; weak classes separately balanced with total mass .5 of public live training weight. Team-swap augmentation and symmetrized inference. No held-out targets, early stopping or calibration.",
+    "decoders": ["replace_live", "short_proposals"],
+    "replace_live": "Keep reference D mask exactly. Independently decode each remaining contiguous live segment with the new head's centered11 probabilities and penalty3. No inference across D or decode-block boundaries.",
+    "short_proposals": "New head centered11+penalty3 proposes live runs8..125. Require non-edge, mean>=.65, no referenceD overlap, contact-support>=3 OR phase-support>=.5 on>=3 frames, and opposite reference control on a majority of each neighboring13 frames. Replace only the proposed interval with its model-predicted owner. All gates read unchanged reference. D is unchanged."
+  },
+  "confirmation": "Only an unchanged screen finalist passing the SHORT_PRECISION_PLAN promotion gates may be frozen for all three seeds. Otherwise no confirmation or promotion; retain every result.",
+  "limitations": "Adaptive same-match public development. Weak targets may be wrong and share observation errors with predictors. A gain is not independent accuracy evidence or proof of maximum score."
+}

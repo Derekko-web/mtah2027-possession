@@ -1,0 +1,14 @@
+{
+  "reason": "All4 centered raw-pixel weak models fail initialfeasibility(.54565..61313 balanced accuracy). Positivepatch mean center/maxcontrast differs fromnegative;test translation-tolerant signal before discarding localappearance. New adaptive weak representation,not public possession fitting or criterion relaxation.",
+  "inputs": {
+    "data/control_ball_appearance_v1/feasibility/manifest.json": "8bdf597f187d9f0041b4f7d9ec4b13bab9fdd83ebed373659eea14c6711338bd",
+    "data/control_ball_appearance_v1/feasibility/scores.csv": "3f7efbadbb65bc6c2931ad424bdba5eaa39936cfc9848ec0f7c824a6593774db"
+  },
+  "representation": "Reuse preserved weak normalized16x16RGB residual patches. Perchannel robust intensity quantiles,mean/std; luminance residual and Gaussian difference/Hessian blob responses at sigma.5/1/2. Pool quantiles,maxima,positive mass;toplocalblob circularity and weighted spatial covariance capture compact spots versus elongated fieldlines/boots. No coordinates,time,identity or fitted preprocessing in transform. Original profiles1/2 unchanged.",
+  "fitting": "Same160 weak fitting frames only,all5jitterpositives and offball negatives;same logisticC1 and forest200 depth10leaf5settings. Train-only StandardScaler forlogistic. Reuse original60validationframes as openly adaptive screen;report all4 andchoosefirst passingoriginalgates. No modelrefitting on validation.",
+  "gates": "Unchanged BALL_APPEARANCE_PLAN feasibility gates:>=40positive,>=120negative valid weakvalidation crops,positivevalid>=.5,balancedaccuracy>=.8,confidence.8 coverage>=.5/agreement>=.9,exactcheckpointreload.",
+  "fresh_confirmation": "Onlyif some methodpasses screen,select60new weakeligible grid25frames seed43 from same original eligibility,excluding public/reserved\u00b1250 and everyoriginal220sample\u00b1250. Do not fit/refit on newframes. Same feasibilitygates apply. Reject insufficientsample or failedconfirmation;no publicpossessionfitting unless bothpass.",
+  "privacy": "Local numericprocessing and localvideoonly;neverdisplay/uploadcompetitionimages,trackingextracts orpixelarrays. No newdeps/manualannotations/privateGT/framepatch/submission/publication/commit/contact.",
+  "next": "If bothpass,freeze separate publicfeature+possessionhead/decoderplan. Originalsubstantial+.04 andextra-shortgatesapply beforepromotion;allretaineddata/evidence remain.",
+  "limitations": "Weaktracking proxy labels,not independently verifiedballpresence;newconfirmation is separated same-match weakagreement,not possessiongroundtruth or independentmatchgeneralization."
+}

@@ -1,0 +1,54 @@
+{
+  "reference": "Selected8-model motion D trim, SHA3b559d4e89eb687b818b66732b250b917774391763346d038d35413d9132fbea;1249 prior dependent score rows preserved.",
+  "feedback": "Selected buffered seed42 has3 of6 short IoU>=.5 matches;require_short_precision.py requires4 and fails. Statistical model-quality defect,not an assumed software bug;no hard-coded endpoint fix.",
+  "ranked_hypotheses": [
+    "Signed incoming/outgoing ball-relative player motion and local pressure/support retain information lost by distance and relative-speed magnitudes.",
+    "Frame fitting underweights short handoffs;matched ordered transition-weighted control separates objective changes from graph representation.",
+    "A conservative short proposal may use new evidence more safely than broad current-head replacement."
+  ],
+  "features": {
+    "sources": "Tactical native frames plus strictly aligned broadcast native frames from verified camera caches. Ball/player vectors use105.3x68m. No media, identities,absolute coordinates or timestamps as model inputs.",
+    "matching": "Mutual nearest same-team positions at\u00b15 native frames,second-best margin>=.25m,speed<=15m/s;native ball velocity<=80m/s. Valid whole interval required. Broadcast enclosure uses tactical\u00b110 same orientation,mapped endpoints enclosing native\u00b15. Missing and ambiguous values stayNaN.",
+    "per_player": "Signed incoming/outgoing relative radial velocity along ball-to-player offset;absolute tangential relative velocity;player/ball heading cosines;past/future closest-approach distance over at most1second linear relative extrapolation;ball impulse radial projection;minimum opposing-player distance;teammate count within5m excluding self.",
+    "pooling": "For each team,Gaussian ball-distance weights at bandwidth2m and5m,only players within10m,weighted mean of each finite feature. Require positive finite denominator. Shared ball incoming/outgoing turn cosine and complete kinematic coverage flag. Team summaries for bandwidth2 outgoing closest approach,radial impulse and opponent pressure:past/future means over25/75tactical frames. No fitted preprocessing.",
+    "context": "Tactical native5 +75 summary;broadcast alignment50+enclosure10+summary75<=135tactical frames;inside250target buffers. Actual prefix18935vs19060 public parity required.",
+    "inputs": "Original102 ordered inputs plus existing68 broadcast geometry and new tactical/broadcast graph features for graph heads. Ordered transition control retains original102."
+  },
+  "heads": {
+    "graph_frame": {
+      "view": "graph",
+      "transition_weight": false
+    },
+    "graph_transition": {
+      "view": "graph",
+      "transition_weight": true
+    },
+    "ordered_transition": {
+      "view": "ordered",
+      "transition_weight": true
+    }
+  },
+  "fit": "Unchanged joint-frame depth3,160trees XGBoost settings from fit_renewal;seed42. Eligible training labels only,team-swap augmentation and symmetrized inference. No early stopping/calibration. Transition objective multiplies weight4 within25frames of eligible adjacent H/A changes;compute inside contiguous eligible training components only,then rebalance augmented class total mass. Save weights/training indices for audit. No transition neighborhoods from held-out labels.",
+  "decoders": [
+    "replace_current",
+    "short_proposals"
+  ],
+  "inference": {
+    "replace_current": "Replace original ordered current raw probabilities with new head only where at least one graph source is observed,then call unchanged8-model decoder using all7 other original head arrays. No other model refit.",
+    "short_proposals": "Keep selected8 D mask exact. Conditional new H/A probabilities go through existing ownership_prediction short_proposals,5-frame smoothing,8..125frames,mean>=.65,both13frame opposite reference flanks. Physical support is original contact_support OR any graph-source same-team nearest distance<=3 and opposing advantage>=.5. No phase support. Missing graph source leaves reference unchanged. All gates use unchanged arrays;no manual endpoints."
+  },
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "score_rows": 21,
+    "models": 39
+  },
+  "promotion": "Before seeds43/44 freeze at most one unchanged finalist. Require buffered primary+.04 and additional shortIoU.5match each seed,no primary/mean-shortIoU/prior-mostly-recovered-short regression,Macro>=reference-.001,falseD<=reference,Drecall>=reference-.02,no additional mostly missed stoppages,no additional officialIoU.5spurious/missed possessions. Full valid reproducible artifact and independent Standards/Spec review before selection. Smaller gains are leads,not passing this plan.",
+  "limits": "Only7500public labels,17possessions,adaptive same-match tests,correlated protocols/seeds;no new independent/private accuracy or maximum proof. All24reserved windows unlabelled/unused;no uploads,submissions,publication,commits or external contact."
+}

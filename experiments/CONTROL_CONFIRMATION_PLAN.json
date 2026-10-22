@@ -1,0 +1,13 @@
+{
+  "reference": "ordered_xgboost_frame seed42,43,44 from advanced_validation",
+  "finalists": {
+    "consensus_conservative": {"threshold": 0.65, "strength": 0.25},
+    "consensus_contact": {"threshold": 0.65, "strength": 0.75}
+  },
+  "preferred": "consensus_contact",
+  "seeds": [42,43,44],
+  "protocols": ["buffered_minutes","purged_spells","buffered_100_seconds"],
+  "rules": "Older-model decoded live proposals 8..125 frames, fast-head mean support >=0.65, at least 3 close-control supported frames, enclosed by opposite current ownership. Replace team emissions only within those automatically predicted proposals. Keep current D except bounded contact/moving-ball attenuation. No true short-run interval endpoints enter inference.",
+  "promotion": "All paired stitched spellF1 deltas >=0; all paired D recalls >=reference-0.02; no extra mostly missed stoppages. For every buffered seed: strictly fewer false-D frames and higher short-live mean recall. Allow at most .005 MacroF1 loss per pair. Report every block regression. Prefer more false-D reduction among eligible finalists; keep seed42 fixed.",
+  "interpretation": "Adaptive follow-up to 595 existing score rows and the current refinement screen. Confirmation reuses the same 17 public possessions; it is not independent or selection-adjusted evidence. No new settings may be tuned to these seed checks."
+}

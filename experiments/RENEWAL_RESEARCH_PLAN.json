@@ -1,0 +1,62 @@
+{
+  "reference": "anchored_rescue CSV973e1670e9e1240ecdde3bbabebf1e803f0d3b6259aad1b9b3223c413d26dcfd; frozen data/control_renewal_v1",
+  "intent": "Seek a substantial additional gain by recovering ownership evidence and improving endpoints, preserving current gains and all failed methods.",
+  "data": "Public labels only, frozen buffered/purged/100-second folds. No private or corrected labels, final frame patches, video/annotation access, cloud processing or submission. Future observations bounded to125frames and padded through18934.",
+  "ranked_hypotheses": [
+    "Current asymmetric contact history misses pass-flight ownership. Add bounded bidirectional exclusive-contact age, repeated-contact fractions and same-team bracketing features.",
+    "Nearest-player geometry misses receivers. Add projected-ball-to-team corridor distances and actual future-ball distances to current player sets, without track identity assumptions.",
+    "Automatic phase semantics can qualify ambiguous brief control when fused with temporal physical evidence in a learned model rather than copied as labels.",
+    "State classifiers do not directly learn transitions. Later freeze a separate directed boundary head if the ownership screen does not yield substantial stable gains.",
+    "Visible stoppages require persistence and changing player organization. Later freeze a distinct stoppage-context model rather than globally reducing D confidence."
+  ],
+  "screen": {
+    "seeds": [
+      42
+    ],
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "models": {
+      "chronology_frame": {
+        "features": "chronology",
+        "objective": "frame"
+      },
+      "chronology_runs": {
+        "features": "chronology",
+        "objective": "runs"
+      },
+      "receiver_frame": {
+        "features": "receiver",
+        "objective": "frame"
+      },
+      "receiver_runs": {
+        "features": "receiver",
+        "objective": "runs"
+      },
+      "semantic_frame": {
+        "features": "semantic",
+        "objective": "frame"
+      },
+      "semantic_runs": {
+        "features": "semantic",
+        "objective": "runs"
+      }
+    },
+    "training": "Same ordered XGBoost depth3,160trees,.04 learning rate,lambda10,min_child_weight15; H/A swap augmentation. Fit and weights only eligible training labels. Frame objective class balances; runs objective gives eligible contiguous runs equal mass.",
+    "decoders": [
+      "replace_current",
+      "short_proposals"
+    ],
+    "replace_current": "Replace only the ordered current-model probabilities; retain older ensemble, fast head, canonical consensus and anchored rescue.",
+    "short_proposals": "Keep anchored emissions except automatically decoded new-model H/A proposals8..125frames; mean new-model team probability>=.65; at least3 instantaneous contact-supported frames OR3 same-team before/after bracketing frames; current surrounding opposite ownership, no overlap with decoded D. Use new conditional team emissions inside proposal only, preserving D. Same-team bracket uses touch2_bracket_75>=.1 (bounded75-frame past/future contact)."
+  },
+  "confirmation": "Freeze no more than two unchanged methods for seeds42,43,44 and all three protocols. Inspect all paired metrics and block regressions. Later hypotheses require new immutable plans before scoring.",
+  "promotion": {
+    "all_pairs": "No stitched spellF1 loss, MacroF1>=reference-.005, D recall>=reference-.02, no extra mostly missed stoppages, and no previously mostly recovered short true run may become mostly missed.",
+    "substantial": "Buffered primary gain>=.04 in every seed, plus positive mean primary gain in each other protocol. Improve short-run mean best IoU or mostly missed stoppages, and false D may not increase by more than10frames in any pair.",
+    "selection": "Among passing finalists prefer largest mean paired primary gain across protocols/seeds; tie by short IoU then fewer false D. Retain seed42. If no finalist passes, retain anchored default and continue distinct predeclared hypotheses."
+  },
+  "limitations": "Same17 repeatedly inspected possessions, overlapping training sets and adaptive selection; not independent or full-match accuracy or significance evidence."
+}

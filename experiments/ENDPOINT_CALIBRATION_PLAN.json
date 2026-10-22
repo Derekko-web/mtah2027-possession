@@ -1,0 +1,35 @@
+{
+  "reference": "Protected six-model stoppage consensus under data/control_calibration_v1; no changes to its features, models or inference.",
+  "hypotheses_ranked": [
+    "Short predicted ownership islands may have systematic ending bias. Median endpoint errors from nested out-of-fold training predictions should improve outer held-out interval scores if that bias is repeatable.",
+    "Start and ending biases may differ. End-only calibration should outperform separate start/end calibration if starts are already accurate.",
+    "Sparse calibration examples may be unreliable. Requiring two matched training islands rather than one may prevent harmful corrections; absent sufficient examples, inference is identical to the reference."
+  ],
+  "data": "Only existing local tracking-derived caches and 7500 public labels. No media, private labels, new annotations, hosted processing, submissions or manual final-label patches. Existing weak D samples and exclusions are unchanged.",
+  "nested_training": {
+    "outer": "Existing frozen buffered_minutes, purged_spells and buffered_100_seconds splits, seed42 screen. Outer reference predictions are the verified selected OOF predictions.",
+    "inner": "Three fixed public chunks11185..13684,13685..16184,16185..18684. Inner validation is the intersection of one chunk with outer training indices; inner fitting uses only outer training indices outside that entire chunk plus250 frames each side. Skip empty validation or an inner fitting pool missing H/A/D, recording the reason. Decode each contiguous eligible inner-validation component separately.",
+    "models": "Refit all six unchanged models for every eligible inner fold: ordered XGBoost, two-objective previous ensemble, fast control, and both weak D heads with weak_mass.5. Outer-held labels are never used in fitting, class/run weights, calibration matching or correction estimates. Automatic label-free features may use the existing padded observation context.",
+    "preflight": "Refit the first outer buffered seed42 fold and require exact raw probability parity with every selected cached head before nested fitting.",
+    "examples": "From each inner-held component, select model-predicted H/A runs8..125 with opposite live neighbors. Match them one-to-one to same-label true intervals using maximal total IoU; keep IoU>=.3. Exclude true runs touching component edges. Calibration target is true_start-predicted_start and true_exclusive_end-predicted_exclusive_end. No outer validation label is read. Save every matched case and nested split/model/prediction artifact.",
+    "estimate": "Coordinatewise median of all matched training errors, then clip each correction to[-25,+25]. Require one or two examples as specified; otherwise return zero corrections. No hyperparameter selection inside the held-out block."
+  },
+  "screen": {
+    "seeds": [42],
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "methods": {
+      "end_min1": {"both": false, "minimum": 1},
+      "end_min2": {"both": false, "minimum": 2},
+      "both_min1": {"both": true, "minimum": 1},
+      "both_min2": {"both": true, "minimum": 2}
+    }
+  },
+  "inference": "Only model-derived reference H/A islands8..125 bracketed by opposite live control are eligible. End-only moves boundaries after such islands; both also moves their starts. Candidate shifts are bounded25frames. If two short islands share a boundary, average the applicable start/end desired positions. A joint ordered-boundary DP minimizes squared deviation from the learned desired positions, preserving the entire original label sequence, all D positions, minimum8frames for eligible islands and positive length for other runs. No boundary crosses. Equal-cost solutions prefer original positions. All eligibility gates read the unchanged reference.",
+  "confirmation": "Freeze at most one unchanged finalist before seeds43/44 on all protocols. No tuning after confirmation. Full reproducible candidate, official scores, provenance/model parity and independent review required before promotion.",
+  "promotion": {
+    "all_pairs": "No primary or mean-short-IoU regression; MacroF1>=reference-.005; no previously mostly recovered short run becomes mostly missed; exactly identical D masks.",
+    "substantial": "Buffered primary gain>=.04 and at least one additional short IoU>=.5 match for each seed, plus positive mean primary gain in each other protocol.",
+    "selection": "Largest minimum primary gain across protocols, then mean short IoU, then the two-example minimum. Record all block regressions. If none passes, retain selected model and calibration failures."
+  },
+  "limitations": "This is adaptive development on17 repeatedly inspected same-match possessions. Nested fitting guards outer-label leakage but does not create independent labels or correct selection bias. Sparse timing cases may be unstable. Maximum/private full-match accuracy is unverified."
+}

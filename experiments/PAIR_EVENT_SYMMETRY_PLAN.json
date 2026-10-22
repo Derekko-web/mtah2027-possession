@@ -1,0 +1,23 @@
+{
+  "reason": "Synthetic analysis found team-order bias when opposite padded motion events overlap. Retain all original39 rows and code; reuse frozen OOF model probabilities for a separately frozen symmetric event decoder. No original possession scores have been inspected before this symmetry plan.",
+  "original_plan_sha256": "f0b2726243448944e0bfa0f44a3cac77d3bf98af59be8c182dc41e5e47b5e1b4",
+  "hypothesis": "Resolve overlapping event pads per frame by learned conditional probability times source kernel; exact numerical ties retain selected reference. All original event generation, confidence/contact/closure/extent-restoration rules unchanged.",
+  "data": "Original4 heads/protocol OOF outputs only; no new fitting or features.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seeds": [
+    42
+  ],
+  "methods": [
+    "broadcast_taps",
+    "tactical_motion",
+    "broadcast_motion",
+    "fused_motion"
+  ],
+  "rows": 15,
+  "promotion": "Same original substantial and extra-short-match criteria and secondary protections. Original nonsymmetric motion_events is ineligible regardless of scores. Symmetric event decoder must pass swap invariance and all pair/future artifact checks before selection.",
+  "limitations": "An additional adaptive decoder comparison, not independent evidence; preserve old version and all rows."
+}

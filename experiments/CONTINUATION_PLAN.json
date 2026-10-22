@@ -1,0 +1,38 @@
+{
+  "frozen_before_new_scores": "2026-10-21",
+  "seed": 42,
+  "historical_scored_configurations_reported_at_handoff": 65,
+  "hypotheses": [
+    {
+      "name": "robust_ball_motion",
+      "change": "Add seven bounded ball spread, observation support and robust displacement features to the selected 46 inputs.",
+      "prediction": "Visible-ball stoppage recall improves without adding false D fragments."
+    },
+    {
+      "name": "slot_invariant_motion",
+      "change": "Replace four slot-differenced relative velocity inputs with same-team position-set matches at 0.2 seconds.",
+      "prediction": "Identity-switch artifacts fall and unsupported possession fragments decrease."
+    },
+    {
+      "name": "penalty25",
+      "change": "Retain the selected probabilities and smoothing; increase the single switch cost from 3 to 25 (one second of correlated evidence). No minimum duration.",
+      "prediction": "Weak extra possessions disappear while strongly supported short changes survive."
+    }
+  ],
+  "protocols": {
+    "buffered_minutes": "Original five held-out minutes; 250-frame training buffers.",
+    "purged_spells": "Same held-out minutes and buffers; additionally exclude every complete true H/A/D run intersecting that validation minute. Validation labels define exclusions only and never enter model inputs, fitting weights or decoding."
+  },
+  "fixed": "Two equal-objective shallow XGBoost models; unchanged seed, symmetry augmentation, continuity prior and 51-frame centered probability smoothing. Three alternatives, no sweep or combined candidate.",
+  "promotion_requirements": {
+    "buffered_stitched_spellF1_gain_at_least": 0.02,
+    "buffered_mean_minute_spellF1_gain_at_least": 0.02,
+    "maximum_minute_spellF1_regression": 0.05,
+    "missed_stoppages_must_decrease": true,
+    "additional_false_dead_frames_at_most": 25,
+    "purged_stitched_spellF1_regression_at_most": 0.02,
+    "purged_mean_minute_spellF1_regression_at_most": 0.02,
+    "purged_missed_stoppages_must_not_increase": true
+  },
+  "interpretation": "A screening rule for this adaptive development round, not statistical proof. All public labels were previously inspected. No untouched evaluation set or private full-match labels are available."
+}

@@ -1,0 +1,18 @@
+{
+  "reference": "anchored_rescue, protected data/control_renewal_v1 baseline",
+  "hypothesis": "A head trained specifically on directed H/A change neighborhoods can locate handoffs better than coarse ownership confidence while preserving D intervals and run topology.",
+  "data": "Public training labels only. Event targets use eligible contiguous all-live neighborhoods[-4,+3], transition positives within3frames, and never cross an excluded gap. Observation features bounded to125frames, padded observations unchanged. No new annotations or private labels.",
+  "screen": {
+    "seeds": [42], "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "model": "Binary XGBoost directed event to canonical home team, swap augmentation supplies away-entry examples. depth2,120trees,learning_rate.04,lambda10,min_child_weight15,class-balanced eligible binary targets; no calibration/early stopping.",
+    "features": "Immediate micro-history, contact chronology and receiver geometry; exclude absolute locations, frame IDs, labels and model-fit training predictions.",
+    "methods": {
+      "hazard3_radius13": {"weight": 3, "radius": 13},
+      "hazard3_radius25": {"weight": 3, "radius": 25},
+      "hazard10_radius13": {"weight": 10, "radius": 13},
+      "hazard10_radius25": {"weight": 10, "radius": 25}
+    },
+    "decoding": "Keep the anchored sequence of run labels and every D-related boundary fixed. Jointly minimize anchored emission loss minus weight*log(7-frame-smoothed incoming-team event probability at each movable H/A boundary), within radius, with strictly positive run lengths. No target boundaries enter inference."
+  },
+  "confirmation": "Freeze up to two unchanged methods before seeds43/44; run all three existing protocols and paired diagnostics. Frozen substantial gain and secondary gates in RENEWAL_RESEARCH_PLAN apply."
+}

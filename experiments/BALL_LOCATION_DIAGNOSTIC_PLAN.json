@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "purpose": "Diagnose ball-location disagreement without changing any candidate, temporal alignment or weak feasibility rule.",
+  "hypotheses": [
+    "Short tracking lag predicts smaller detector-to-projected-track residuals at consistent nonzero +/-10-frame shifts, without missingness selection.",
+    "Center/bottom-center/top-center box conventions predict distinct same-frame residuals.",
+    "Decoder timestamp mismatch predicts unequal frame bytes between normal accurate seeking and explicit original-PTS selection.",
+    "Crop context artifacts predict inconsistent absolute detection locations between64/128/256crops and both external models."
+  ],
+  "input_sha256": {
+    "data/control_modern_ball_v1/screen/manifest.json": "37d7786be7be28c3f3271aea675000eb514826236f5dd179b612abe2b06d96b9",
+    "data/control_ball_appearance_v1/feasibility/weak_ball_cache.npz": "bd04633c53e7b9710c7ebf83fead649ae514d376468f41efe6f4e2fef5378902",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83"
+  },
+  "cohort": "Existing60 excluded weak-validation centers only; no new video centers. Same public/reserved+/-250exclusions and no held confirmation use.",
+  "detector": "Existing immutable modern predictions only; every variant reported. Keep scores>=.25. Highest confidence sports ball for lag/center diagnostics; compare all qualifying sports-ball detections for mutual-nearest cross-context matches.",
+  "lag_grid": [
+    -10,
+    -9,
+    -8,
+    -7,
+    -6,
+    -5,
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "lag_cost": "Project ball[f+k] with H[f], compare to detector image center at f. Use same complete-case frames across all21lags, report count and median pixel residual/radius-coverage per lag. Report incomplete/insufficient cases. Do not apply selected offsets.",
+  "conventions": [
+    "center",
+    "bottom_center",
+    "top_center"
+  ],
+  "context": "Compare all3 size pairs within each model and each same-size across2models. Mutual-nearest ball centers within8sourcepixels. Report matched count, median center separation, fraction of both-detected positive centers with a consistent match. Not manually corrected object truth.",
+  "decode": "At sorted cohort indices0/29/59 compare RGB bytes from original decode_local_frame with local ffmpeg-copyts,seek2seconds earlier,filter exact original PTS;verify declared CFR25fps,start0 first. No image display or raw pixels output.",
+  "privacy": "All private arrays/video/detections remain local under ignored data. Print aggregate diagnostics only; no private truth, hosted visual model, manual frame patches, commits/uploads/publication/contact.",
+  "gates": "Diagnostic only. No possession model selection or candidate change. Original weak feasibility and substantial-possession promotion requirements remain unmet. Any new model must have a separate prospective plan.",
+  "limitations": "Externally pretrained detections and supplied automatic tracking can both be wrong; a lower consistency residual is not accuracy against corrected ball truth."
+}

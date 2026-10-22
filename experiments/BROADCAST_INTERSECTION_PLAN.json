@@ -1,0 +1,34 @@
+{
+  "reference": "Unchanged selected six-model stoppage consensus; earlier broadcast replacement and source-screen results remain preserved and unpromoted.",
+  "objective_history": "Earlier prospective plans required buffered+.04 and none passed. The user's continuing objective is maximum score. This new prospective step may advance a smaller primary gain only under stricter paired secondary and false-possession protections. A promotion under this plan must not be described as passing the earlier+.04 criterion; report substantial and incremental gates separately.",
+  "hypotheses_ranked": [
+    "The source-defined interval contains a short correct core but can start too early. Intersecting source and canonical learned support may retain the core and reject unsupported source tails.",
+    "Two opposite live flanks unnecessarily reject new control adjacent to a reference D boundary. Require at least one opposite flank and allow D or same-team anchoring on the other, while retaining the no-D-overlap rule.",
+    "A closure change alone may be insufficient. Compare it with source/learned intersection using each of the two unchanged joint heads."
+  ],
+  "data": "Reuse strictly aligned label-free broadcast features and original seed42 joint-head OOF outputs. No new model fitting or input data; no GT endpoints, media, private labels, annotations or manual frame patches in inference.",
+  "screen": {
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"], "seeds": [42],
+    "methods": {
+      "frame_closure": {"model": "broadcast_joint_frame", "intersection": false},
+      "runs_closure": {"model": "broadcast_joint_runs", "intersection": false},
+      "frame_intersection": {"model": "broadcast_joint_frame", "intersection": true},
+      "runs_intersection": {"model": "broadcast_joint_runs", "intersection": true}
+    }
+  },
+  "inference": {
+    "source": "Unchanged source generation from BROADCAST_SOURCE_INTERVAL_PLAN, fixed11-frame conditional source averaging and penalty3, inside contiguous observed broadcast-ball episodes only.",
+    "intersection": "For intersection methods, split each source-predicted H/A run into contiguous components where the canonical joint-replacement prediction agrees with its owner. Closure-only methods retain the full source run.",
+    "gates": "Each resulting proposal8..125frames, non-edge in overall decode block, mean source probability>=.65,>=3 instantaneous same-camera exclusive contacts (distance<2m, advantage>.5m), no referenceD overlap, and>=.5 canonical learned agreement. At least one neighboring13-frame reference flank has majority opposite ownership; the other has majority opposite, D or same-owner control. All gates read unchanged reference/learned predictions. Reject proposals wholly enclosed by an opposite reference run8..250frames. Preserve reference D exactly.",
+    "context": "No additional physical context beyond the existing broadcast feature construction<=175tactical frames; original block/half inference resets remain unchanged."
+  },
+  "confirmation": "Freeze at most one unchanged seed42 screen finalist before seeds43/44. Refit only the corresponding broadcast joint head per existing eligible folds, verify seed42 parity, and apply identical canonical/source inference. Full reproducible CSV, official scoring, source/model/cache checks and independent review precede promotion.",
+  "promotion": {
+    "all_pairs": "No stitched primary or mean-short-IoU regression; MacroF1>=reference-.001; no lost previously mostly recovered short run; identical D masks; official IoU.5 spurious possession count<=reference.",
+    "each_buffered_seed": "Primary gain>=.01, at least one additional short IoU>=.5 match, and fewer official IoU.5 missed possessions.",
+    "each_protocol": "Strictly positive mean primary gain across seeds.",
+    "substantial_label": "Report separately whether buffered+.04 holds for every seed. Failing this label does not satisfy the older substantial-gain plans.",
+    "selection": "Largest minimum primary gain across protocols, then larger mean short IoU, then fewer spurious possessions. If no unchanged finalist passes, preserve current model. Record every clipped-block regression."
+  },
+  "limitations": "Adaptive follow-up motivated by inspected public errors. Paired protocols/seeds are dependent and do not establish independent/private full-match accuracy or maximum score. Agreement sources may share errors; real correspondence is verified by physical consistency, not a supplied alignment answer key."
+}

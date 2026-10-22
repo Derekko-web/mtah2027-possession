@@ -1,0 +1,18 @@
+{
+  "reference": "Anchored rescue; adaptive follow-up after chronology/receiver tree and directed boundary screens failed",
+  "hypothesis": "A small smooth neural classifier can learn interactions between relative geometry, receiver evidence and phase semantics that axis-aligned trees do not recover. This is a representation change, not a threshold search.",
+  "data": "Public eligible labels only; train-only median imputation with missing indicators, train-only standardization, team-swap augmentation, no early stopping or held-out calibration. Same frozen folds, buffers and padded label-free features. No private/video/annotation data.",
+  "screen": {
+    "seeds": [42], "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "models": {
+      "neural_geometry": {"features": "receiver", "live_only": false},
+      "neural_semantic": {"features": "semantic", "live_only": false},
+      "neural_live": {"features": "semantic", "live_only": true}
+    },
+    "training": "sklearn MLPClassifier hidden(64,32),relu,Adam,alpha1,max_iter150,batch128,learning_rate.001,early_stoppingFalse,tol0,n_iter_no_change151,random seed; class-balanced eligible augmented targets. Preprocessing is fit to eligible augmented training inputs only, never full/held-out rows.",
+    "decoders": ["replace_current", "short_proposals"],
+    "replace_current": "Joint heads replace ordered current probabilities inside unchanged consensus+anchored rescue. Live-only head replaces conditional team probabilities of original current probabilities, keeping its D probability, then uses the same consensus+anchored inference.",
+    "short_proposals": "Use the same fixed proposal gates from RENEWAL_RESEARCH_PLAN (mean>=.65,8..125frames,contact or bracket support,opposite anchored flanks,no anchored D overlap); leave reference untouched elsewhere."
+  },
+  "confirmation": "Apply the substantial primary-gain and secondary gates in RENEWAL_RESEARCH_PLAN to unchanged finalists on all seeds/protocols. Record training convergence warnings and every failure."
+}

@@ -1,0 +1,29 @@
+{
+  "reference": "consensus_contact, source and candidate frozen in data/control_boundary_v1",
+  "methods": [
+    "current",
+    "anchored_rescue"
+  ],
+  "preferred": "anchored_rescue",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "screen_plan_sha256": "83c731a9601e1872d83aee870aa641a784d7b4f0af644e65730131116effd43c",
+  "promotion": {
+    "all_pairs": "No stitched spellF1 loss; D recall >=reference-.02; no extra mostly missed stoppages; MacroF1 >=reference-.005. No previously mostly recovered short true run may become mostly missed.",
+    "each_buffered_seed": "spellF1 >=reference+.01; strictly fewer false D frames; strictly larger mean best same-label IoU of true live runs <=125 frames.",
+    "selection": "Among passing finalists prefer lower buffered false D, then larger mean short IoU, retaining seed42. Disclose every block regression. If none passes keep the current default."
+  },
+  "source_sha256": {
+    "experiments/boundary_refinement.py": "7e5720e2abab2ab090c5a4e94d46dbbd40282f1b8cc93233e9e17daee5c850f8",
+    "experiments/research_boundary_refinement.py": "cc5b2dbcaf5b33807ae75f73251224a57f44c2571fd0c9c5f2fa479320f005ba"
+  },
+  "interpretation": "Methods and thresholds frozen after seed42 screen; remaining seeds are dependent adaptive stress checks on the same public possessions. No new settings after this freeze."
+}

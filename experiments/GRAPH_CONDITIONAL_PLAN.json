@@ -1,0 +1,29 @@
+{
+  "reference": "Unchanged selected8; original21-row graph screen retained and failed. This follow-up reuses all39 fitted seed42 models;no new fitting.",
+  "reason": "Graph replacement creates475/530 falseD buffered versus88 reference,while graph joint argmax recovers23 of33 H frames versus0 ordered-transition. Short proposals leave graph reference unchanged. Test conditional ownership separately and model-driven source-extent trimming;this is a new adaptive decoder comparison,not confirmation of the failed screen.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "heads": [
+    "graph_frame",
+    "graph_transition",
+    "ordered_transition"
+  ],
+  "seeds": [
+    42
+  ],
+  "rows": 21,
+  "methods": {
+    "conditional_current": "Keep original ordered raw D probability exactly;replace conditional H/A with new graph H/A only where at least one source observed,then unchanged8-model decode. Other7 raw arrays fixed. Final decoded D may differ through state competition and must pass all gates.",
+    "source_extent": "Decode new conditional H/A with existing5-frame smoothing and switch penalty. Start with unchanged8 reference and unchanged6-model baseline. Inside each contiguous reference H/A component that differs from baseline H/A,find same-team decoded new events8..125frames. Intersect event with component;require intersection8..125frames,all graph-source observed,mean smoothed new conditional>=.65,and no referenceD. Select uniquely largest intersection,tie by highest mean confidence;exact score ties retain reference. Restore6-model labels on component outside selected intersection only. No other reference frames change;D exact. This may only shorten an automatically added source ownership component,never relocate targets by frame ID."
+  },
+  "acceptance": "Same original OWNERSHIP_GRAPH_PLAN substantial+.04/extra-buffered-short gates and all secondary protections;no objective relaxation. Freeze at most one unchanged finalist before any43/44 evaluation. Official replay,model/source/cache provenance,paired confirmation,reproducible full artifact and independent review required before selection.",
+  "input_sha256": {
+    "data/control_ownership_graph_v1/screen/manifest.json": "e1c50d6643b639a7786769ec7dd82306053ff5c8daca0667df23a8c686c7321f",
+    "data/control_ownership_graph_v1/screen/scores.csv": "3a466c3b39faa8467011b9edf58e2b6a71d9b78c737df7624a53eb03b7164bec",
+    "data/control_ownership_graph_v1/inputs/manifest.json": "1b9fb282d4b49e4507213685d7bc5cb8faca6c2aeb447f7551a4d83c2ed425ba"
+  },
+  "limitations": "Dependent/adaptive same-match decoder reuse,no new labels or independent evidence. Original source/models/scores remain unchanged;no private data,media,manual endpoints or uploads."
+}

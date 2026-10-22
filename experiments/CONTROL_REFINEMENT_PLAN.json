@@ -1,0 +1,11 @@
+{
+  "reference": "ordered_xgboost_frame seed42; CSV bcbd287f437b2404d46a86e6d3a7c0b9fc44c30feb58ed5fdd44f84482d4ec72",
+  "intent": "Recover missed short controlled possessions and reduce false D without surrendering the existing development gains.",
+  "data": "Same public labels only. Tracking inputs include padded context through 18934. No private labels, final-frame patches, new annotations or audit-window use.",
+  "initial_screen": "Seed42, all three existing exclusion protocols; retain every scored method. Compare fixed faster team heads, milder dead-class weighting and observation-based emission/sequence rules.",
+  "heads": ["live-only fast geometry", "live-only ordered inputs", "three-class ordered, empirical frame weights", "three-class ordered, 0.75 original D weight"],
+  "postprocessing": "Fast team evidence uses 11-frame smoothing; D retains 51-frame context. Test live-contact evidence when ball motion contradicts a D prediction. All transition rules are general, team symmetric and input-only.",
+  "confirmation": "Freeze at most two finalists after screen, then run seeds42,43,44 across buffered_minutes, purged_spells and buffered_100_seconds. Compare paired seeds to the preserved current model, not merely the handoff model.",
+  "promotion": "Require lower false-D count and higher mean recall over true live runs <=125 frames in buffered validation, no extra mostly missed stoppages, no material loss of total D recall (>0.02), and no stitched spellF1 loss across any confirmation protocol/seed. Report clipped-block regressions and uncertainty. If no candidate clears these checks, retain the current default.",
+  "warning": "All checks reuse adaptively inspected labels and are development evidence, not independent/statistical or private-match proof. Short-run labels are diagnostic targets only and never inference features."
+}

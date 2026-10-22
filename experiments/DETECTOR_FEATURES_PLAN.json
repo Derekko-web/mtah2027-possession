@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "reference": "Selected8 motion dead trim CSV SHA3b559d4e89eb687b818b66732b250b917774391763346d038d35413d9132fbea;1291dependent possession score rows preserved.",
+  "hypothesis": "Stable externally pretrained detector observations may add possession evidence even when they disagree with automatic ball coordinates. Treat outputs as fallible predictors, never corrected tracking or new ball truth.",
+  "distinction_from_failed_plans": "Original weak-point classifier gates remain failed. Those protocols attempted to validate point-localized ball recognition against automatic track centers. This is a separately frozen public possession-feature hypothesis, motivated by96.97..100% cross-context detector agreement and no short temporal offset. It deliberately evaluates uncertain detector outputs using public possession OOF validation, with unchanged substantial-gain and paired protections. No claim that previous gates passed or that detector agreement is accuracy.",
+  "models": [
+    {
+      "name": "yolo11s",
+      "archive": "data/control_modern_ball_v1/model_assets/yolo11s.mlpackage.zip",
+      "archive_sha256": "ab85797270a693c6bad9f0eef6dc553190a882922e578557947bf0f7c3b3e712",
+      "compiled_model": "data/control_modern_ball_v1/model_assets/yolo11s.mlmodelc",
+      "url": "https://github.com/ultralytics/yolo-ios-app/releases/download/v8.3.0/yolo11s.mlpackage.zip"
+    },
+    {
+      "name": "yolo11m",
+      "archive": "data/control_modern_ball_v1/model_assets/yolo11m.mlpackage.zip",
+      "archive_sha256": "54187b2efb0a5e3a17af6ec9c16eac78e4112692e581cdfe39d5b95436cd9441",
+      "compiled_model": "data/control_modern_ball_v1/model_assets/yolo11m.mlmodelc",
+      "url": "https://github.com/ultralytics/yolo-ios-app/releases/download/v8.3.0/yolo11m.mlpackage.zip"
+    }
+  ],
+  "input_width": 384,
+  "input_height": 640,
+  "side": 256,
+  "native": "Existing CPUOnly native_detector_predict.js;confidence_floor.01,NMSIoU.5,decision/candidate confidence.25. Both models required for consensus. Same384x384square plus128top/bottomRGB114letterbox;inverse exactpadding geometry.",
+  "schedule": "Tactical grid every5frames from10935 to19059,within official half bounds. Exclude all24reserved windows+/-250 and every60heldweakconfirmation center+/-250. No target-driven sampling or known-error exceptions. Crop only when homography valid,error<=1,and256square is entirely inside1920x1080.",
+  "center": "Original ballxy if finite and within pitch+/-5m. Otherwise linearly interpolate only between finite same-half ball observations,each within25frames. No one-sided extrapolation. Do not alter raw tracking arrays. Flag interpolation explicitly.",
+  "consensus": "Keep sports ball candidates>=.25 whose centers lie inside source crop. Mutual nearest model centers within8sourcepixels. Choose highest minimum model confidence,then smallest separation,then coordinate ordering;consensuspoint is average of2centers. Keep counts,maxscores,matchscore/separation/margin/consistency and no-consensus states as predictors. Not trusted labels or inference frame rules.",
+  "presence_features": "crop_observed,center_interpolated,homography_error,2modelballcounts/maxscores,2modelpersoncounts,paircount/seen/score/separation/margin/consistency,near_original_pointflag. Past/future25/75/125means ofpair_seen,pair_score,and2modelmaxscores.",
+  "geometry_features": "All presence fields plus nominal homography-unprojected consensus point validity(within pitch+/-5m),distance/upward offset dividedby expectedball diameter,box-size ratio,nearest detectedpersonfoot distance dividedbydiameter;perteam nearest2playerdistances,countwithin2/5m,Gaussian2m kernel and relativecontrolshare. Add past/future25/75/125means ofteamdistance1/controlshare,offset/upward offset.",
+  "dense": "Compute sample features from fixed detections and same-frame automatic player observations. Interpolate numeric fields only between consecutive5-frame crop samples;each geometry value needs finite endpoints. No filling across missing crops. Outside source visibility,missing values staymissing and crop/consensus/geometry observedflags0. Temporal means staywithin official half. Fixed-window reductions independentofcachelength.",
+  "footprint": "At most25crop-centerbracket+5sampleinterpolation+125temporalsummary=155frames. Existing250-frame exclusion covers observation span. Actual18935vs19060publicfeature parity mustbe exact. Source/head preparation reads no possession targets.",
+  "observability": "Before public target loading/fitting require>=250public validcrop samples and>=100public consensus samples;otherwise stopthisfamilybeforefitting. These are support checks,not ballaccuracy gates.",
+  "heads": {
+    "visual_presence": "102ordered+68broadcast+presencefeatures",
+    "visual_geometry": "102ordered+68broadcast+geometryfeatures"
+  },
+  "fitting": "Unchanged fit_renewal frameobjective,depth3/160trees,seed42,trainlabels only,team-symmetric fitting/prediction,no calibration/early stopping. Save train/validation indices and objective targets/weights.26newcheckpoints over13folds.",
+  "matched_control": "Reuse verified broadcast_joint_frame OOF arrays for identical102ordered+68broadcast no-vision view,samehyperparameters/splits. Applysame3decoders;no extra control fitting.",
+  "decoders": {
+    "replace_current": "Replace retained ordered raw probability only;other7selectedcheckpoints/probabilities unchanged;shared selected8 decode in explicitvalidationblocks.",
+    "live_replace": "Existing provided_speed.decode_provided_speed live_replace:referenceD exact,conditionalH/A replace_live smooth5/decode inside existingliveepisodes.",
+    "dead_trim": "Existing provided_speed.decode_provided_speed dead_trim:acceptalternativeH/A only where referenceD;referenceH/A/X exact;cannotaddD."
+  },
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "decoders": [
+      "replace_current",
+      "live_replace",
+      "dead_trim"
+    ],
+    "rows": 30,
+    "definition": "3selectedrefs+9matchedcontrols+18newhead/decoder dependent rows;26newfits."
+  },
+  "promotion": "At most1unchanged finalist before seeds43/44. All3seed42protocols:primary>=reference,Macro>=reference-.001,meanshortIoU>=reference,retain>=.5recall on previouslymostlyrecoveredshorts,falseD<=reference,Drecall>=reference-.02,noextra missedstoppages/noextra officialIoU.5spurious/missed. Buffered primary>=reference+.04and>=1extra shortIoU.5match;also primary>=same-decoder no-vision control everyprotocol. Then unchanged finalist all9seed/protocol protections,source/input/model/padding/official/sharedparity,reproduciblevalidfullCSV,andindependentreview. No manual finalframepatches or silentgate relaxation.",
+  "input_sha256": {
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_ball_appearance_v1/feasibility/manifest.json": "8bdf597f187d9f0041b4f7d9ec4b13bab9fdd83ebed373659eea14c6711338bd",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "data/control_modern_ball_v1/model_assets/asset_manifest.json": "d70b3d4260ce72b3765cd161b09199c634d289330714b5a1ead5a0456514776b"
+  },
+  "privacy": "Local decoding/modelprocessing only. Neverdisplay/upload competitionframes,crops,pixelarrays,rawtracking/XML,private modeldetections orscene descriptions. Print aggregates only. No private/correctedGT,manualannotations,commits,uploads,submission,publication,contact. Preserve everypreviouscandidate/failedmethod.",
+  "limitations": "External detections/automatic tracking can both bewrong andagree onwrongobjects. Publicadaptive OOF results remain correlated same-match development,not independent/privateaccuracy or verified maximum."
+}

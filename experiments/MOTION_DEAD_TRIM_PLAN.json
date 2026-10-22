@@ -1,0 +1,34 @@
+{
+  "reference": "Unchanged selected7-model broadcast closure; all54 preceding pair-motion evaluations retained and fail original substantial/extra-short gates.",
+  "objective_history": "Seed42 broadcast_motion replace_current preserves buffered primary, reduces falseD92->88 buffered and152->142 purged with unchanged D recall, but loses longer-block primary through ownership changes. This separately frozen prospective confirmation tests an incremental falseD objective, not the failed original+.04/extra-short criteria. Seeds43/44 have not been evaluated for any pair-motion method.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "methods": [
+    "current",
+    "motion_dead_trim"
+  ],
+  "model": "Only broadcast_motion joint-frame head, unchanged261-column input schema,fit_renewal(frame),depth3/160trees,eligible public training folds;seed42 raw probabilities must exactly reproduce preceding screen.",
+  "inference": "Compute unchanged selected7-model reference and broadcast_motion replace_current alternative via shared canonical code. Only where reference is D and alternative is H/A, take alternative H/A; keep every reference H/A/X prediction. No new thresholds,sourceparameter changes,manual endpoints or target labels in inference. This candidate adds one model to selected7.",
+  "promotion": {
+    "all9pairs": "No primary or MacroF1 or mean-shortIoU regression;falseD<=reference;Drecall>=reference exactly;no additional mostly missed stoppage;no lost mostly-recovered short;officialIoU.5spurious/missed counts<=reference;all selected nonD predictions exact.",
+    "each_buffered_and_purged_seed": "At least1 fewer falseD frame in each buffered-minute and purged comparison;longer-block falseD may remain unchanged.",
+    "historical_criteria": "Report original buffered+.04 and extra-short-match gates separately and honestly; incremental falseD objective does not claim passing them.",
+    "deployment": "Official scoring,allmodel/source/input/cache/target/padding/shared-inference checks,reproducible valid full8-model CSV,and independent Standards/Spec review before selection."
+  },
+  "input_sha256": {
+    "data/control_pair_motion_v1/inputs/manifest.json": "eeff0bd48316cec2d8a8c78bbc7abcb0a47dd45790474fa71f8983ab1a31f10d",
+    "data/control_pair_motion_v1/screen/manifest.json": "72b5f18d5e6aaf1b3a2241f2afeed426eac6aad5a77a37c1521ab0856d185e2d",
+    "data/control_pair_motion_v1/screen/scores.csv": "94b3476f1e8f5f3fe9d9040b4ef0333f80903872aaf372dda12b2888b7492000",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487"
+  },
+  "limitations": "Adaptive public same-match selection. Seeds/protocols are correlated stress checks,not independent labels or selection-adjusted statistical evidence. Maximum/private score remains unverified."
+}

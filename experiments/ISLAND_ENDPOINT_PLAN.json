@@ -1,0 +1,16 @@
+{
+  "reference": "Anchored rescue; adaptive follow-up to failed confidence blending, broad physical gating and learned handoff hazards",
+  "hypothesis": "Recovered brief ownership islands can retain a stale tail after the other team establishes repeated exclusive contact. A physical release check confined to already-decoded short islands may repair endpoints without fragmenting general play.",
+  "data": "No fitting, target inputs, true endpoints or frame IDs in inference. All candidates come from anchored decoded live runs8..125frames enclosed by the opposite live team. Use raw observed nearest distances and original current-model conditional ownership only.",
+  "screen": {
+    "seeds": [42], "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "methods": {
+      "release5_end": {"window": 5, "both": false},
+      "release13_end": {"window": 13, "both": false},
+      "release5_both": {"window": 5, "both": true},
+      "release13_both": {"window": 13, "both": true}
+    },
+    "rule": "Exclusive contact: distance<2m with>.5m advantage. Within a centered window require>=3 opponent contact observations and zero owner's contact observations, plus original51-frame current conditional opponent probability>.6. Search only final25frames for end trim, and optionally first25frames for start trim. Leave at least8frames in each island. Trim using original current conditional team emissions on those tails, retain anchored D and decode penalty3. Gates are determined against unchanged anchored predictions; no cascading."
+  },
+  "confirmation": "If a setting clears the original substantial primary screen, freeze it unchanged across3seeds and3protocols, optionally with separately confirmed stoppage consensus. Keep all failed settings. No silent relaxation of the original primary-gain threshold."
+}

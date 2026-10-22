@@ -1,0 +1,42 @@
+{
+  "reference": "Protected six-model stoppage consensus in data/control_broadcast_v1; existing candidates and ledger remain untouched until new rows are appended.",
+  "hypotheses_ranked": [
+    "Team-tagged player formations can distinguish corresponding moments in the two unsynchronized recordings without player identity or possession labels.",
+    "Local temporal agreement can reject cuts, replays at incompatible rates and accidental formation matches. Ambiguous mappings should remain missing rather than be forced.",
+    "A confidently aligned second-camera ball/player view may correct ownership evidence unavailable from the tactical track alone."
+  ],
+  "data": "Local supplied tactical and broadcast tracking/metadata/homography-validity only. No video/image extraction, private labels, annotations, external data upload or cloud processing. Public targets are not read by alignment or feature construction.",
+  "alignment": {
+    "sampling": "Tactical and broadcast anchors every25frames on each source's zero-based timeline, with25frame edge margins. Require valid homography and>=4 finite in-pitch players per team. Coordinates are metres; permit5metres beyond each pitch boundary. Metadata team order is reconciled by normalized club-name similarity, never targets.",
+    "coarse": "For each tactical anchor, search every eligible broadcast anchor and four fixed coordinate reflections. Per team, take each broadcast player's nearest same-team tactical-player distance, cap at10metres, average squared distances; score is root mean of the two team means. No identities, ball positions or labels enter the matching cost.",
+    "margin": "Runner-up cost excludes broadcast anchors within250frames of the best match, across all orientations. Require the best orientation to agree at adjacent tactical anchors and neighboring broadcast increments to differ from25 by<=25frames.",
+    "fine": "Search each candidate broadcast frame within25frames of its coarse match. Score the mean squared formation errors at tactical/broadcast offsets-25,0,+25. Require all3 comparisons valid. Fine uncertainty is the span of candidates within.05metres of the best cost. No ball or target information chooses offsets.",
+    "profiles": {
+      "strict": {"maximum_cost": 2.5, "minimum_margin": 0.5, "maximum_fine_span": 10},
+      "relaxed": {"maximum_cost": 3.5, "minimum_margin": 0.25, "maximum_fine_span": 15}
+    },
+    "mapping": "Interpolate only between adjacent25frame tactical anchors accepted by a profile, with identical orientation and broadcast/tactical rate in[.8,1.2]. Round mapped broadcast indices to nearest frame. No extrapolation, gap filling or interpolation across rejected anchors; recheck broadcast validity/track counts for mapped frames. Tactical observation context is at most50frames; broadcast search covers its full supplied timeline."
+  },
+  "feasibility": "Evaluate each profile using observations only within the public development frame range. Prefer strict if mapping coverage>=10%, mapped finite broadcast-ball coverage>=5%, and median ball disagreement<=5metres on>=100 jointly observed ball frames. Otherwise use relaxed if it passes those same gates. If neither passes, retain all alignment diagnostics and stop before possession fitting. These are geometry/coverage checks, not independent correspondence ground truth.",
+  "features": "Aligned broadcast-ball geometry against broadcast players and against tactical players: per-team nearest3 distances, supplied nearest-player speed, counts within1/3/5metres, advantage and control share; match validity, ball visibility, formation cost and ambiguity. Optional past/future25/75/125-frame summaries of aligned ownership evidence. No frame numbers, absolute coordinates or target labels are model inputs. Combined tactical context<=175frames, covered by the existing250frame buffers. Actual padded/full-prefix feature parity required.",
+  "screen": {
+    "seeds": [42],
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "models": {
+      "broadcast_fast_same": "Original fast inputs plus same-camera broadcast geometry/quality; unchanged fit_control.",
+      "broadcast_fast_cross": "Original fast inputs plus same/cross-camera broadcast geometry and bounded summaries; unchanged fit_control.",
+      "broadcast_joint_frame": "Original ordered inputs plus all broadcast features; unchanged depth3/160-tree joint XGBoost, frame-balanced objective.",
+      "broadcast_joint_runs": "Same joint inputs/settings, eligible-contiguous-run-balanced objective."
+    },
+    "decoders": ["replace_head", "short_proposals"],
+    "replace_head": "Use new raw probabilities only where a matched broadcast ball is observed, retaining original probabilities elsewhere. Fast models replace only fast head; joint models replace only current ordered head. All remaining heads and canonical six-model inference are unchanged.",
+    "short_proposals": "Keep selected D mask. New head's centered11+penalty3 proposes H/A runs8..125, mean conditional confidence>=.65, no referenceD overlap,>=50% matched broadcast-ball coverage,>=3 contact-supported frames from the corresponding broadcast geometry, and opposite reference control on a majority of each neighboring13frames. All gates read unchanged reference. No manually chosen frame edits."
+  },
+  "confirmation": "Freeze at most one unchanged finalist before scoring seeds43/44 in all protocols. Full reproducible CSV, actual-source/cache/model checks, official scores and independent review are required before promotion.",
+  "promotion": {
+    "all_pairs": "No primary regression; MacroF1>=reference-.005; D recall>=reference-.02; no extra mostly missed stoppage; no previously mostly recovered short run lost; falseD<=reference+10frames.",
+    "substantial": "Buffered primary gain>=.04 for each seed, positive mean primary gain in each other protocol, improved mean short IoU and at least one additional buffered short IoU>=.5 match.",
+    "selection": "Largest minimum paired primary gain, then mean short IoU. Record every block regression; otherwise keep current selection."
+  },
+  "limitations": "Alignment has no provided correspondence ground truth. Synthetic tests and physical consistency are necessary engineering checks, not proof of correct real timing. All public model comparisons remain heavily adaptive same-match development, not independent or private full-match accuracy."
+}

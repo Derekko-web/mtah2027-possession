@@ -1,0 +1,12 @@
+{
+  "reference": "Anchored rescue; adaptive follow-up to the fixed stoppage-context screen",
+  "hypothesis": "Weak-supervised stoppage heads find high-confidence cores but truncate true stoppages. Hysteresis can extend only validated cores through nearby lower-confidence stationary evidence, improving intervals without global D-confidence changes.",
+  "data": "Reuse training-only OOF head probabilities from context_weak/context_restart_weak; no new fit or held-out targets enter inference. Same frozen public folds and exclusions. No video or private labels.",
+  "screen": {
+    "seeds": [42], "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "models": ["context_weak", "context_restart_weak"],
+    "low_thresholds": [0.5, 0.65],
+    "rule": "51-frame-smoothed D head>.8 for at least50 consecutive frames, centered51-frame visibility>=.5, moving-contact evidence<=.2. Extend each qualifying core by at most125frames in either direction, stopping at head<low threshold, visibility<.5, or moving-contact evidence>.2. Raise D to head probability inside core+extension, retain anchored ownership and all other emissions. Every core and extension is observation/model derived."
+  },
+  "confirmation": "Freeze up to2 unchanged settings for all three seeds/protocols. Apply the original substantial-gain and secondary-regression rules in RENEWAL_RESEARCH_PLAN. Do not treat further seed checks as independent evidence."
+}

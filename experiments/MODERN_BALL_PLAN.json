@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "hypothesis": "Modern externally pretrained detectors plus preserved aspect ratio and larger local context may recognize the small weakly projected ball more reliably than older YOLOv3. No possession-model hypothesis is accepted from detector agreement alone.",
+  "models": [
+    {
+      "name": "yolo11s",
+      "archive": "data/control_modern_ball_v1/model_assets/yolo11s.mlpackage.zip",
+      "archive_sha256": "ab85797270a693c6bad9f0eef6dc553190a882922e578557947bf0f7c3b3e712",
+      "compiled_model": "data/control_modern_ball_v1/model_assets/yolo11s.mlmodelc",
+      "url": "https://github.com/ultralytics/yolo-ios-app/releases/download/v8.3.0/yolo11s.mlpackage.zip"
+    },
+    {
+      "name": "yolo11m",
+      "archive": "data/control_modern_ball_v1/model_assets/yolo11m.mlpackage.zip",
+      "archive_sha256": "54187b2efb0a5e3a17af6ec9c16eac78e4112692e581cdfe39d5b95436cd9441",
+      "compiled_model": "data/control_modern_ball_v1/model_assets/yolo11m.mlmodelc",
+      "url": "https://github.com/ultralytics/yolo-ios-app/releases/download/v8.3.0/yolo11m.mlpackage.zip"
+    }
+  ],
+  "input_width": 384,
+  "input_height": 640,
+  "crop_sides": [
+    64,
+    128,
+    256
+  ],
+  "letterbox": "Square source crop ->384square Lanczos;padRGB114 symmetrically at top/bottom to384x640. Never stretch. Inverse box coordinates through exact padding before inherited location/score checks.",
+  "native_inference": "Reuse frozen CPUOnly native_detector_predict.js;confidenceThreshold.01,iouThreshold.5;Vision ScaleFill into matching384x640canvas. Decision.25,locationradius max(4,min(12,2*expecteddiameter)). No threshold/parameter tuning after observations.",
+  "screen": "Original60 weak validation centers;original tracked center and offball negative schedule. Exclude public/reserved +/-250. No fitting,calibration,finetuning,manualannotations. Adaptive reuse,not independent truth.",
+  "gates": ">=40positive/>=120negative validcrops;positivevalidfraction>=.5,balancedweakaccuracy>=.8,confidence.8coverage>=.5/agreement>=.9. All6reported. Exactrepeatnativeoutputs/source/input/crophashes mustverify.",
+  "selection_order": [
+    "yolo11s_roi64",
+    "yolo11s_roi128",
+    "yolo11s_roi256",
+    "yolo11m_roi64",
+    "yolo11m_roi128",
+    "yolo11m_roi256"
+  ],
+  "confirmation": "Only first passing screen variant;existing untouched60-center confirmation schedule. All same weak gates. No variant switch,threshold adjustment or new fitting after confirmation. Stop this family if screen/confirmation fails.",
+  "input_sha256": {
+    "data/control_ball_appearance_v1/feasibility/manifest.json": "8bdf597f187d9f0041b4f7d9ec4b13bab9fdd83ebed373659eea14c6711338bd",
+    "data/control_ball_appearance_v1/feasibility/weak_ball_cache.npz": "bd04633c53e7b9710c7ebf83fead649ae514d376468f41efe6f4e2fef5378902",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c"
+  },
+  "privacy": "Allcompetitiondecoding/cropping/modelprocessing local;neverdisplay/uploadimages,pixelarrays,rawtracking ormodelscenedescriptions tohostedcontext. Deriveddata/crops/outputsonlyignoreddata/.No privateGT,manualannotations/finalframepatch,commits/submissions/publication/contact.",
+  "next": "Onlyifbothweakchecks pass,freeze separatepublicfeature/head/decoderplanbeforepublicvideoextraction orpossessionfitting. Originalsubstantial+.04buffered andextra-shortIoU.5match gates/allpairedprotections/reproduciblefullCSV/independentreview beforepromotion.",
+  "limitations": "Publiclypretrainedmodelisnotnewcorrectedfixturetruth. Tracking weakball-locationproxies canbeincorrect;same-matchadaptivechecks cannotestablishindependent/privateaccuracy ormaximumscore.",
+  "sources": [
+    "https://github.com/ultralytics/yolo-ios-app",
+    "https://docs.ultralytics.com/integrations/coreml"
+  ],
+  "licence": "Official Ultralytics repository and model metadata identify AGPL-3.0;record provenance for local research. No distribution or publication.",
+  "preservation": "New root;pre-round experiments archive,selected8 completecopy and baseline file hashes retained. Possession ledger and earlier plans/candidates must remain exact."
+}

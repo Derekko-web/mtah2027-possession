@@ -1,0 +1,38 @@
+{
+  "reference": "Six-model stoppage consensus, protected in data/control_dynamics_v1 with pre-round source and ledger archives.",
+  "feedback_loop": "Selected buffered seed42 short possessions matched at IoU>=.5:3/6; require>=4 and substantial primary gain. The pre-round diagnostic was run and failed.",
+  "ranked_hypotheses": [
+    "Ball tracking outliers distort proximity. Fixed local trajectory repair should improve nearest-team correctness before model fitting, especially on the missed short controls.",
+    "A touch changes ball velocity, while a nearby flying ball need not. Before/after velocity and distance-weighted impulse features may provide ownership evidence absent from nearest-distance summaries.",
+    "Brief impulse events need bounded past/future memory to explain ownership between touches. These event summaries may improve the live-only head and recover short proposals without replacing the selected stoppage heads."
+  ],
+  "data": "Existing local tactical tracking and metadata, public GT only for eligible training/scoring, unchanged padded prefix18935 and all frozen train/validation indices. No media, private labels, annotations, uploads or final frame patches.",
+  "trajectory": {
+    "median": "Linearly fill only whole gaps<=5frames between finite endpoints, then centered7 coordinate median with>=3 points. Preserve original observed center if unavailable; unsupported missing centers remain missing.",
+    "robust": "Centered25 local linear regression per coordinate, Gaussian temporal weights sigma6frames, three Huber reweighting passes at radial residual2metres. Require>=5 observed points and nonsingular fit; preserve original observed center if unavailable. Missing centers are filled only inside whole observed-bracket gaps<=13frames. No long-gap interpolation.",
+    "geometry": "Per team corrected-ball distances to closest3 players, closest player's supplied speed, counts within1/3/5metres, distance advantage/control share; corrected-ball speed and displacement over5frames; original-vs-repaired distance and observed flags. No absolute coordinates enter the model.",
+    "impulses": "Velocities from repaired ball5frames before/after center, clip invalid speeds>80m/s; vector impulse magnitude, turn cosine, before/after speed. Team impulse strength=exp(-.5*(nearest_distance/2)^2)*clip(impulse/10,0,1). Add past/future max over25/75frames and mean over13/25frames. Context stays within125frames including repair and velocity kernels."
+  },
+  "screen": {
+    "seeds": [42],
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "models": {
+      "ordered_control": "Existing ordered inputs, unchanged fit_control settings; matched representation control.",
+      "median_control": "Ordered inputs plus median-repaired geometry.",
+      "robust_control": "Ordered inputs plus robust-repaired geometry.",
+      "impulse_control": "Ordered inputs plus robust geometry and impulse/memory features."
+    },
+    "training": "Existing fit_control binary live-only XGBoost:depth2,160trees,learning_rate.04,lambda10,min_child15,subsample.8,colsample.9,n_jobs2; team augmentation and symmetrized prediction. Read targets only at eligible training live indices; no early stopping, preprocessing fit or calibration.",
+    "decoders": ["replace_fast", "short_proposals", "replace_live"],
+    "replace_fast": "Use the new head in the unchanged six-model canonical stoppage decoder, keeping the ordered/previous/D heads and all gates fixed.",
+    "short_proposals": "Keep selected reference D mask. Use existing ownership_prediction short_proposals with new head and contact_support from the corresponding repaired geometry; ordered control uses original support. No phase support. Confidence>=.65, runs8..125, opposite reference flanks,>=3 contact-supported frames and no referenceD overlap. All gates read unchanged reference.",
+    "replace_live": "Existing ownership_prediction replace_live: keep referenceD mask exactly, decode each live segment with centered11 new-head probabilities and penalty3."
+  },
+  "confirmation": "Freeze at most one unchanged finalist before seeds43/44 across all protocols. No thresholds or feature changes after confirmation. If none passes seed42 screen retain current selection and record failures.",
+  "promotion": {
+    "all_pairs": "No primary regression; MacroF1>=reference-.005; D recall>=reference-.02; no additional mostly missed stoppages; no previously mostly recovered short run becomes mostly missed; falseD<=reference+10frames.",
+    "substantial": "Buffered primary gain>=.04 for each seed; positive mean primary gain for each other protocol; improved short mean best IoU; at least one additional buffered short IoU>=.5 match.",
+    "selection": "Largest minimum primary gain across protocols, then mean short IoU. Record all block regressions. Full reproducible CSV, official scoring, source/cache/model parity and independent code review required before promotion."
+  },
+  "interpretation": "Adaptive same-match development on17 repeatedly inspected public possessions. Filters are observation-only and their parameters are fixed before scoring; nearest-team diagnostics are not the target possession score or independent validation. No maximum/private accuracy claim."
+}

@@ -1,0 +1,42 @@
+{
+  "reference": "Selected8 motion D trim SHA3b559d4e89eb687b818b66732b250b917774391763346d038d35413d9132fbea;1291 previous dependent score rows preserved.",
+  "hypothesis": "A local appearance model can assess ball-patch visual support and nearby alternative detections independently of the existing distance/motion features. Tracking locations supply noisy weak labels,not corrected ball or possession labels.",
+  "privacy": "All decoding/cropping/fitting stays local. Never display/upload images,pixel arrays,tracking extracts or model scene descriptions to hosted context. Derived numeric caches/checkpoints under ignored data/. No private labels,manual annotations,endpoints,submissions,commits,publication or external contact. No new dependencies or hosted model.",
+  "weak_sampling": {
+    "grid": 25,
+    "training_frames": 160,
+    "validation_frames": 60,
+    "seed": 42,
+    "exclusion": 250,
+    "eligibility": "Official half bounds;exclude whole public11185..18684\u00b1250 and all24reserved windows\u00b1250. Ball and\u00b15frame positions finite,speeds1..35m/s in both directions;current ball>=3m from every observed player,>=5m goal lines,>=3m touchlines;valid homography,reprojection<=1. Select60random validationframes,remove training within250of validation,then select160training;reject insufficient candidates."
+  },
+  "crops": {
+    "width": 1920,
+    "height": 1080,
+    "profiles": [
+      1.0,
+      2.0
+    ],
+    "diameter": "Expected diameter clamp(.22*largest singular value of local homography Jacobian in pixels/metre,2,12). Profile times diameter is square halfwidth. Bilinear resample16x16 around projected center;reject cropped borders. No source scale,position,time,identity or tracking label in classifier inputs.",
+    "positives": "Tracked ball center;training includes center and\u00b11pixel horizontal/vertical jitter. Validation uses center only. All samples are weak and may contain tracking errors.",
+    "negatives": "Projected ground offsets\u00b14m along x/y plus nearest2 observed player feet at least4m from ball. In-pitch visible crops only;off-ball feet are hard negatives. Same feature transform/profile as positives.",
+    "features": "16x16 RGB residual to outer-ring channel median,scaled by.25 and clipped[-2,2],plus ring medianRGB,inner quarter-square meanRGB and standard deviationRGB,and nongrass fraction. No preprocessing fitted outside fitting crops."
+  },
+  "models": [
+    {
+      "name": "logistic",
+      "params": "StandardScaler fit training only;LogisticRegression C1,class_weight balanced,max_iter1000,seed42"
+    },
+    {
+      "name": "forest",
+      "params": "RandomForest200,max_depth10,min_samples_leaf5,max_features sqrt,class_weight balanced_subsample,n_jobs1,seed42"
+    }
+  ],
+  "feasibility": {
+    "order": "profile1 logistic,profile1 forest,profile2 logistic,profile2 forest;fit/report all4,select first passing.",
+    "gates": ">=40valid weak positive and>=120negative validation crops,valid positive fraction>=.5,balanced accuracy>=.80,confidence>=.8 coverage>=.5 and agreement>=.90. All saved models reload to exact validation probabilities. If none passes,no public possession fitting in this plan."
+  },
+  "if_feasible": "Freeze distinct public feature and possession screen plan before extraction/fitting. Candidate local visual confidence and bounded nearby candidate search;no arbitrary final-frame patch. Fixed video samples every5frames,short interpolation and<=125frame summaries;actual18935vs19060public parity required. Only eligible public training labels for possession heads. Retain every failure.",
+  "promotion": "Freeze unchanged finalist before seeds43/44. Original buffered primary+.04 and extra shortIoU.5match,allprotocol primary/shortIoU/prior-short protections,Macro>=reference-.001,falseD<=reference,Drecall>=reference-.02,noextra missedstoppages/spurious/missed possessions. Reproducible valid full CSV and independent Standards/Spec review before selection.",
+  "limitations": "Tracking weak-label agreement is not human/corrected ball accuracy. Public adaptive same-match results are not independent/private generalization or maximum score proof. Reserved windows remain unlabelled and unused."
+}

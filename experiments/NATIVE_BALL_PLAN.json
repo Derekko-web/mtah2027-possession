@@ -1,0 +1,77 @@
+{
+  "reference": "Selected8 SHA3b559d4e89eb687b818b66732b250b917774391763346d038d35413d9132fbea;1291possession rows unchanged.",
+  "hypothesis": "A publicly pretrained external object detector supplies moving-ball visual support/localization without weak competition-image fitting. Test6model/ROI combinations before anypublic possession work.",
+  "model_source": "Apple official model gallery and JosephRedmon/AliFarhadi YOLOv3;raw modelSHA andcompiledfiles pinned. CoreML native CPU-only viaJXA,no Swiftcompiler/Xcodelicencechange,newdeps orhostedinference.",
+  "models": [
+    {
+      "name": "YOLOv3Tiny",
+      "source_model": "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodel",
+      "sha256": "ed41d7f0c1652994944b4e3578b907f8634a98c2f3feaf33eab8f1c67df44e3f",
+      "compiled_model": "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc",
+      "compiled_sha256": {
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/analytics/coremldata.bin": "45e48a4672ce74eb914f26ef22fd1d07d6afc96532b82b777bd2e22c61817c69",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/coremldata.bin": "dc583541b4559284ec33b8bf44893fef688e3d58c7efbe9738092c347aafd4a5",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/analytics/coremldata.bin": "3c84a8b93a69bde5a13793fdbc1e09afb8aea5e076c65a1f5a861542ff89e449",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/coremldata.bin": "4202c375d2d1e42bff5b3b88758add569fcbde77987e21afdfc15e63379ea82c",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/model/coremldata.bin": "26c31fcd73f72753c25c41769eab9bf2b1d6f6f5e95e4af66a0f5cda4c51704f",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/model.espresso.net": "98980d085a1f01e31a47f8749e27eea3758fad979ddc11efc130ada730a1281f",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/model.espresso.shape": "1a8a852ba465f84c788df06804f51c85ba61e00ab7734387dd6db06d0605573e",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/model.espresso.weights": "db6e7eae0ca3ca5c2d615007554108ee334b068b6edff941949dea9000fef3c3",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model0/neural_network_optionals/coremldata.bin": "2c34ce1df23b838c5abf2a7f6437cca3d3067ed509ff25f11df6b11b582b51eb",
+        "data/control_native_ball_v1/model_assets/YOLOv3Tiny.mlmodelc/model1/coremldata.bin": "cb8a21574efa43f0b6e476a3c89e3906fd1fded8c61e88aff091e96048f5ea3d"
+      }
+    },
+    {
+      "name": "YOLOv3",
+      "source_model": "data/control_native_ball_v1/model_assets/YOLOv3.mlmodel",
+      "sha256": "7fea1f2b83b303e7fc6acf08c05a062793229de474587da336d8724e5bf16e38",
+      "compiled_model": "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc",
+      "compiled_sha256": {
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/analytics/coremldata.bin": "dcfc58ecaefc49e6ab2fe7ca9f7cf491030dff102cc3d130858746e3b1264f6e",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/coremldata.bin": "9129dc74c479a37e7760272a8600b1ab717c918dd81687268916a4a58acf4707",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/analytics/coremldata.bin": "3124cf8a7f81be1fcdfad6277ec8c87615e44dc314ec1ea3d56bcc507ad0eb1e",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/coremldata.bin": "88ed5c47dcc1f5a4225ca67f799556549748758f3451122c44c62b6de6d3e010",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/model/coremldata.bin": "26c31fcd73f72753c25c41769eab9bf2b1d6f6f5e95e4af66a0f5cda4c51704f",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/model.espresso.net": "5399a22b1a6eccc1f494b7f72b46e3f65dd128512ad2aa018537fc3678844fd7",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/model.espresso.shape": "4ad064f5628c0e3db131be3568755612fd5cc2697d3d7bf813c4f894a8e40298",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/model.espresso.weights": "447769321997f94c0f0ba2df6b1f847fc6d9d3a407f884088db71950ee597480",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model0/neural_network_optionals/coremldata.bin": "2c34ce1df23b838c5abf2a7f6437cca3d3067ed509ff25f11df6b11b582b51eb",
+        "data/control_native_ball_v1/model_assets/YOLOv3.mlmodelc/model1/coremldata.bin": "cf3b5859cd5c6c93339f973ba9ca9eba9f28e3f7097fc7c80a8f7fd1ce8a2812"
+      }
+    }
+  ],
+  "crop_sides": [
+    16,
+    32,
+    64
+  ],
+  "native_inference": "RGB squarecrop aroundprojectedtrackball andoffballnegativepoint,upscale416x416Lanczos. Unclippedcropsonly. confidenceThreshold.01,iouThreshold.5;Vision normalizedbbox originbottomleft convertedtoimagecoordinates. Canonicalprob/box outputs omit nondeterministictiming.",
+  "proxy_decision": "Sportsball classscore>=.25(standardauthor threshold). Scoreismaximumsportsball confidence withcenter within max(4,min(12,2*expectedballdiameter))pixels ofprojectedpoint. Expecteddiameter fromoriginal.22m/Jacobianclamp2..12. Saveunlocalizedmaximumasdiagnosticonly. Negativeconfidence1-score,positiveconfidence=score;confidencegate.8.",
+  "screen": "Useoriginal60weakvalidationcenters fromcontrol_ball_appearance_v1 cache[first160training+last60validation]. Onepositive trackedballcenter andoriginal\u00b14m/offballfeetnegativepoints. No model fitting,fine-tuning,calibration ormanuallabels. Previousweakvalidationwasreusedadaptively;notindependentballtruth.",
+  "gates": ">=40positive/>=120negative validcrops;positivevalidfraction>=.5,balancedweakaccuracy>=.8,confidence.8coverage>=.5/agreement>=.9. All6reported. Exactrepeatnativeoutputs/source/input/crophashes mustverify.",
+  "selection_order": [
+    "YOLOv3Tiny_roi16",
+    "YOLOv3Tiny_roi32",
+    "YOLOv3Tiny_roi64",
+    "YOLOv3_roi16",
+    "YOLOv3_roi32",
+    "YOLOv3_roi64"
+  ],
+  "confirmation": "Freezefirstpassingvariantbeforedecode. Evaluateonlythatvarianton60newweakcenters seed43;excludeoriginal220centers\u00b1250,public/reserved\u00b1250. Preselectedfrom77candidates,metadataSHApinnedbeforeanyscreenimages. Allsamegatesmustpass;nofitting/refitting orswitchingvariantafterconfirmationscore. Rejectfailedconfirmation/insufficientsamples.",
+  "confirmation_frames_sha256": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+  "input_sha256": {
+    "data/control_ball_appearance_v1/feasibility/manifest.json": "8bdf597f187d9f0041b4f7d9ec4b13bab9fdd83ebed373659eea14c6711338bd",
+    "data/control_ball_appearance_v1/feasibility/weak_ball_cache.npz": "bd04633c53e7b9710c7ebf83fead649ae514d376468f41efe6f4e2fef5378902",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c"
+  },
+  "privacy": "Allcompetitiondecoding/cropping/modelprocessing local;neverdisplay/uploadimages,pixelarrays,rawtracking ormodelscenedescriptions tohostedcontext. Deriveddata/crops/outputsonlyignoreddata/.No privateGT,manualannotations/finalframepatch,commits/submissions/publication/contact.",
+  "next": "Onlyifbothweakchecks pass,freeze separatepublicfeature/head/decoderplanbeforepublicvideoextraction orpossessionfitting. Originalsubstantial+.04buffered andextra-shortIoU.5match gates/allpairedprotections/reproduciblefullCSV/independentreview beforepromotion.",
+  "limitations": "Publiclypretrainedmodelisnotnewcorrectedfixturetruth. Tracking weakball-locationproxies canbeincorrect;same-matchadaptivechecks cannotestablishindependent/privateaccuracy ormaximumscore.",
+  "provenance_revision": {
+    "reason": "Independent native compilation changes142bytes in FullYOLO coremldata.bin;rawmodel/allothercompiledfiles unchanged andsyntheticobjects exact. Treat compiledhashes in models as historical firstgeneration;verify per-generation localassetmanifest tiedto pinnedrawmodel/code instead. Preserve firstsource/plan/crops/predictions/scores,thenrequire completefresh-workspace numericalparity before canonical repair.",
+    "original_plan_sha256": "166b2947bc46ce0124decc34dba3913d5b4b7ff0500d408615161b701272aaa1",
+    "parameters_thresholds_and_gates_unchanged": true,
+    "model_raw_weights_unchanged": true
+  }
+}

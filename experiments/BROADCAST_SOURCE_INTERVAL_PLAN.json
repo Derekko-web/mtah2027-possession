@@ -1,0 +1,33 @@
+{
+  "reference": "Unchanged selected six-model stoppage consensus, not the rejected broadcast replacement screen.",
+  "reason": "The initial broadcast screen provides a new same-camera signal for the missed33-frame possession, but broad joint replacement overextends control and regresses longer-block primary. Nearest-team evidence also disagrees with correct tactical evidence on another short possession. This motivates source-bounded intervals with independent learned agreement and reference-island protection.",
+  "hypotheses_ranked": [
+    "A broad learned ownership run can contain a useful short interval whose endpoints are clearer in the aligned broadcast view. Source-defined intervals should avoid inheriting the learned run's full extent.",
+    "Some broadcast track team assignments are wrong. Requiring majority agreement from the independently fitted joint model and preserving nested brief reference runs should reject isolated contradictory source proposals.",
+    "Fine physical averaging may still blur a short touch. Compare fixed5-frame and11-frame source averaging without changing any other gate."
+  ],
+  "data": "Reuse the strictly aligned observation-only cache and frozen seed42 broadcast joint-frame/run models. No new fitting, target-derived endpoints, media, private labels, annotations or final frame patches. Existing source alignment remains unchanged.",
+  "screen": {
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "seeds": [42],
+    "methods": {
+      "frame_source5": {"model": "broadcast_joint_frame", "half_window": 2},
+      "frame_source11": {"model": "broadcast_joint_frame", "half_window": 5},
+      "runs_source5": {"model": "broadcast_joint_runs", "half_window": 2},
+      "runs_source11": {"model": "broadcast_joint_runs", "half_window": 5}
+    }
+  },
+  "inference": {
+    "source": "Within each contiguous aligned observed-broadcast-ball episode inside one decode block, smooth same-camera conditional control shares over5 or11frames and decode H/A with penalty3. Missing observations split episodes; never carry control through a missing stretch.",
+    "proposal": "Source-decoded runs8..125frames, non-edge in the overall decode block, mean source confidence>=.65, and>=3 instantaneous same-camera exclusive contacts (distance<2m, advantage>.5m). No referenceD overlap. Require opposite reference ownership on a majority of each neighboring13frames and majority (>=.5) same-team support from the canonical broadcast-joint replacement prediction inside the proposal. All proposals/gates read unchanged reference and learned predictions.",
+    "protection": "Reject a proposal wholly enclosed by an opposite-owner reference run of8..250frames (twice the maximum proposal duration). This avoids punching a new island inside an already brief recognized possession. It does not lock every overlap or use true run lengths.",
+    "output": "Replace only accepted model/source-proposed intervals. Preserve reference D exactly; no true endpoints, frame identifiers or manually chosen final labels enter inference."
+  },
+  "confirmation": "If a method passes all seed42 gates, freeze at most one unchanged method before scoring seeds43/44 across all protocols; refit the corresponding joint head per original folds and retain the same source interval procedure. Independent review and a valid reproducible full-match CSV are required before promotion.",
+  "promotion": {
+    "all_pairs": "No primary or mean-short-IoU regression, MacroF1>=reference-.005, no previously mostly recovered short run lost, and identical D masks.",
+    "substantial": "Buffered primary gain>=.04 and an additional short IoU>=.5 match for every seed, with positive mean primary gain in both other protocols.",
+    "selection": "Largest minimum primary gain across protocols, then mean short IoU, then11-frame source averaging. Report every clipped-block regression; otherwise preserve the current selected model."
+  },
+  "limitations": "Adaptive follow-up after inspecting initial same-fixture broadcast results, not an independent test. Source/model agreement can share errors. Actual camera timing has physical and synthetic checks but no supplied correspondence ground truth."
+}

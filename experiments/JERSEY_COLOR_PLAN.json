@@ -1,0 +1,55 @@
+{
+  "reference": "Selected seven-model broadcast closure, protected before this round; SHA dcb3a8d2ec3fbc1d2308c85303a995f6102112d4976e466942556626223a05ce.",
+  "hypothesis": "A local jersey-color classifier may correct wrong tracking team assignments near the ball and supply independent H/A geometry for missed short possessions.",
+  "privacy": "No hosted visual model, no image display or hosted competition extracts. Decode tactical video and compute color statistics locally. All derived arrays/checkpoints stay under ignored data/. No manual labels or final-frame patches.",
+  "weak_color_labels": "Track team metadata only, not possession targets. Use isolated in-pitch moving players; exclude public frames11185..18684 plus250 and all24 frozen windows plus250. These are noisy proxy labels.",
+  "frame_sampling": {
+    "grid": 250,
+    "validation_frames": 80,
+    "training_frames": 240,
+    "validation_exclusion_buffer": 250,
+    "seed": 42,
+    "sampling": "Choose validation frames randomly without replacement from eligible grid. Remove all training candidates within250frames of those validation frames; choose240 remaining with same RNG. Reject if insufficient."
+  },
+  "crop": {
+    "width": 960,
+    "height": 540,
+    "height_metres": 1.75,
+    "height_estimate": "Largest local homography Jacobian singular value in pixels/metre times1.75. Crop torso x+/-.22height and y[-.85,-.35]height above projected feet. Clip only to image; reject clipped or implausible crops.",
+    "profiles": [
+      1.0,
+      0.8,
+      1.25
+    ],
+    "bounds": "Body height4..90 at960px; torso>=12pixels; >=6 nongrass pixels. Grass mask G>1.15R and G>1.05B.",
+    "training_player_filter": "Position>=10m from goal lines,>=3m from touchlines; speed .5..12m/s; nearest other observed player>=3m."
+  },
+  "features": "Normalized HSV12x3x3 histogram plus RGB mean/std and channel .1/.5/.9 quantiles, plus nongrass pixel fraction. No time, position, identity or metadata label in the classifier.",
+  "color_models": [
+    {
+      "name": "logistic",
+      "parameters": "StandardScaler fit on weak training crops; LogisticRegression C1,class_weight balanced,max_iter1000,seed42"
+    },
+    {
+      "name": "forest",
+      "parameters": "RandomForestClassifier200,max_depth8,min_samples_leaf20,class_weight balanced_subsample,max_features sqrt,n_jobs2,seed42"
+    }
+  ],
+  "feasibility": {
+    "ordering": "profile1 logistic,profile1 forest,profile.8 logistic,profile.8 forest,profile1.25 logistic,profile1.25 forest; first passing. Report all6 regardless.",
+    "gates": ">=250 valid weak validation crops per team; >=.5 valid-crop fraction; balanced accuracy>=.90; confidence>=.8 coverage>=.50 and accuracy>=.95. If none passes, no public possession model fitting in this plan."
+  },
+  "development_if_feasible": {
+    "frames": "Tactical10935..18935 every5frames; no more than5frames interpolation. Never fill across missing crops or source gaps. Padded19060 and18935 constructions must agree on public features.",
+    "geometry": "Use confident color-assigned players only for independent nearest-team geometry; keep original distances as reference. Fixed past/future temporal summaries<=125frames plus<=5sample interpolation.",
+    "fitting": "Public training-only binary fast and joint-frame heads on existing folds, seed42 screen; original7-model reference unchanged.",
+    "decoders": "Live ownership replacement inside unchanged reference live episodes; conservative8..125frame proposals requiring source contact and original opposite flanks. Keep all referenceD. Full head/decoder details must be frozen before public possession scores are computed."
+  },
+  "promotion": "Before promotion require a prospectively frozen unchanged finalist across all9 seed/protocol pairs, no primary or D regression, buffered primary+.04 and at least one additional short IoU.5 match, acceptable MacroF1/false-possession counts, source/input/model/padding parity, reproducible valid full CSV and independent review. No threshold changes masquerading as passing this plan.",
+  "limitations": "Weak team-label agreement is not human jersey accuracy. Same-match adaptive public development is not independent/private accuracy or proof of maximum score.",
+  "reproducibility_revision": {
+    "reason": "Initial reload check failed for two-thread forest prediction at maximum absolute difference3.33e-16. Fix inference summation order to1thread; fitting remains2threads. Crop cache and original source/models/log are preserved. No possession scores inspected; no classifier thresholds or eligibility changes.",
+    "forest_fitting_threads": 2,
+    "forest_prediction_threads": 1
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "reference": "consensus_contact, frozen source and candidate in data/control_boundary_v1/",
+  "intent": "Improve short possession endpoints and reduce false D while preserving existing gains.",
+  "data": "Only 7500 public labels; same padded observation caches and frozen train/validation indices. No video, private labels, new annotations or hand-written frame patches.",
+  "hypotheses_ranked": [
+    "51-frame averaging displaces existing boundaries. Optimize their positions using 11-frame emissions within 13 or 25 frames, retaining the predicted state sequence.",
+    "A short live proposal touching current D can be suppressed by the enclosure rule. Require old-model, fast-model and contact agreement plus an existing same-team live anchor, then borrow the older model's lower D probability locally.",
+    "The fast head lacks subsecond temporal order. Compare fixed micro-history heads with frame and equal-live-run training weights, keeping the canonical consensus gate."
+  ],
+  "screen": {
+    "seeds": [42],
+    "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "methods": ["current", "boundary13", "boundary25", "anchored_rescue", "rescue_boundary13", "micro_frame", "micro_segments"],
+    "boundary": "Global constrained likelihood optimization, fixed original run labels, each boundary moves at most radius frames, positive run lengths; equal log weights on canonical and 11-frame emissions. Proposal ownership still uses the existing fast head.",
+    "rescue": "Decoded older live runs 8..125 frames, fast mean >=.65, >=3 contact-support frames, current decoded D overlap and same-team anchor in the run or 13 neighboring frames. Within that proposal use fast ownership and min(current D, older D), retaining physical attenuation.",
+    "micro": "Original fast inputs plus symmetric +/-3,8,13 frame taps for nearest distances/control shares, 5-frame distance changes, and centered 7/13-frame exclusive contact fractions. Same binary XGBoost settings, team augmentation and prediction symmetrization; segment variant equalizes eligible live run mass."
+  },
+  "confirmation": "Freeze at most two unchanged methods before scoring seeds43/44; evaluate paired seeds42/43/44 on all three protocols. No parameter changes after confirmation.",
+  "promotion": {
+    "all_pairs": "No stitched spellF1 loss; D recall >=reference-.02; no extra mostly missed stoppages; MacroF1 >=reference-.005. No previously mostly recovered short true run may become mostly missed.",
+    "each_buffered_seed": "spellF1 >=reference+.01; strictly fewer false D frames; strictly larger mean best same-label IoU of true live runs <=125 frames.",
+    "selection": "Among passing finalists prefer lower buffered false D, then larger mean short IoU, retaining seed42. Disclose every block regression. If none passes keep the current default."
+  },
+  "interpretation": "Adaptive development on the same 17 public possessions with overlapping training sets. Repeated seeds and protocols are dependent stress checks, not independent accuracy or significance evidence."
+}

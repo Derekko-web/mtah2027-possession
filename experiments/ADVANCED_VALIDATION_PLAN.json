@@ -1,0 +1,15 @@
+{
+  "purpose": "Freeze the expanded round finalists before evaluating padded features and longer blocks. These are development stress checks on the same repeatedly inspected public labels, not independent confirmation.",
+  "public_frames_inclusive": [11185, 18684],
+  "feature_frames_exclusive_end": 18935,
+  "buffer_frames": 250,
+  "finalists": ["previous_ensemble", "ordered_catboost_frame", "ordered_xgboost_frame"],
+  "primary_candidate": "ordered_catboost_frame",
+  "seeds": [42, 43, 44],
+  "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+  "long_block_frames": 2500,
+  "postprocessing": "Original input-only gap prior, centered 51-frame smoothing, fixed state-change penalty 3, each validation block decoded separately.",
+  "decision": "Compare seed 42 with the previous ensemble; inspect other seeds without selecting the best seed. Require gains in stitched spellF1 and mean block spellF1 in all three protocols, no worse aggregate MacroF1, fewer missed stoppages in the two five-fold protocols, and at most 5 percent of live frames falsely predicted dead. Report each block's regressions explicitly. Do not tune to the longer-block results.",
+  "changed_tradeoff": "The first continuation round's <=25 additional false-dead-frame and <=.05 per-minute regression gates were too restrictive for substantial recovery of visible-ball stoppages. They are not claimed to pass. The expanded round accepts a measured increase in false dead-ball frames and short-possession misses only if primary, frame and stoppage metrics improve across protocols.",
+  "independent_audit": "The frozen 24 annotation windows remain unlabelled and unused. No private/corrected fixture labels may be accessed."
+}

@@ -1,0 +1,25 @@
+{
+  "reference": "Anchored rescue; data/control_renewal_v1/baseline_candidate and baseline_confirmation",
+  "hypothesis": "Longer ball stationarity and changing team organization may distinguish visible-ball stoppages; conservative algorithmic labels from the rest of the fixture may supply contexts absent from the public training runs.",
+  "restrictions": "No corrected/private labels, video frames, human labels, cloud processing or submissions. Weak labels are fallible proxies from automatic tagging and raw tracking only. No held-out public targets or observations enter weak fitting; exclude the entire public region11185..18684 plus250frames. Exclude all24 reserved annotation windows plus250frames, preserving their future use.",
+  "features": "Team-invariant min/max geometry and activity, no absolute pitch coordinates; bounded past/future25/75/125-frame summaries; ball coordinate IQR and observed fraction at radii25/75/125; paired team spread and ball-center distances. Separate view adds automatic restart timing. Same public/full fixed feature schema.",
+  "weak_labels": {
+    "dead": "Automatic set-piece active, ball observed fraction>=.7 in centered51frames, ball position IQR-spread<1.5m in centered51frames, and not weak-live.",
+    "live": "At least half of a centered25-frame window has existing close-exclusive moving-ball evidence with displacement>4.5m/s; no overlapping weak-dead label.",
+    "sampling": "Official half bounds only, every10th eligible frame, entirely outside public and reserved-window buffers. Per-class weak sample mass totals0.5 times public training mass. No model-selected pseudo-labels or manual endpoints."
+  },
+  "screen": {
+    "seeds": [42], "protocols": ["buffered_minutes", "purged_spells", "buffered_100_seconds"],
+    "models": {
+      "context_public": {"restart": false, "weak_mass": 0},
+      "context_restart_public": {"restart": true, "weak_mass": 0},
+      "context_weak": {"restart": false, "weak_mass": 0.5},
+      "context_restart_weak": {"restart": true, "weak_mass": 0.5}
+    },
+    "training": "Binary D/live XGBoost,depth2,200trees,learning_rate.04,lambda20,min_child_weight20,subsample.8,colsample.9; class-balanced eligible public targets. Weak targets and their weights are fixed independently of public validation. No tuning/calibration/early stopping.",
+    "decoders": ["replace_dead", "persistent_union"],
+    "replace_dead": "Use51-frame-smoothed head D on observed-ball frames, retaining anchored D on missing frames; keep anchored conditional ownership and penalty3 decoding.",
+    "persistent_union": "Raise anchored D only on input-only strong-head runs>=50frames, requiring head>.8, centered51-frame ball visibility>=.5 and existing moving-contact evidence<=.2. Retain ownership and other D emissions. All heads smoothed separately inside each validation block/half."
+  },
+  "confirmation": "Freeze at most2 unchanged methods across seeds42/43/44 and all3 protocols. Apply the substantial gain and no-regression gates in RENEWAL_RESEARCH_PLAN.json. Weak-label source accuracy is unknown; never claim it is new ground truth."
+}

@@ -1,0 +1,27 @@
+{
+  "reference": "Unchanged seven-model selected broadcast closure; existing public OOF reference for each protocol/seed.",
+  "feasibility_model": "profile0_logistic",
+  "feasibility_manifest_sha256": "b87d8e8a79a12f5037bb5075391e9a2fb77462d9ecfa2af1d998066c7191411f",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seeds": [
+    42
+  ],
+  "heads": [
+    "jersey_fast",
+    "jersey_joint_frame"
+  ],
+  "decoders": [
+    "replace_live",
+    "short_proposals",
+    "source_closure"
+  ],
+  "features": "Color confidence>=.8; known player slots may propagate linearly only between two valid5-frame sampled endpoints. Confident predicted H/A selects team geometry independently of original metadata. Original tracking locations/speeds/ball, confident-color nearest3 distances, contact/control share, coverage, reassignment fraction; fixed past/future25/75/125 means. No frames, positions, identity or RGB statistics in possession model. Current valid source evidence required for every altered frame.",
+  "training": "Reuse unchanged eligible public splits. jersey_fast: original fit_control on base[fast_columns]+jersey features, public H/A only. jersey_joint_frame: original fit_renewal(frame) on ordered+jersey features, public H/A/D, use conditionalH/A in ownership decoding. Seed42. No new possession weak labels.",
+  "decoding": "Per existing validation blocks: conditionalH/A source only where both confident-color teams and ball observed; elsewhere referenceonehotH/A(.5/.5 onD). Existing ownership_prediction smooth5 penalty3 replace_live or short_proposals. Short runs8..125 confidence>=.65,color-exclusive contacts>=3,two opposite13frame flanks,noD. source_closure uses existing intersect_broadcast(intersectionFalse) with jersey same-source distance/share aliases and learned masked replacement, same frozen duration/confidence/contact/flank/250frame protected-island gates. Restore reference outside observed color; allD masks exact.",
+  "promotion": "Only freeze an unchanged screen finalist before new seeds. Require buffered+.04 and additional short IoU.5 match in all3 seeds, no primary/shortIoU/D regression in all9 pairs, MacroF1>=reference-.001, no extra official spurious/missed possessions; all code/input/model/padding/source/full-build checks and independent review.",
+  "output": "Retain21 score rows (6 methods+reference per3 protocols),26 new checkpoints, all OOF raw probabilities and predictions; report every failed method and clipped-block regression. Scores remain adaptive same-match development, not independent/private evidence."
+}
