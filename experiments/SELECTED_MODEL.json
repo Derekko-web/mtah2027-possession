@@ -1,0 +1,6 @@
+{
+  "model": "tabpfn_short_control_recovery_seed42",
+  "candidate_path": "data/candidate_tabpfn_short_control_recovery_v1/candidate.csv",
+  "candidate_sha256": "801cb64b59260daf4586865e9ef13d124fc61d7584e2798283e465a1758e9ed7",
+  "manifest_path": "data/candidate_tabpfn_short_control_recovery_v1/manifest.json"
+}

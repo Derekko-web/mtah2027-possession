@@ -1,11 +1,12 @@
 # Possession experiment history
 
-For the current anchored ownership and stoppage consensus, results, caveats and reproduction commands,
-read [SELECTED_MODEL.md](SELECTED_MODEL.md). Its full-match CSV is
-`data/candidate_stoppage_consensus/candidate.csv`. The complete prerequisite and
-confirmation chain is in [STOPPAGE_RECOVERY_REPORT.md](STOPPAGE_RECOVERY_REPORT.md);
+The [current TabPFN selection](SELECTED_MODEL.md) documents its full-match CSV,
+validation results, and reproduction command.
+
+The earlier stoppage-consensus CSV is `data/candidate_stoppage_consensus/candidate.csv`.
+Its prerequisites and confirmation runs are in [STOPPAGE_RECOVERY_REPORT.md](STOPPAGE_RECOVERY_REPORT.md).
 `build_stoppage_candidate.py` retains four anchored models and fits two additional
-weak-supervised D heads. Use `requirements-research.txt`.
+weak-supervised D heads. Use `requirements-research.txt` for that build.
 The preceding anchored selection and source remain preserved in
 [ANCHORED_MODEL.md](ANCHORED_MODEL.md) and
 [BOUNDARY_REFINEMENT_REPORT.md](BOUNDARY_REFINEMENT_REPORT.md).

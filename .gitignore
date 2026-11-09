@@ -59,6 +59,8 @@ organizers/
 __pycache__/
 *.py[cod]
 .venv/
+/.venv-encoder/
+/.venv-tabpfn/
 venv/
 env/
 .DS_Store

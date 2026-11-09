@@ -1,0 +1,5 @@
+# Frozen model assets
+
+`player_encoder.pt` is the 24,321-parameter temporal player-set encoder trained for 4,000 steps with seed 42 on the public DFL corpus. The training pipeline converts DFL position data into anonymous player sets and fits a home/away classifier. The submission uses the resulting weights to extract hidden features. The checkpoint contains the trained parameters. Its training data excludes the competition fixture. The source data was published by Manuel Bassek, Robert Rein, Hendrik Weber and Daniel Memmert under CC BY 4.0. [DFL dataset](https://figshare.com/articles/dataset/An_integrated_dataset_of_spatiotemporal_and_event_data_in_elite_soccer/28196177) · [License](https://creativecommons.org/licenses/by/4.0/)
+
+`build.json` pins the input bundle, public labels, both model checkpoints, fitted TabPFN context and final CSV by SHA256. It also pins the author download for the TabPFN checkpoint. Built with Prior Labs TabPFN. [TabPFN v2 model card and license](https://huggingface.co/Prior-Labs/TabPFN-v2-clf)

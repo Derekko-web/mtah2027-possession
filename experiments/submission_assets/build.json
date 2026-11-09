@@ -1,0 +1,18 @@
+{
+  "input_sha256": {
+    "tactical/atd_meta": "327e35e32e46a647389b88f883d4f9a2ab931e3e6148aef2fcf8f22b1e93c43a",
+    "tactical/atd_raw": "f130e350d2bfdf734b7e32f072931fccc6d015c1e837d082064875fe0a700431",
+    "tactical/homography": "421c81abe16f0912dc45c2541f9bf19dd5660066397a3dcc043038a1b61c28c3",
+    "broadcast/atd_meta": "53d387bcdef718c2034ee2e05c3036c7edfa3cfcd5bbe8270a43695bd252dbe9",
+    "broadcast/atd_raw": "a71c1c9391e564032446be91ffbd7564205b47966060181532d80a338685e458",
+    "broadcast/homography": "9ed07e7085bb0f200e171929948ae378cdba760d844bd18266c0b7caa4ba4afb",
+    "tactical/smart_tagging": "0594d35e3df01b9c5002372d8615e2e8ef5379ac8f4e84c5ef7a53f4304c9019"
+  },
+  "public_gt_sha256": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+  "encoder_sha256": "c22debc44f35a02486b1fd2194d1dab176dcac1a62d92bba214f8dac3f575786",
+  "tabpfn_sha256": "cf8c519c01eaf1613ee91239006d57b1c806ff5f23ac1aeb1315ba1015210e49",
+  "tabpfn_url": "https://huggingface.co/Prior-Labs/TabPFN-v2-clf/resolve/275f19d2add9c2c0de38f9ebaded3856599fa2e7/tabpfn-v2-classifier-finetuned-zk73skhh.ckpt",
+  "expected_candidate_sha256": "801cb64b59260daf4586865e9ef13d124fc61d7584e2798283e465a1758e9ed7",
+  "tabpfn_context_sha256": "8a10041e0a4ceec167f9c4c03cc441e3dc790bf5e13aaab24b67f37a60fda8ad",
+  "tabpfn_target_sha256": "0a9f2920942a098a00ea5e3c8806bb8280cd69673b14b76060156fcd05a11ec4"
+}
