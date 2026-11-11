@@ -1,3 +1,7 @@
+> [!WARNING]
+> **This repository is archived research, not our competition submission.**
+> Some pipelines here, including the TabPFN pipeline described in `TECHNICAL_SUMMARY.md`, were trained or tuned on the public 5-minute ground truth. The organisers' rules do not allow that, so none of this work is used in our submission. Our submission is built only from external data and lives in a separate repository.
+
 # More than a Hack 2027 — Phase 1: Ball Possession
 
 **Organised by [Metrica Sports](https://metrica-sports.com), [FC Barcelona](https://www.fcbarcelona.com)
