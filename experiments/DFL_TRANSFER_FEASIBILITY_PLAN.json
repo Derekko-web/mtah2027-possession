@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "round": 27,
+  "phase": "A",
+  "scope": "External DFL schema/labels/support only. No fitting, competition possession targets, score rows or promotion in Phase A.",
+  "source": {
+    "article": "https://www.nature.com/articles/s41597-025-04505-y",
+    "dataset": "https://doi.org/10.6084/m9.figshare.28196177.v1",
+    "license": "CC-BY-4.0",
+    "attribution": "Deutsche Fussball Liga (DFL); Bassek, Rein, Weber and Memmert (2025), Scientific Data12:195."
+  },
+  "matches": [
+    "DFL-MAT-J03WMX",
+    "DFL-MAT-J03WN1",
+    "DFL-MAT-J03WOH",
+    "DFL-MAT-J03WOY",
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "splits": {
+    "train": [
+      "DFL-MAT-J03WMX",
+      "DFL-MAT-J03WN1",
+      "DFL-MAT-J03WOH",
+      "DFL-MAT-J03WOY"
+    ],
+    "development": [
+      "DFL-MAT-J03WPY"
+    ],
+    "held_out": [
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ]
+  },
+  "files": [
+    {
+      "id": 51643475,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000001_DFL-MAT-J03WMX.xml",
+      "size": 11930,
+      "download_url": "https://ndownloader.figshare.com/files/51643475",
+      "computed_md5": "bc5d5b21dbcf36aa30f4cd0428309f6b"
+    },
+    {
+      "id": 51643472,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000001_DFL-MAT-J03WN1.xml",
+      "size": 11722,
+      "download_url": "https://ndownloader.figshare.com/files/51643472",
+      "computed_md5": "37b0f85588c0acfb995fe633c7ac2e0d"
+    },
+    {
+      "id": 51643478,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000002_DFL-MAT-J03WOH.xml",
+      "size": 11745,
+      "download_url": "https://ndownloader.figshare.com/files/51643478",
+      "computed_md5": "b9710781d400dd812f62b0a6e3d7bce8"
+    },
+    {
+      "id": 51643481,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000002_DFL-MAT-J03WOY.xml",
+      "size": 11952,
+      "download_url": "https://ndownloader.figshare.com/files/51643481",
+      "computed_md5": "7b021e577fca917a63111d55cc29ae5b"
+    },
+    {
+      "id": 51643487,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000002_DFL-MAT-J03WPY.xml",
+      "size": 11922,
+      "download_url": "https://ndownloader.figshare.com/files/51643487",
+      "computed_md5": "65a4568e4f374af94d3c1015cbc7c4f5"
+    },
+    {
+      "id": 51643484,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000002_DFL-MAT-J03WQQ.xml",
+      "size": 11932,
+      "download_url": "https://ndownloader.figshare.com/files/51643484",
+      "computed_md5": "5979209af316a914ce57347d0633df6c"
+    },
+    {
+      "id": 51643490,
+      "name": "DFL_02_01_matchinformation_DFL-COM-000002_DFL-MAT-J03WR9.xml",
+      "size": 11823,
+      "download_url": "https://ndownloader.figshare.com/files/51643490",
+      "computed_md5": "5e2d580d3d8ed97e32959de90d04992b"
+    },
+    {
+      "id": 51643514,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000001_DFL-MAT-J03WMX.xml",
+      "size": 418524833,
+      "download_url": "https://ndownloader.figshare.com/files/51643514",
+      "computed_md5": "e4273a2adf5dbd9d4ec42def2f01905c"
+    },
+    {
+      "id": 51643517,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000001_DFL-MAT-J03WN1.xml",
+      "size": 391722803,
+      "download_url": "https://ndownloader.figshare.com/files/51643517",
+      "computed_md5": "bacb2f609c1d1b0bfc906f6b9d4109f2"
+    },
+    {
+      "id": 51643520,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000002_DFL-MAT-J03WOH.xml",
+      "size": 348945715,
+      "download_url": "https://ndownloader.figshare.com/files/51643520",
+      "computed_md5": "3efff25a86a61768e7d253b4bba137a3"
+    },
+    {
+      "id": 51643523,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000002_DFL-MAT-J03WOY.xml",
+      "size": 362567859,
+      "download_url": "https://ndownloader.figshare.com/files/51643523",
+      "computed_md5": "4e1063e0a0ae499920cf68ac1aa3ab4e"
+    },
+    {
+      "id": 51643526,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000002_DFL-MAT-J03WPY.xml",
+      "size": 371688499,
+      "download_url": "https://ndownloader.figshare.com/files/51643526",
+      "computed_md5": "e56ff1336a334f8da51110fbe7cab764"
+    },
+    {
+      "id": 51643529,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000002_DFL-MAT-J03WQQ.xml",
+      "size": 356219423,
+      "download_url": "https://ndownloader.figshare.com/files/51643529",
+      "computed_md5": "9105bad987191d3c3c362c1fce9a4fcd"
+    },
+    {
+      "id": 51643532,
+      "name": "DFL_04_03_positions_raw_observed_DFL-COM-000002_DFL-MAT-J03WR9.xml",
+      "size": 372934140,
+      "download_url": "https://ndownloader.figshare.com/files/51643532",
+      "computed_md5": "e060bb7d7a5a3bfbd15bbf9bc631024d"
+    }
+  ],
+  "ingestion": "Join catalog filenames by exact matchID, metadata teams by HomeTeamId/AwayTeamId or GuestTeamId, playerPersonId only for placing observations, and all observations by (half,N). Reject duplicate keys, mismatching body MatchId/team identity or keyed timestamps. Ball canonical grid spans min..maxN separately in firstHalf/secondHalf; omitted rows remain missing. Never zip directory order or assign contiguous slices to gapped observations. Body MatchId absence recorded explicitly, catalog hash/match naming remains binding.",
+  "targets": "BallStatus0=>D; status1 and BallPossession1=>H,2=>A; all other casesX. No forward fill, interpolation, smoothing or target-derived observation masks. Unknown rows split all possession counts. Direct fields are external targets only, not features or guaranteed competition-equivalent truth.",
+  "observation": "Read XY,N,T and team membership. Never use supplied ballZ, speedS, accelerationA, distanceD, phase/event tags, person identities or status/owner as model inputs. XY finite inside centered source pitch plus5m tolerance retained; othersNaN. Player/ball keyed timestamps agreewithin.001s. SourceXY-only shared features are a later prefit protocol, not inherited ordered102.",
+  "quality_gate": {
+    "minimum_half_frames": 25000,
+    "minimum_valid_status_fraction": 0.99,
+    "minimum_active_owner_fraction": 0.98,
+    "minimum_active_geometry_fraction": 0.95,
+    "minimum_active_ball_xy_fraction": 0.9,
+    "minimum_cadence_fraction": 0.999,
+    "minimum_live_frames_per_team": 2500,
+    "minimum_spells_per_team": 10,
+    "minimum_dead_frames": 1,
+    "denominator": "Evaluate ratios and team support per complete match; require both halves individually>=25000 canonical frames. Gap-inclusive canonical half/N grid for status denominator. Active status1 rows form owner/geometry/ball denominators. Cadence: every neighboring observed timestamp delta must equal .04*deltaN within.0001s; require fraction>=.999. Geometry means>=4finiteplayers eachteam. All7matches must pass; no dropping difficult games or changing splits."
+  },
+  "diagnostics": "Report H/A/D/X frames and spells, half lengths/gaps, owner/status value counts, run-length quantiles and cadence errors. Unknowns never collapsed. These support checks do not certify transition correctness, consistent loose-ball semantics, independent accuracy or transfer.",
+  "freeze": "11 synthetic ingestion tests passed before parsing any external XML. Phase A plan, catalog and source snapshots frozen before downloads/parsing. All downloaded bytes must match catalogsize/MD5 then SHA256; incomplete downloads preserved. Exclusive stage directories.",
+  "verification": "Independent actual XML reparse in fresh process/output; byte-exact14parsedcaches plusplans/summaries/manifests; production unittest suite; all17protected hashes, ledger bytes, source/input/cache identities and symlinks preserved.",
+  "continuation": "If all Phase A gates pass, freeze one new ownership teacher and one fixed integration plus matched control and numeric external holdout gates before any fit or performance inspection. Externaltrain4,development1,heldout2 never rearranged. Only advance to competition feature/target fitting if separately frozen external gates pass. All existing substantial gain/extra short and nine protocol/seed/replay/review promotion requirements remain.",
+  "stopping": "Any failed Phase A gate closes rejected_data_feasibility without training or score rows. No fallback data subset, label repair or threshold relaxation. Preserve execution failures and revisions; execution-only schema repairs cannot alter target conversion, gates or splits.",
+  "privacy": "All raw/derived data local ignored data; only aggregate diagnostics/code/plans/reports/hashes in hosted context or agents. No competition media, targets or action arrays in Phase A. No manual labels/private or corrected competitionGT, uploads, commits, publication, submission, contacts, toolchainchanges or Xcode acceptance.",
+  "input_sha256": {
+    "data/control_dfl_transfer_v1/catalog/article_28196177.json": "ab353b23908ddad7cdfb3385a2eed050c69a5f7161d61799d8c67feeb43059f8",
+    "experiments/DFL_TRANSFER_DESIGN_RESEARCH.md": "e7934c71c2b62a4235b7379715970aa15c2984829238aa8fe496e3560692a8a2",
+    "experiments/NEXT_SCORE_STEP_REVIEW.md": "fbad9def179b61ce2393fb468ca5b51c92ae983c66a8ff07d0856a9e89fd3af2",
+    "data/control_temporal_global_v1/round_closeout.json": "9a098d23b538252dba3bc86f61d75a7213b0e29e07f21f650ca7d68f8fb6796f"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-25",
+  "round": 42,
+  "purpose": "Conditional runtime optimization for a future native detector audit, independent of current R40 CPU confirmation. Do not change R38/R40 source, device, gates or verdict.",
+  "source": "Exactly same R38 pinned HRNet/checkpoint/config, existing Torch2.5MPSavailable, no install or unsafe serialization. PYTORCH_ENABLE_MPS_FALLBACK=0. No native media or target labels.",
+  "synthetic": "Seed380001 identical1x9x288x512 random tensor;4forwards/device,3steady timings, exact repeated outputs within eachdevice. MaxCPU/MPS sigmoidheatmapdifference<=.002. Strictweightsalreadyverified, no networkmathchanges.",
+  "external_equivalence": "16 uniformfixed oldsampleindices/camera, bothadjacent andcenterrepeat=64comparisons. No labelreads or F1selection. Full3heatmaps maxabs<=.002andRMS<=.00002;centerheatmap8connectedcomponentcount/visibilityexact;largestmasscenter<=.5originalpixelmovement,massrelativedifference<=.001. MPSrepeats exact on every externalinput. No gate/tolerance/device/libraryversion sweep.",
+  "resources": "Medianend-to-endforward speedup>=2,CPUpeak<=2.5GiB,MPSdriverallocated<=2GiB. GPUshape batch1 unchanged. Ifunsupportedoperation or equivalence/resource failure, keepCPU; do not enablefallback or lowerprecision/resolution.",
+  "progression": "This is ONLY numerics/speed, no claim of better localization/possession. MPS cannot authorize nativeprocessing: R40externalconfirmationmustpass first, then separatelyfrozennative plan. Original rawincremental-signal/substantial-score gates remain. Nochange to user-selected candidate.",
+  "input_sha256": {
+    "data/control_wasb_v1/source_manifest.json": "91a2bbfc8584d57bc8011883c76deef21564adff59572916940dacc8b4773ea2",
+    "data/control_wasb_v1/source/wasb_soccer_best.pth.tar": "d0369572807c2baf751880d6cdf3cce9fc6283fa8d153f18af6baf4e64d2646c",
+    "data/control_wasb_v1/source/config.json": "aaf97df05402604b9d3989f74383a2565a0a1feb38ff8a1c00e922e7404b4761",
+    "data/control_wasb_v1/external_inputs/ID-5_rgb.npy": "f5a7f20f852469cf54a32ef38ddb9a58381a2b1c33154c9da5966ca901539d4c",
+    "data/control_wasb_v1/external_inputs/ID-5_decoded_frames.npy": "cd1d1f31226e3faae37b578d95dc6e8b67e00d947493da6fc4d6439db5637694",
+    "data/control_wasb_v1/external_inputs/ID-5_centers.npy": "5754c879dcde6d1bb91d76b17adc37de097a932fc354cef88886b638033b4cd3",
+    "data/control_wasb_v1/external_inputs/ID-6_rgb.npy": "cc6d828d374c9a9ac3c69253bcdb329df8dc5e3a862d70e31213c1962588ad51",
+    "data/control_wasb_v1/external_inputs/ID-6_decoded_frames.npy": "90604fe698e9089ec3b184fb3611707cbb1c27071a6599151990a677628c8df7",
+    "data/control_wasb_v1/external_inputs/ID-6_centers.npy": "905e2bf00cb2231d123a9de0d34776a85753a5eb8ed3f1ba6dfa59dd9898031a"
+  }
+}

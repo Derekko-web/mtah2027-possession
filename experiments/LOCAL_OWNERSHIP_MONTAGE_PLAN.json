@@ -1,0 +1,40 @@
+{
+  "version": 3,
+  "hypothesis": "Local temporal vision may recognize actual team control missed by tracking/color proximity models. Prior local VLM probes asked only live/stopped; neither their failure nor detector agreement proves this ownership task.",
+  "model": "qwen3-vl:4b-instruct",
+  "model_digest": "84f7ed8042fa7cdbd902f7dcb7d0370e032095047cc3244179f263b77b5bc318",
+  "runtime_version": "0.32.3",
+  "endpoint": "http://127.0.0.1:11434",
+  "network": "Onlyloopback,proxybypass,noredirects,NoCloudserver. Requirelocaltagdigestbeforeeveryrequest. No modelpull/providerfallback. No images/responses displayed or uploaded.",
+  "schedule": "Uniformcenters arange11310,18685,250;triples center-12,center,center+12. Require officialsamehalf andvalidhomographies. Exclude any actual tripleframe within reserved24+/-250 or held60weakballcenters+/-250. Sourceballcenter is nearestfinite originalballxy within25of eachtarget;noextrapolationbeyond25. Missingcropcenter excludes sample,notlabel-basedreplacement. No source-label-basedoversampling.",
+  "reference": "Useexistingweakjerseytrainingfirst240framesonly. Existingprofile0_logisticpredictsweak-mask playercolors;teamconfidence>=.99,finitefeatures,torsoheight>=8pixels. Choosefirst3distincteligibleframesperteam inframe/slotorder,excludingpublic+/-250,reserved+/-250,heldweakball+/-250. Torsoimagecropsbyexistingratio1;oneboard2rowsHOME/AWAY3examplesperrow. Automaticweakreferences,notmanualtruth.",
+  "scene": "Reuse originalfrozenPNGscenes/reference,notnewvideo. ownership_montage.make_montage:1536x936whitecanvas,referencefitscentered768x360top;3aspect-preserving512x512lowercellswithEARLIER/MIDDLE/LATERheaders. No ballmarkers ormanualannotations. Compositeoneimageperrequest.",
+  "prompt": "The single image has a jersey reference sheet at the top: HOME is the top reference row and AWAY is the second reference row. At the bottom are three game scenes in chronological order from left to right, labeled EARLIER, MIDDLE, LATER, 0.48 seconds apart. Judge controlled team possession in the MIDDLE bottom scene. A pass in flight stays with the last deliberate controlling team until the other team controls it; a mere deflection is not new possession. Answer stopped if play is stopped or players are waiting to restart. If the ball or controlling action is not clear, answer unclear. Output exactly one word: home, away, stopped, or unclear.",
+  "generation": {
+    "temperature": 0,
+    "seed": 42,
+    "num_predict": 64,
+    "num_ctx": 8192,
+    "think": false,
+    "stream": false
+  },
+  "parser": "Strip/lowercase;acceptonlyexacthome/away/stopped/unclear withoptionalone trailingperiod/exclamation. Everythingelseunclear. No retrywithdifferentprompt.",
+  "feasibility": "Afterallsource/inferenceoutputs frozen,scorepublicH/A/D samplelabels. Require>=15samples,>=3trueeachH/A/D,balanced3classrecall>=.75,Hrecall>=.75,Arecall>=.75,Drecall>=.5,unknownfraction<=.2. Missingcoverageisnotapassinggate. Adaptivefeasibility,notfullpossessionvalidation. Failurestopsbeforefitting/densegeneration;preservealloutputs. Passingwouldrequireseparatefrozenpossessionhypothesis,originalsubstantial/short/paired/D/repro/reviewprotections.",
+  "input_sha256": {
+    "data/control_local_ownership_v1/inputs/manifest.json": "00d4ffbcb71d5a84e35c241d6fcf200ce1c9fa412bdafb7bccd2053b6b00da90",
+    "data/control_local_ownership_v1/synthetic_production_layout_summary.json": "f2a5f8f792e0f0147cda5489afd1cad2c4e49d5eeec16c49e8544046d0f1d852",
+    "experiments/LOCAL_OWNERSHIP_INSTRUCT_PLAN.json": "8b7f10392e2f08361aecdd79b79c668b3e9dd8407f8c222ae0edf65e9789a3d7",
+    "experiments/ownership_montage.py": "3f76074db3e3f018c92bfc0d18433b1bfda857fddefd16cc07540690ebdaf250"
+  },
+  "privacy": "No private/correctedGT,manualannotations,hostedextracts,commits,uploads,submissions,publicationorcontacts. Allprivatearrays/images/responsesignoreddata. Preserveallpriorfailedmethods/candidates. Reserved24andheld60actualimagesremainunused.",
+  "limits": "Weakreferencekitsmaybewrong;localVLMmayhallucinate. Reusedpublicsamplescorrelatedadaptivefeasibility,notindependent/privateaccuracyormaximumproof.",
+  "correction": "Separately frozen single-montage representation after valid4imageInstruct protocol predictsall27HOME,while syntheticlast-imagecontrols2of2singlebut0of4multi. Single2x2grid4of4andexactproductionlayout4of4pass. This establishes a usable layout contract,not socceraccuracy or causeofOllamabehavior. Preserve bothfailedprotocols andallcontrols.",
+  "text_preflight": "Reuse the alreadypassedInstructtext-formatpreflight;exactproductionlayoutsynthetic4of4mustpassbeforecompositionandgeneration. Model/options/parser/27samples/feasibilitygatesunchanged;promptchangesonlytoexplicitone-imagepanellayout.",
+  "source_urls": [
+    "https://ollama.com/library/qwen3-vl:4b-instruct",
+    "https://docs.ollama.com/capabilities/thinking"
+  ],
+  "base_input_manifest_sha256": "00d4ffbcb71d5a84e35c241d6fcf200ce1c9fa412bdafb7bccd2053b6b00da90",
+  "synthetic_layout_sha256": "f2a5f8f792e0f0147cda5489afd1cad2c4e49d5eeec16c49e8544046d0f1d852",
+  "public_samples_reused": true
+}

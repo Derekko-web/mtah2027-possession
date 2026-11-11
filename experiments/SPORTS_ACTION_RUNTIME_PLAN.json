@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "stage": "synthetic_runtime_preflight_only",
+  "hypothesis": "A pretrained football action encoder may supply touch/pass/restart evidence absent from tracking geometry and general small-VLM labels. Establish exact checkpoint loading and local synthetic inference first. No possession claim from action spotting.",
+  "checkpoint": {
+    "path": "data/control_sports_action_v1/model_assets/checkpoint_best.pt",
+    "sha256": "ed7c558d575eba1918be8f67813571723962eeff807dba68a12a2d794dd1c72a",
+    "bytes": 49581474,
+    "author_checkpoint_url": "https://drive.google.com/drive/folders/16IqSkctIGp76ZYKKvJvMB_ggHcQsessM"
+  },
+  "sources": [
+    {
+      "repository": "arturxe2/T-DEED",
+      "commit": "d953b4de8a2ad941c565e1683c5b07255cbe644e",
+      "archive_url": "https://codeload.github.com/arturxe2/T-DEED/tar.gz/d953b4de8a2ad941c565e1683c5b07255cbe644e",
+      "archive_sha256": "1783f607caaaa32ac8cce4b3900a9de162b0d171706ddd5f10fbc8e64555e692"
+    },
+    {
+      "repository": "SoccerNet/sn-teamspotting",
+      "commit": "091fed2fc35c33f7489f3596958a2fe385e37d65",
+      "archive_url": "https://codeload.github.com/SoccerNet/sn-teamspotting/tar.gz/091fed2fc35c33f7489f3596958a2fe385e37d65",
+      "archive_sha256": "6d12b9c5459b6f5db3819d6d7fb16557d1aff8dfaeb5ff6cd7e1fb25fb442671"
+    }
+  ],
+  "runtime": "Create separatevenvunderignoreddatausingexistingPython3.12.14. Minimuminferencepinsrequirements-sports-action.txt. Saveinstallreport,pipfreeze,wheelhashes. Do not alter selectedmodel.venv orglobaltoolchain.",
+  "adapter": "Use upstreamTDEEDModel.Impl andmatchingFC2Layers13/18jointheads;strictweights_only checkpointload,allkeys/shapesexact. Disabletimm pretraineddownload whileconstructingbecausecheckpointprovidesallweights;no networkduringprivateinference. CPUfloat32reference,noautocast. Deviceonlyadaptationmayreplaceforcedcudaheadplacement. No sourcearchitecture/weights changes.",
+  "inputs": "Syntheticonly;seed42uint8RGBshape1x100x3x32x56forsmoke;100sampledframesstride2means198sourceframesfullclip. Productionresolutionmustfollowupstreamextractioncodebeforeanyprivateimageuse.",
+  "checks": "Strictcheckpointload;expected31jointlogits+100team/displacementvalues;allfinite;13-classfirstheadsoftmaxnormalized. CPUrepeatalloutputsbitexact. Permuteinputspatial/temporalcontenttoensureoutputsrespond. TestMPSonlyifavailable;recordunsupportedops/differenceswithoutchangingCPUreference. No publiclabels,competitionimages,private/correctedGT ormanualannotations.",
+  "proceed": "Onlyaftertechnicalpassfreezeaseparateobservation/possessionexperimentwithsourcecoverage,boundedcontext,originalsubstantial+.04/shortmatch/D/paired/repro/reviewprotections. Technicalpassisnotaccuracy. Failurepreservedanddoesnotchangebaseline.",
+  "privacy": "Allcompetitionmedia/rawtracking/probabilitiesremainlocalandunshown. No hostedextracts,commits,uploads,submissions,publicationorcontact. Reserved24andheld60imagesunused. No trainingentrypoint/WandB/networklogging."
+}

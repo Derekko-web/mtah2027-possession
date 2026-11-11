@@ -1,0 +1,10 @@
+{
+  "criterion": "All9seed/protocol official stitched spellF1 pairs nondecreasing versus matched current model; every seed buffered gain>=.01; seed42exact.777142857 reproduction. Other quality checks reported as diagnostics; numerical/provenance/resource/repeat/replay remain mandatory.",
+  "full_build_authorized": false,
+  "initial_execution_freeze_sha256": "50db5e3687071e36ec0df8775d3fd02e2a1df594fca2bdb23c9ed045380c2c2c",
+  "scope": "Separate explicit user-directed spellF1 policy for confirmations/replay; no initial source, model, data, original diagnostics or outputs edited.",
+  "source_only_tests": 5,
+  "unchanged_scientific_run_body_AST_verified": true,
+  "user_direction_path": "data/control_tabpfn_extended_v1/user_ranking_direction.json",
+  "user_direction_sha256": "cccd654c201487ba57ef68bea068a3c80c21a95c797d5f87e6d0a2f420130b16"
+}

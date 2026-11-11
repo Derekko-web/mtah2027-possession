@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-28",
+  "round": 48,
+  "stage": "synthetic_execution_feasibility_only",
+  "hypothesis": "Fixed CPU column-group and row-stage chunks can bound activation memory without changing the pretrained model, dtype, full ICL context or workload. Round45 remains a failed unchunked CPU configuration.",
+  "research": "experiments/TABICL_MEMORY_RESEARCH.md",
+  "sources": [
+    "https://raw.githubusercontent.com/soda-inria/tabicl/main/src/tabicl/_model/inference.py",
+    "https://raw.githubusercontent.com/soda-inria/tabicl/main/src/tabicl/_model/embedding.py",
+    "https://raw.githubusercontent.com/soda-inria/tabicl/main/src/tabicl/_model/interaction.py"
+  ],
+  "adapter": "New script only; acquired package and Round45 files stay byte-identical. Replace model column and row inference managers with a subclass using the official forward callbacks, _run_forward and multidimensional batch slicing. Fixed maximum eight column groups and 128 rows per call. Allocate each complete output once. Leave the ICL manager and complete training-prefix attention unchanged. No disk offload or package source patch.",
+  "configuration": "Same official TabICL2.2.0 checkpoint tabicl-classifier-v2-20260212.ckpt and existing isolated runtime/dependencies as Round45. CPU float32, n_jobs2, n_estimators1, ensemble batch_size1, random_state42, use_ampFalse, use_fa3False, kv_cacheFalse. Other original defaults unchanged. All checkpoint tensors must remain exact.",
+  "synthetic_inputs": "PCG64 seed42 Gaussian float32, missing flat indices modulo37, target cycling0/1/2. Small64trainx8/16queries and full15000trainx166/1500queries must reproduce Round45 saved inputs exactly. New fixed medium512trainx32/64queries exercises both chunk boundaries. No source/native observations or labels.",
+  "parity_gate": "Before large run, compare small and medium chunked probabilities to unmodified baseline: max absolute difference <=2e-5, mean absolute difference <=2e-6, and every argmax identical. Record column and row stage output discrepancies under the same numerical tolerances. Check final partial chunks and checkpoint tensor identity. Chunked repeats and independent small estimator/model reload must be byte-identical. No requirement to pretend unchunked and chunked shapes are bitwise identical.",
+  "resource_gate": "Same full workload and limits as Round45: process RSS <=6GiB, each large prediction <=300seconds, both full predictions complete with exact repeat probabilities, finite normalized three-class outputs. Same external supervisor polls RSS/time and terminates over-limit workers. No resource-cap relaxation. A 1200second worker watchdog remains.",
+  "freeze": "Write plan and script before inference, verify all Round45 acquisition/installed/read-only dependency hashes, then freeze this plan/script plus relevant synthetic witnesses. Network blocked throughout all fit/predict/reload workers. Save inputs, probabilities, stage outputs, configuration, chunk trace and supervision records.",
+  "failure": "Any failed fixed gate closes this configuration. No chunk-size, device, dtype, feature-count, context, checkpoint or tolerance sweep. Execution bugs may be repaired only with original source/failure preserved and identical algorithm/settings; no outcome rescues the original Round45 failure.",
+  "continuation": "Technical success permits only a separately frozen native protocol. It does not establish possession accuracy, authorize source-data fitting automatically, or promote a model.",
+  "exclusions": "No competition features/images/labels, manual annotation, private fixture targets, sealed audit/reserved content, possession scores, candidate changes, dependency mutation, installs, uploads, submission, commits, publication or external contacts. Existing selected artifacts stay exact."
+}

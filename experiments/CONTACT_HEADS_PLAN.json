@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "hypothesis": "Train ownership heads on bounded color-contact histories instead of hard three-vote short-island proposals. Fallible color cues may become useful with tracking context even when the fixed contact decoder is inactive. Prior failures remain failures.",
+  "heads": [
+    "contact_metadata",
+    "contact_color"
+  ],
+  "features": "Base102ordered+68broadcast. Metadata head adds detected_metadata scores. Color head adds detected_metadata,tracked_color,detected_color scores. For each source: two team scores, shared seen; linearly interpolate only adjacent finite5-frame samples. Each team score adds bounded past/future25/75/125 means and finite fractions. Shared seen stays0outside interpolation. No player-slot interpolation. No targets in preparation.",
+  "footprint": "<=25cropcenter+5sampleinterpolation+125summary=155frames; within250buffer. Actual18935vs19060public feature parity exact. Original sample support unchanged and not called true contacts.",
+  "observability": "Verify parent support>=100total and>=10each team before public target loading; no new observation collection.",
+  "fitting": "Unchanged fit_renewal frame depth3/160trees seed42. Team-symmetric augmentation/prediction. Only eligible training labels,250targetbuffer; save actual target/weight/index arrays.26new checkpoints over13folds. No calibration or early stopping.",
+  "matched_control": "Existing170-column broadcast joint OOF arrays; no new control fitting. Same decoders.",
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "decoders": [
+      "joint_slot",
+      "live_replace",
+      "dead_trim"
+    ],
+    "rows": 30
+  },
+  "decoders": "joint_slot replaces index4 BCjoint only; remaining5probarrays unchanged. live_replace uses inherited conditional H/A live decoder with referenceD exact. dead_trim accepts alternative H/A from joint_slot only where referenceD; all existing H/A/X exact; no addedD.",
+  "promotion": "At most1unchanged finalist before43/44. Everyprotocol primary>=selected8 and same-decoder matchedcontrol,Macro>=reference-.001,mean shortIoU>=reference,retain previously>=.5shortrecall,falseD<=reference,Drecall>=reference-.02,noextra missedstoppages or officialIoU.5spurious/missed. Buffered primary>=reference+.04 and>=1extra shortIoU.5match. Then all9seed/protocol protections,official/shared/model reload/input/source/prefix replay,valid reproducible fullCSV and independent review. No silent gate relaxation.",
+  "input_sha256": {
+    "data/control_color_contact_v1/inputs/manifest.json": "87f3cd828656c9f16f2d1985106817f07b0d5d4dce403cb5969c3576ac1e916f",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_broadcast_v1/closure_confirmation/manifest.json": "bc2c7cb8f26eb7159f6ace2c722af3cd80caede9012a969c18c57143d0cedf1b"
+  },
+  "privacy": "All private inputs and outputs local ignoreddata. No images,rawtracking,private arrays,manual annotations,private/correctedlabels,uploads,commits,submissions,publication or contacts. Preserve every prior method and candidate.",
+  "limitations": "Adaptive same-match public development; weak color/tracking/detector proxies are not truth. Maximum/private accuracy unverified."
+}

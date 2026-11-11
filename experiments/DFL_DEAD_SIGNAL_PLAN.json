@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-25",
+  "round": 34,
+  "type": "native_direct_D_signal_audit",
+  "chronology": "Frozen after failed Round33 teacher-feature integration, before native teacher/public-target conditioned statistics. No new fit, score or candidate.",
+  "scope": "All7500publicframes/allDintervals and each3selected8baseline. Rawexternalprobability fixed.5 classifications plus fixedhighconfidence>=.8D/<=.2live; intermediateabstain. No threshold sweep.",
+  "purpose": "Distinguish absent/unsafe rawtransfer from potentiallyusefulsignal discarded by nativeDheadintegration. CountcorrectedreferenceD/Lerrors versuschangesfromcorrecttoincorrect; sourceprob never changes finalprediction in this audit.",
+  "continuation": "Require highconfidence proposedcorrectionprecision>=.75 andnetcorrectedframes>=25 separatelyforall3baselines. Onlythen freeze one directD inference rule and its public scoringplan before scoring. Failure stops this Dteacheravenue; preserve originalfailedpublictrial.",
+  "interpretation": "Target-awaredevelopmentdiagnostic,notachievedpossessiongain/notprivatevalidation. Same17reusedpossessions. No humanlabels/auditmedia/privatefixturetargets.",
+  "input_sha256": {
+    "data/control_dfl_dead_v1/native_inputs/teacher_full.npy": "84fe4b38c2236bbf2f95a00007658b6003962481bdccdbd747949d3605444fe4",
+    "data/control_dfl_dead_v1/native_inputs/manifest.json": "70b4a0279eaebfc28b4658ef1ff156ccb431097e79255391ceb3fda23ce8d7e8",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+    "data/control_dfl_dead_v1/public_trial/buffered_minutes/oof_predictions.csv": "209dc3d7098cd0733e84b1e7e018620bb54835795c63eacd21284e7db9fa9a1f",
+    "data/control_dfl_dead_v1/public_trial/purged_spells/oof_predictions.csv": "64cd6d80ef17a98183988612a939dbcc46b0cfebd25ec5930922d00d95ee029d",
+    "data/control_dfl_dead_v1/public_trial/buffered_100_seconds/oof_predictions.csv": "f0dfc08d3643cc0d986e5def2cc16fe84d51d7060434141085cfafeb27769fcf"
+  }
+}

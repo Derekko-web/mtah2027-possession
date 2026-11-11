@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-28",
+  "round": 51,
+  "stage": "synthetic_context_reconstruction",
+  "hypothesis": "The supported fresh fit(context,target) path reconstructs the unchanged official eight-member cached estimator with lower peak than regenerating a deserialized fitted object. The failed R49 compact-object reload remains failed.",
+  "evidence": "R49 full fresh fit passed at 5.114GiB, but its deserialized object cache reconstruction was terminated at6.003GiB. Source confirms no fitted neural weights: fit prepares preprocessing and cache. Do not rerun the failed R49 handle or relax its limit.",
+  "method": "Original official TabICL2.2.0, same checkpoint, n_estimators8,batch_size1,kv_cacheTrue,CPUfp32,n_jobs2,use_ampFalse/use_fa3False,seed42, all other original defaults. Two fresh independent processes call make_classifier(True).fit on exact saved R49 large train.npy/target.npy; no fitted-object pickle load and no package/model/math/precision/chunk change.",
+  "workload": "Exact R49 imputed synthetic3000x166 train,binarytarget,512query; no source observations/labels. Every official cache tensor must match R49 original full fit fingerprint; all predictions must be byte-identical to its saved cached_first.npy and between both new processes; checkpoint weights exact.",
+  "gate": "Each fit and predict <=300seconds, process RSS<=6GiB, worker wall<=900seconds. Both independently reconstructed estimators pass finite normalized outputs, repeated probabilities/cache immutability and cross-process exactness. Abort violations; no setting/resource sweep.",
+  "persistence": "Saved context arrays, fixed estimator parameters, imputer metadata and public checkpoint are the regeneration interface. A fitted-object/cache pickle is not required. Original R49 compact files remain inspectable, never presented as passing resource reconstruction.",
+  "continuation": "Only a full pass permits a separately frozen native protocol using this same context reconstruction interface. R50 draft remains unstarted because its R49 prerequisite failed; no possession scores or promotion yet.",
+  "exclusions": "No competition features/labels/images, manual/private/sealed data, scores, dependencies changed, uploads, commits, contacts or model promotion."
+}

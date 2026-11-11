@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-25",
+  "round": 38,
+  "phase": "B_public_same_play_external_localization",
+  "video_archive": {
+    "url": "https://www.dropbox.com/s/3zhms9iv4gy3k81/Sequences.zip?dl=1",
+    "bytes": 306355561
+  },
+  "cameras": [
+    {
+      "id": "ID-5",
+      "member": "Film Role-0 ID-5 T-2 m00s00-000-m00s00-185.avi",
+      "header_start": 219257590,
+      "payload_start": 219257666,
+      "payload_end": 262709089,
+      "compressed_bytes": 43451424,
+      "bytes": 44721664,
+      "crc32": "145b43a2"
+    },
+    {
+      "id": "ID-6",
+      "member": "Film Role-0 ID-6 T-2 m00s00-000-m00s00-185.avi",
+      "header_start": 262709090,
+      "payload_start": 262709166,
+      "payload_end": 306354986,
+      "compressed_bytes": 43645821,
+      "bytes": 44980736,
+      "crc32": "42084099"
+    }
+  ],
+  "labels_url": "https://drive.usercontent.google.com/download?id=1Oqr33EXOEjERothXvVAqAeKiKuB-per1&export=download",
+  "labels_bytes": 87744,
+  "centers_per_camera": 256,
+  "distance_original_pixels": 4,
+  "acquisition": "Only verified206 public ZIP ranges for camera5/6, exact Content-Range before body read, localheader/DEFLATE/size/CRC checks. Complete revised87744byte labelZIP, six safe names/CRC, only camera5/6 XML used. Retain source terms from A; no login/new agreement/contact.",
+  "sampling": "Uniform rounded linspace(1,n_video_frames-2,256), independent labels and predictions. Native zero-based decoded frame indices, as official extraction source. Save frame selection hash before any XML parse/target join. ffprobe actualdecodedcount>=258,fps25; decode exact unique t-1/t/t+1 with sequentialFFmpegselect and verifyexactnumber. No human/competition images displayed.",
+  "inputs": "Fixed A NumPy unrotated affine integerbilinear and RGBnormalization. Warpeduint8 RGB archived locally. Dependency-free8-connected weightedcomponent implementation compared exactly with frozen SciPy readout in syntheticcontrols. No confidence/crop/model/resolution sweep. Adjacent[t-1,t,t+1] versus repeat[t,t,t], same checkpoint, centerheatmapchannel1 only. Choose largestheatmapmass component, norecursivehistory.",
+  "targets": "First targetjoin only after immutable detectoroutputs. Official used_in_game=1,outside=0,occluded=0 visibility; other/absentframes invisible per author. XMLframeindices must match actualvideo. Public labels only; no native/manualtargets.",
+  "metric": "Distance strictly<4originalimagepixels. Wrong-location visible detections count BOTHFPandFN. TP/(TP+FN) therefore includes all visibleframes, unlike publisherlegacyrecallwhichomitsmislocalizeddetections. Report every invisibleFP,all256uniformsamples,camera/mode separately. Same-play held-camera sanity only, not unseen-match transfer.",
+  "gate": "Temporal arm in BOTHcameras: >=32visible amongexact256supportedcenters,F1>=.80,visible localization recall>=.75. PeakCPUresident<=2GiB. Center-repeat mechanisticcontrol reported, not separately trained; no minimum delta. Undefined fails. No gate/thresholdrelaxation or extra checkpoint/ROI/camera sample afterfailure.",
+  "resources": "Existing CPU2threads, batch1, one3frameRGBmapping at a time, no newdependencies. A projects4000forwards<=3600seconds, this B needs1024; no MPS. Strict sourcecheckpoint identities.",
+  "continuation": "Only Bpass permits separately frozen C native opportunity plan; no competitionmedia/targets or publicpossessionfits/scores in B. Inherited correction precision/net/commonextra-short/no-old-matchloss/no-extra-spurious gate before integration. Eventualsubstantial+.04/+1short,all3protocols/42/43/44/replays/fullbuildtwice/independentreview unchanged.",
+  "input_sha256": {
+    "experiments/WASB_FEASIBILITY_PLAN.json": "f79af8974197d21de5de950f4302ca862a208d1c1500ba2a04c8a9b5cc21e988",
+    "data/control_wasb_v1/source_manifest.json": "91a2bbfc8584d57bc8011883c76deef21564adff59572916940dacc8b4773ea2",
+    "data/control_wasb_v1/synthetic/summary.json": "4fed5708132ca79c3ccc88850b6c983c66826a40ac3587f8f4a9afd96f43f3ad",
+    "data/control_wasb_v1/synthetic/synthetic_heatmap.npy": "fd9fa6fea76823fc31f7477d352f3e9ecf6f948cd4a32629a65d977c61a3a254",
+    "data/control_wasb_v1/source/wasb_soccer_best.pth.tar": "d0369572807c2baf751880d6cdf3cce9fc6283fa8d153f18af6baf4e64d2646c",
+    "data/control_wasb_v1/source/config.json": "aaf97df05402604b9d3989f74383a2565a0a1feb38ff8a1c00e922e7404b4761",
+    "data/control_wasb_v1/source/src/models/hrnet.py": "862ce90279a44ad19dd0590e073a8089c1cf4bd79eca0930189dda9106fa83f5",
+    "experiments/WASB_ACQUISITION_RESEARCH.md": "cbfb12e789bb1d86d749d3588b08bf56ff8bdaf3db9e4f78e65bc41f4f7f79bb"
+  }
+}

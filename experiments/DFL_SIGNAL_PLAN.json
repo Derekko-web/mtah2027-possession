@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "round": 28,
+  "scope": "One frozen no-fit cached-native-teacher signal and full selected8 pipeline capacity audit; conditional future append-only fitting only after complete gate and fresh replay. Diagnostic outputs are not candidates or possession-score trials.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seed": 42,
+  "observations": "Only verified Round27native91XYfeatures, immutable teacher checkpoint, selected8 reference/checkpoints/caches, Round27newheadOOFprobabilities. Reconstruct source-only native features for actual18935/19060prefix parity and reload frozen teacher; compare exact oldnativefeatures+rawprobability. No new images, weak samples, sourcealignment, externalheldoutlook, annotations, downloads, fitting, corruption or calibration.",
+  "diagnostic": "Native raw teacher ties atpH=.5chooseH. Conditional balancedaccuracy uses ALLpublictrueH/Aframes, including referenceD; highconfidence disagreements use trueH/A ANDselectedH/A, max(pH,1-pH)>=.65 anddifferentteacher/referenceclasses. C=teachertruth/referencewrong,H=referencetruth/teacherwrong. C/(C+H),zero undefined fails. Mean casecorrectprobability uses rawprobability over ENTIREimmutableGTspan. Teacher diagnostic copiesselectedD/X, smoothhalfwindow5=11frames+DPswitch3 insidecontiguousselectedlive andevalblocks; resetD/X/half/eval. Decodeblocks thenstitchedpublicmatching; DPglobalinsideeachsegment, no globallylocalclaim.",
+  "universe": "Complete gradedpublicwindow11185..18684 only, no private/correctedtargets. UsefullpublicGTpossessionIDs/lengths identicalallprotocols. All17expectedGTspells, everyofficialIoU.5baseline-unmatchedGT, everyspuriouspred, everyshort<=125 andallmatched/correctcontrols; no cherry-picking71/33. OfficialhelpergapawareGTvalidruns, predictedXfill, same-teamoverlapdescendingIoU thenGT/predIDs, greedyone-to-one,inclusiveIoU>=.5. Recomputeglobalmatchingaftereachteacher/oracleprobe; neverusebestIoUaloneasrecovery.",
+  "identity": "Beforeinterpretingdiagnostics, unchangedslot0and4probabilities throughfullselected8 mustreproduceallH/A/D/Xlabels exactly ineachprotocol. Also selfconditionaltransfer preservesoriginalslotD andH+Amass; exactfinallabelidentityrequired despitepossibleulpchanges. Verifyfrozencheckpoint/feature/source/probabilityparents and allselectedreferences. Everyoracle startsfrompristinearrays; checkarraydigestsafterallprobes.",
+  "oracle": "TARGET-AWAREDIAGNOSTICONLY. ForEACHunmatchedGTspan andEACHspuriouspredspan, separatelyprobe slots0and4. OnlytrueH/Arowsinsidethatfixedspanchange; allocate originalslotH+Amass99percenttocorrectteam,1percentother; originalslotDandallotherrows/slotsstayexact,zerolivemassstayszero. ForGTcaseallrowsknownH/A; spuriousspantrueD/Xrowsunchanged. Executeunchangedfullselected8, includingBOTHbroadcastclosurecontextsreference7+motionalternative. FixedfinaloverlaytakesalternateH/Aonlywherebothselected8andalternativearelive; retainselected8otherwise, exactD/X. Neveraccumulatecaseprobes. Recordnew/lostGTmatches,predictionIDs,spuriouscounts,collateralchanges, output/branchhashes; do notsavecandidateCSV,headlineF1orachievablescoreestimates.",
+  "routing": "Traceactualoriginalintersect_broadcast first-rejectionrecordsandbranchoutputhashes forbothfullpipelinecontextsandEACHoracle. Verifytraceimplementationequalsactualdecode_motion_dead_trim. Orderedfirstfailureisnotuniquecausationorproofthatlatergatespassed. Oraclecapacityconjunctionnotstaticcoverageestablishesdeclaredroute.",
+  "continuation_gate": {
+    "minimum_balanced_accuracy": 0.7,
+    "minimum_confident_corrections": 25,
+    "minimum_correction_precision": 0.55,
+    "confidence_threshold": 0.65,
+    "minimum_case_probability": 0.6,
+    "minimum_common_cases": 1,
+    "conjunction": "All3protocols passallframeconfidencecriteria. Foroneslot, at least1COMMONfullpublicGT-ID mustbeoriginallyunmatched,<=125frames,officiallymatchedbyfixedteacherdiagnostic,rawmeancorrectprob>=.60,andmatchedafterthatcaseownershiporaclethroughfullpipeline. Eachqualifyingoracle retainsEVERYpreviouslymatchedGTcaseandaddsNOofficialspuriousprediction. SameGT-ID andsameslot acrossall3; no mixingroles/cases. Prefer4ifentireconjunctionpasses,else0ifentirepasses,elseSTOP. Undefinedconditionsfail. RepeatedsameGTacrossprotocolsisnotindependentevidence."
+  },
+  "interpretation": "ThisisapredeclaredSUFFICIENTopportunitygate,notnecessary. Oracleuseslabelsandcannotbelearned-modeloutput; successfulprobesdonotprovefuturemodelcanlearnorimprovescore. Failingcloses thisboundedteacheravenue,nogeneralclaimallteacherinformationisuseless. Rawheadfailureandchangedpipelinecannotbeuniquelyattributedtofeaturedrop. Source/label/domain/covariateshiftremainpossible.",
+  "conditional_followup": "Onlyifauditpassesandfreshreplayvalid:freezeseparateappend-onlyfitprotocolbeforeanynewfit. ChooseONLYgate-selectedslot; keepexisting102ordered(slot0)or170joint(slot4)inputcolumns+pairedfrozenteacherH/Aprobability,originalmodelsettings/targets/weights/13folds/250buffer andallotherselectedarrays. NewheadconditionalH/AtransferredintooriginalslotH+AmasswithoriginalslotDretained,thenunchangedfullpipelineandfixedD/Xoverlay. Identicalcheckpointcontrolmustexactlyreproduceselected8. No91newgeometrycolumns,featuredrop,binaryreplacement,calibration,sweeporbothroles. Existing+.04buffered+extrashort,allprotocolsecondarygates,43/44confirmation,actualfeature/model/source/officialreplay,reproduciblevalidfullCSVandindependentStandards/Specpromotionreviewremain. Failureofdiagnosticendswithoutfits orscoreappend.",
+  "verification": "Syntheticmatching/tie/gap/abstention/oracle/mass/overlay/undefined/commoncase/routepriority/reassignmenttests;fullproductionsuite. Freshprocess/outputrepeatsalltargetblindfeature/prefix/checkpoint/identitychecks anddiagnostic/oracletraces; byte-exactalloutputartifacts. Verify17protectedhashes,allledgerbytes,source/input/cacheidentities,oldfailures/symlinks. Exclusiveoutputs; retainallfailures andexecution-onlyrepairswithoutgatechanges.",
+  "privacy": "Allraw/deriveddata localignored;onlycode/plans/aggregatecounts/reports/hashes tohostedcontext. Agentsreadcode/plans/aggregatereportsonly. No private/correctedGT,manualannotations,reserved24window/held60weakimagesinspection,uploads,commits,submissions,publication,contacts,installations,toolchainchangeorXcodeacceptance.",
+  "input_sha256": {
+    "experiments/POST_DFL_NEXT_STEP_REVIEW.md": "a90c38c1cdcab38fe585a61d6c99175df71d96db0f7a9d1a5839001f6988b586",
+    "experiments/DFL_SIGNAL_DESIGN_REVIEW.md": "08b759bed8b2443bfa9b570e8ede547469190ec626883b8c65aa2bc0654e1281",
+    "experiments/DFL_TRANSFER_REPORT.md": "1e2362b467097d0b5184c4dbf9515437b7f9bad68347159c6dc15408acf31165",
+    "experiments/DFL_TRANSFER_TEACHER_PLAN.json": "304550b0380bfe68a985f76840f8656bc5f46196d4c0cd5a448c2308cb7dacb5",
+    "data/control_dfl_transfer_v1/round_closeout.json": "7edd2bd7fd496b34067da06d8b824aeada040b9edc9307e4ecbecff0d9355604",
+    "data/control_dfl_transfer_v1/external_trial/manifest.json": "3c945ac11ca86860139b5e5a5b9ad77e695b3eaa10dbf291e26f4a55f38d69da",
+    "data/control_dfl_transfer_v1/public_trial/manifest.json": "b2caf8a6f0de3baffd92c638d32ce270ec764094e89c4966973055e21a336bea",
+    "data/control_dfl_transfer_v1/external_integrity.json": "4c9d6ba99c9bdbc1c24b36404dc8ad3a34f5367743d740e73e9e05c9ae2b0dd0",
+    "data/control_dfl_transfer_v1/public_integrity.json": "6b7f8dffe27057f88fb8a92140ae09a91f91a11214aab13f00faeb1fa45f44c9",
+    "data/control_dfl_transfer_v1/external_trial/teacher_seed42.ubj": "b3e56d040e4c07b70835971b62e67f072bc1e95d17eaf121505814379842c962",
+    "data/control_dfl_transfer_v1/public_trial/matched_control_inputs.pkl": "0f3b6d5c740d00377b680edad6f08461f8ece8345c6278b4765d2a45c02bed8c",
+    "data/control_dfl_transfer_v1/public_trial/external_teacher_inputs.pkl": "51acc408fd5dc66fc75f99c7414c0f0812519d1933c73ce9fff12cb6b7000e83",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_pair_motion_v1/inputs/manifest.json": "eeff0bd48316cec2d8a8c78bbc7abcb0a47dd45790474fa71f8983ab1a31f10d",
+    "data/control_pair_motion_v1/dead_trim_confirmation/manifest.json": "3241f939cb68904e4cea307b0be34e6523a5507096a92a30fe85bf952df848a8",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f",
+    "data/advanced_validation/ordered.pkl": "749dc86c612ec552af5cd98c1627bb7517f00241ed395994ec5cdba9a8bd63d3",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "data/control_dfl_transfer_v1/public_dispatch.json": "76e34dd91346257be682de6276dda4ce74b68cf8d6ce2c463816cdb8e6161544"
+  }
+}

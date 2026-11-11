@@ -1,0 +1,59 @@
+{
+  "allocator_limit_bytes": 4294967296,
+  "attribution": "Built with PriorLabs-TabPFN; original checkpoint license and author notices retained.",
+  "combined_total_limit_bytes": 6442450944,
+  "commands": [
+    "SportsPython -P -S -B experiments/tabpfn_mps_balanced_budget_gate.py --preflight",
+    "SportsPython -P -S -B experiments/tabpfn_mps_balanced_budget_gate.py --freeze",
+    "SportsPython -P -S -B experiments/tabpfn_mps_balanced_budget_gate.py --verify",
+    "SportsPython -P -S -B experiments/tabpfn_mps_balanced_budget_gate.py"
+  ],
+  "date": "2026-10-30",
+  "exclusions": "No native/private/manual/sealed data or labels, no hosted inference, no new weights/licenses, no global install, no old frozen edits, no upload/commit/submission/publication/external messages.",
+  "hardware_fraction": "0.33783750694312886",
+  "hardware_source": "Derived exactly from original source-bound probe; no scientific import/new probe during preparation.",
+  "observed_previous_evidence": {
+    "failed_request": "2.67GiB allocated plus624MiB request under3GiB internal allowance",
+    "full_peak_RSS_bytes": 884146176,
+    "full_peak_conservative_RSS_plus_driver_bytes": 4457299968,
+    "full_peak_driver_bytes": 3573153792,
+    "full_stage_worker_exit": 1
+  },
+  "only_prospective_change": "Set pre-import TABPFN_MPS_MEMORY_FRACTION to4GiB/recommended_max_memory_bytes instead of3GiB/recommended. Reserve2GiB rather than3GiB for CPU in the planning allocation; the enforced combined ownedRSS+FULLMPSdriver limit remains6GiB throughout. These are allocator and planning budgets, not a strict driver-only cap.",
+  "previous_plan_sha256": "5c8ecead817a74645218b1ea6455d481d4ec0da9290f6fd0a7d92c86c078e6fe",
+  "previous_round_63": "FAILED: both moderate stages passed byte-exact full-cache/weights/probability reconstruction; full first query hit the internal 3GiB MPS allocation cap. No full rebuild or native score.",
+  "previous_source_sha256": "59823fca874ead58dbd1b8684b17647d2dea61cff53523466b70dde05657494f",
+  "previous_summary_sha256": "368fd22b411504a9668ac0e6196f4fed0d9ada1bc5a975e6afe9058dbf4613f3",
+  "progression": "Pure preflight and independent ROOT-reviewed final source/plan hashes precede freeze and any scientific import/model calls. All four stages must pass. Failed R63 remains failed. No fallback/rescue/sweep within this round. Native scoring needs separately reviewed frozen R65 plan afterward.",
+  "purpose": "A separately frozen reallocation of the unchanged total synthetic memory allowance; no native processing.",
+  "reserved_owned_rss_budget_bytes": 2147483648,
+  "round": 66,
+  "unchanged": {
+    "CPU_threads": 1,
+    "MPS_float32": true,
+    "canonical_query_rows": 512,
+    "checkpoint": "same anonymous author v2 checksum-bound checkpoint",
+    "context_subsampling_precision_or_query_changes": false,
+    "default_eight_views": true,
+    "dependency_or_frozen_source_changes": false,
+    "exact_repeat_fresh_rebuild_weights_cache_probability": true,
+    "factory": "same create_default_for_version(ModelVersion.V2) and all R63 constructor arguments",
+    "full_query_rows": 512,
+    "moderate_query_rows": 513,
+    "native_torch_mps_wrapper_only": true,
+    "offline_telemetry_guards": true,
+    "operations_seconds": 300,
+    "original_R57_numerical_functions": true,
+    "original_R60_full_raw_fingerprints": true,
+    "original_R63_one_time_metadata_initialization": true,
+    "shape_and_sequence": [
+      "moderate64x166 first",
+      "moderate64x166 rebuild",
+      "full3000x166 first",
+      "full3000x166 rebuild"
+    ],
+    "source_and_dependency_math": true,
+    "worker_seconds": 900,
+    "workers": 1
+  }
+}

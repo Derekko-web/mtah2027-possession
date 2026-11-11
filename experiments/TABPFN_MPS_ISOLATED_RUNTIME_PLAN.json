@@ -1,0 +1,30 @@
+{
+  "admission": "ROOT source/executiondiff review+puretests+freeze before model calls; ALL4actualPASS before separateR65review/freeze/nativepayload. Run only when noother6GiBworker active. Old strict shared-runtime verifiers remain failed and unmodified; this NEW verifier explicitly validates isolated execution identity.",
+  "date": "2026-10-31",
+  "exclusions": "No native/private/manual/sealed data orlabels, no hostedinference/upload/submission/publish/commit/externalcontacts, no oldfrozen code/runtime/dependency/global-file changes.",
+  "historical_plan_sha256": "1a325754ac59b4cb25b4520e9de94195d177784eb3c7da89f14552c8c442b8d6",
+  "historical_source": "experiments/tabpfn_mps_allocator_flush_gate.py",
+  "historical_source_sha256": "bf69d5c22fae4694a571d95d6668abff80f6c186d6eaa0b2af6ef96cba3ae073",
+  "historical_summary_sha256": "db9085bf2081df28147d2fe82004fbecc6b6c11da6ee49ce3a0110eb8ae4dfa5",
+  "isolated_acquisition_sha256": "e50d6e8a6b5c3464e745b1250805bda0ef36ef7603e5c6df815fe392390b5f6c",
+  "isolated_venv_configuration_sha256": {
+    "head_runtime": "46594e49c80d3200f584e8c779658ed09aa515e546a9c8cda0033f6451eab87b",
+    "torch25_runtime": "e85a800150e8ffd8a668a918c0012ef4c642b13f555c626959a5d4b5c48c7b99"
+  },
+  "legacy_interpreter": "/Users/derekko/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3.12",
+  "legacy_interpreter_sha256": "d59f5251bce588951dc870bde45f0cd93de39327b1ed2431a8d26bfb567aac10",
+  "new_interpreter_sha256": "ab9c532a75ce81eb96562bda04138e7a0b7528bd242c82a436ebeb1405aa361f",
+  "only_execution_change": "Same frozen R67 core/math/query/preprocessing/fullrawstate/weights/cacheflush/limits. New project-local interpreter+stdlib and output/plan/spawn/verifier identity; replace ONLY historical missing shared-executable binding with explicit isolated current executable. All other preserved bindings remain exact.",
+  "preserved_binding_sha256": "2cc6f3970defbebaa26997b7d44f32c318c1b310bfc5eb43174d7a9f2e3f7136",
+  "purpose": "NEW isolated-current-Python technical admission; preserve R67 historical pass and repeat allfour stages before any native TabPFN processing.",
+  "resources": {
+    "CPU_threads": 1,
+    "allocator_bytes": 4294967296,
+    "operation_seconds": 300,
+    "owned_RSS_plus_FULL_driver_bytes": 6442450944,
+    "worker_seconds": 900,
+    "workers": 1
+  },
+  "round": 70,
+  "unchanged": "Eight author V2views,MPSfloat32,temperature.9/probabilityaverage,canonical512,lastrowpad,moderate64/full3000x166first+rebuild,fittedrawcache/checkpoint/repeatedprobability/freshprocessbyteidentity,officialnativeMPSwrapperexclusive,source-definedonceNoneinitialization,prepredictionpublicAPIallocator+graphcacheflush,offline/telemetryguards. No context/precision/weight/backend/limit fallback."
+}

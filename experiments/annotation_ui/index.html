@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Possession · Annotation</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="wordmark" href="/" aria-label="Possession annotation home"><span class="mark" aria-hidden="true">◫</span> POSSESSION <span class="wordmark-detail">/ Annotation</span></a>
+    <div class="top-actions"><span class="local-indicator">Local workspace</span><button id="export" class="button small" disabled>Export training labels <span aria-hidden="true">↗</span></button></div>
+  </header>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="Training windows">
+      <div class="sidebar-title"><span class="eyebrow">TRAINING SET</span><span>06:00</span></div>
+      <div class="progress-summary"><strong id="review-count">0</strong><span>of 12 clips reviewed</span></div>
+      <div class="overall-progress"><div id="overall-fill"></div></div>
+      <nav id="windows" aria-label="Choose a training clip"></nav>
+      <div class="seal"><span aria-hidden="true">▣</span><div><strong>Audit set sealed</strong><p>12 clips · 6 minutes<br>Reserved for a later frozen comparison.</p></div></div>
+    </aside>
+    <main>
+      <div class="workspace-heading"><div><div class="eyebrow" id="clip-stratum">TRAINING WINDOW</div><h1 id="clip-title">Loading workspace…</h1></div><div class="clip-status" id="clip-status">Draft</div></div>
+      <div id="notice" class="notice" role="status" aria-live="polite" hidden></div>
+      <div class="workspace-grid">
+        <section class="viewer" aria-label="Video and frame navigation">
+          <div class="video-stage">
+            <video id="video" preload="metadata" muted playsinline aria-label="Tactical training clip"></video>
+            <canvas id="paused-frame" aria-hidden="true" hidden></canvas>
+            <div id="video-message" class="video-message" hidden>Preparing local video…</div>
+            <span class="camera-label">TACTICAL CAMERA</span><span class="fps-label">25 FPS</span>
+          </div>
+          <div class="transport">
+            <div class="transport-buttons"><button id="back" class="icon-button" title="Previous frame (←)" aria-label="Previous frame">‹</button><button id="play" class="play-button" title="Play or pause (Space)" aria-label="Play">▶</button><button id="forward" class="icon-button" title="Next frame (→)" aria-label="Next frame">›</button></div>
+            <div class="frame-readout"><span id="current-frame">000</span><span class="muted"> / 749</span><span class="source-frame" id="source-frame"></span></div>
+            <label class="rate-label" for="rate">Speed <select id="rate"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></label>
+          </div>
+          <div class="timeline-wrap"><input id="seek" type="range" min="0" max="749" value="0" step="1" aria-label="Seek to clip frame"><div id="timeline" class="timeline" aria-label="Annotated timeline"></div><div class="time-ticks"><span>00:00</span><span>00:10</span><span>00:20</span><span>00:30</span></div></div>
+          <div class="range-heading"><h2>Labelled ranges <span id="range-count">0</span></h2><span id="coverage">0 / 750 frames</span></div>
+          <div id="segments" class="segment-list"><p class="empty">Mark a range, then assign possession.</p></div>
+          <details class="shortcuts"><summary>Keyboard controls <span>?</span></summary><p><kbd>Space</kbd> play / pause · <kbd>←</kbd> <kbd>→</kbd> one frame · <kbd>Shift</kbd> + arrow one second · <kbd>I</kbd> range start · <kbd>O</kbd> range end · <kbd>H</kbd> <kbd>A</kbd> <kbd>D</kbd> <kbd>U</kbd> choose label · <kbd>Enter</kbd> apply · <kbd>⌘/Ctrl Z</kbd> undo</p></details>
+        </section>
+        <section class="inspector" aria-label="Annotation editor">
+          <div class="inspector-heading"><h2>Annotation</h2><span id="save-state" aria-live="polite">Saved</span></div>
+          <fieldset id="annotation-fields">
+            <label class="field-label" for="annotator">Annotator</label><input id="annotator" type="text" autocomplete="name" maxlength="120" placeholder="Your name">
+            <div class="range-picker"><div><label class="field-label" for="range-start">Start frame</label><input id="range-start" type="number" min="0" max="749" step="1" value="0"><button id="mark-in" class="text-button">Set to current <kbd>I</kbd></button></div><span class="range-dash">—</span><div><label class="field-label" for="range-end">End frame</label><input id="range-end" type="number" min="0" max="749" step="1" value="0"><button id="mark-out" class="text-button">Set to current <kbd>O</kbd></button></div></div>
+            <div class="field-label label-title">Possession</div>
+            <div id="label-options" class="label-options" role="group" aria-label="Possession label">
+              <button data-label="H" aria-pressed="false"><kbd>H</kbd><span>Barcelona</span></button>
+              <button data-label="A" aria-pressed="false"><kbd>A</kbd><span>Athletic</span></button>
+              <button data-label="D" aria-pressed="false"><kbd>D</kbd><span>Dead ball</span></button>
+              <button data-label="U" aria-pressed="false"><kbd>U</kbd><span>Uncertain</span></button>
+            </div>
+            <label class="field-label" for="note">Range note <span class="muted">optional, required for U</span></label><textarea id="note" rows="2" maxlength="2000" placeholder="Describe ambiguity or the transition…"></textarea>
+            <div class="apply-actions"><button id="apply" class="button primary" disabled>Apply range <span aria-hidden="true">↵</span></button><button id="undo" class="button" disabled aria-label="Undo last range change">↶</button></div>
+            <p class="hint">Endpoints are inclusive. Applying a range replaces any labels inside it.</p>
+            <div class="save-section"><button id="save" class="button full">Save draft</button><div class="review-row"><label class="field-label" for="reviewer">Reviewed by a different teammate</label><input id="reviewer" type="text" maxlength="120" placeholder="Reviewer's name"></div><button id="review" class="button full review-button">Mark reviewed</button></div>
+          </fieldset>
+          <details class="labelling-guide" open><summary>Labelling rules</summary><p>Label control, not the last touch. A loose or contested ball stays with the last team in control; a deflection alone is not a turnover.</p><p><strong>D</strong> means play has stopped. Use <strong>U</strong> when ownership or a boundary is unclear. Uncertain frames are excluded from training.</p><p>Cover all 750 frames before review. Video annotations are separate from the official tracking-derived ground truth.</p></details>
+        </section>
+      </div>
+      <footer>Human video labels · Training use only <span>Saved on this computer. No model predictions are shown.</span></footer>
+    </main>
+  </div>
+</body>
+</html>

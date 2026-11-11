@@ -1,0 +1,62 @@
+{
+  "admission": "No worker/modelcalls without final ROOT independent_review.json approved_for_freezeTrue/unresolved0 binding all4SOURCE_FILES, sourcepreflight/freeze/verify, then explicit freeze_sha256-bound resource_admission.json approved_for_model_callsTrue/scopeinvented_only_temporal_block_nca_v1/predecessor_gp_closed_or_passedTrue/other_model_workers_stoppedTrue. Do not bind unfinishedGP outputs.",
+  "clocks": "All time readings time.time_ns/time.monotonic_ns integernanoseconds. Independently enforce BOTH calendarUTC inclhostsleep and monotonic for everyoperation andwholeworker. Exactbound allowed,1ns over fails. Clockrollback/malformedmarkers fails. Abortcannotpass evenifsuccesssummaryexists.",
+  "date": "2026-11-01",
+  "failure": "Any numerical/support/resourcefailure closes one fixedmethod; no retries/budget/epoch/precision/backend/context/radius rescue. Hash/provenance/AST/state/replay corruption aborts globally. Preserve failure/artifacts; no partial stages pass.",
+  "future_native": "Not authorized. Later actualnewgateall4PASS still requires separately reviewed native source/plan/freeze with strictbuffered>136/175 AND allunchangedS8guards/all9seed42/43/44protocolpairs, fresh39refits, full/publicparity/twoidentical199319CSVbuilds/validator/finalindependentreview beforepromotion.",
+  "immutability": "Before/after all inventedraw/preprocessed/context/query/frame arrays, context/target/frame tensors, fittedmodel tensor+support/sample runtime state and FULL optimizerstate. Strictcheckpointreload bothmodel/optimizer; fullinferencestate immutable. Finiteactualparametergradients everybatch; exactactualsupportcounts eachbatch retained.",
+  "learning": "Unchanged authorPLRlite77frequencies/.04431360576139521/width34;metric128,n_blocks0,declaredinactive d_block512/dropout.1,T1,sample_rate.5,AdamWlr.01wd.0002,batch1024,float64CPU2. Exactly200completeepochs/finalonly; no validation,checkpointselection,scheduler or changedmodelparameter.",
+  "metadata": "Exact original+swap native center group duplicated, follows same B/E/S indexpermutations; int64 metadata separate from166 numerical columns, train statistics, PLR, feature distance, inference and decoder. No query labels/validation features/statistics entertraining.",
+  "preprocessing": "Exactly immutableR69 train-only orbit-tied mean/empty0 populationstandardscale/constant1; 166 columns and swap permutation unchanged. Paired NaN/all-empty/constant inputs ininventedfixtures; separate signed4column fixture retained.",
+  "preservation": "Alloldsrc/plans/dependencies/notices/frozenartifacts/R68closedmethod/selected8/ledger/source2symlinks immutable. No private/manual/sealed contents, native arrays/features/scores, weightsacquisition,install,commit,upload,submission,publishing or externalmessages.",
+  "queries": "Every invented query independent of any label. Exact original/swap canonical512last-rowpad/discard; normalizedauthorlogprob softmax; finalH/Abackswapaverage; recomputed reverseviews exact; first512repeat exact; strictsavedmodel+optimizerreload and FULL original/swappedprobabilities exact. Prefix8/reverse512diagnostic only no selection. Inference delegates untouched author.forward and rejects queryy/frame metadata.",
+  "query_scope": "Native publicfold query counts1500 or2500; 7500 per protocol spread across5/5/3folds(total13). Technical2500queries at BOTH shapes covers maximum per-worker native query count. SAME old operation scope: each fixed512raw forward call gets predict300; 2500view=5calls including512padlast. Entire fit/query/reload/diagnostics worker2400. No silent aggregate7500querytime interpretation.",
+  "query_shapes": {
+    "full": [
+      2500,
+      166
+    ],
+    "moderate": [
+      2500,
+      166
+    ]
+  },
+  "reproducibility": "Four SEQUENTIAL fresh processes moderatefirst,rebuild,fullfirst,rebuild. Python42/NumPyglobal43/Torch44/default_rng640042; CPU/BLAS2+interop2/deterministicalgorithmsTrue/hashseed0. Everyfreshrebuild actually refits all200epochs and matches initial/finaltensorstate, optimizer state/defaults, allbatch/epochlosses, context/raw/query/preprocess/framearraybytes, sample/supporttraces, recipe and original/swapped/average/repeat/reloadprobabilitybytes. Never compare Torcharchive bytes.",
+  "research_note": "experiments/TEMPORAL_BLOCK_NCA_RESEARCH_20261101.md",
+  "resources": {
+    "cpu_threads": 2,
+    "fit_seconds": 1800,
+    "prediction_seconds": 300,
+    "rss_bytes": 6442450944,
+    "worker_seconds": 2400,
+    "workers": 1
+  },
+  "root_review_required": true,
+  "runtime": "Read-only exact isolated private Python3.12.14+stdlib and repaired Torch2.15.0/NumPy2.1.2 closure from immutableR69; all files/symlinks bound, no packages installed/edited, workers-B-P-S/privatebase/fixedenv.",
+  "scope": "One new training eligibility objective; no native processing, source outcome, parameter search or selected artifact change. Model work requires separate final ROOT source review, freeze, verify and resource admission after current GP closes/passes.",
+  "source": "Pinned TALENT39b54024902955e51063a34bce17d514cd68ff42 model/helper/defaults; source-only AST copy forward/train_epoch with enumerated metadata/mask/finite-gradient additions. Pristine author inference function identity retained. All nine author text/notice bodies and complete dependency closure retained read-only.",
+  "source_basis_sha256": {
+    "experiments/MODERNNCA_ISOLATED_RUNTIME_PLAN.json": "a26c40faba319fec47e06d75af9cbc184c80450dc3259f70887c1570a4691ed9",
+    "experiments/MODERNNCA_NATIVE_PLAN.json": "234360c9542fcdf734014fc4d629fece3c38e6d1a7aa2d61938a70ae17993053",
+    "experiments/acquire_modernnca_sources.py": "77b213f0d8cc06aab53fb6ca2b735e0ccd884c4ca8b533582ccf7df02c505fa4",
+    "experiments/modernnca_isolated_runtime_gate.py": "1db961c0b5051a49f47d2c26466368afcc4e1068073aeac81267f5d0ca34f1a7",
+    "experiments/modernnca_native.py": "8e776948f1d04fb1714e1cc2aa8a06210b77a7ea82cd5b3276d3f5ec4f3d891d",
+    "experiments/modernnca_runtime_gate.py": "ecfc2ed97ebe9277c78995dcfb29543ba363ffc1b8ad66e84fda63c3e09f05d5",
+    "experiments/modernnca_schema_contract.py": "f59109473e50b527a8e697dd9bd5a4d0a12e804ec4e0850b33b6d5400486c0ff",
+    "experiments/research_modernnca_native.py": "fa037fe016670ed902abbd1ee0f200f5856a9bf14597b0bca90217be7082c8d6"
+  },
+  "stage": "source_only_fixed_temporal_block_NCA_invented_gate",
+  "support": "Whole fixed method fails on zeroeligible OR zeroownclass in ANY actual realized batch; missingopposite counts only, author probabilitycalculation unchanged. Source fixtures intentionally demonstrate64paired contiguous context rejection. No native support inspection inprep.",
+  "synthetic_shapes": {
+    "full": [
+      3000,
+      166
+    ],
+    "moderate": [
+      600,
+      166
+    ]
+  },
+  "temporal_fixture": "Each shape uses actual contiguous native5Hz basecenters10000+5*i, copied exactly to swappedhalf; labels original/complement; whole600moderate batch and full3000 batches1024/1024/952. No arbitrary spread-out time labels to rescue64rows.",
+  "training_objective": "U paired original+swapped trainrows; E=U minus complete shuffledB; same uniformROW floor(.5*len(E)) from one randperm(E); C=[B,S]. Rowwise allow abs(native_center_i-native_center_j)>250 across BOTH candidate portions and sameframe mates. Retain exactselfdiagonal (subsumed). Mask distances+inf before SAME softmax/onehotaggregation/NLLlog(p_y+1e-7). No global union-of-batch prune/resample/pair-balanced sampling/skip/fallback."
+}

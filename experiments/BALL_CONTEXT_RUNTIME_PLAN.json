@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-25",
+  "round": 39,
+  "phase": "A_synthetic_relative_ball_context",
+  "hypothesis": "A temporal masked-player model can use explicitly observed player-to-ball geometry while retaining player-flow inference during ball gaps. This changes the input information, unlike R36/R37 player-only models and failed tabular external teachers.",
+  "architecture": "Original R36 attention/team pooling/shared antisymmetric temporal scoring unchanged. Shared player stem5features=(normalized XY,relative normalized XY to observed ball,ball observed flag). Missing ball sets both relativefeatures/flag0. Original player observation masks retained. Replace stem2->5; allother code inherited. Candidate and ball-masked control identical parameter counts/init and31x5Hzwindow. No scalar ballheight/speed/team/identity/status.",
+  "synthetic": "Only synthetic fixed player positions and label-varying ball location. 200steps same seed; candidateaccuracy>=.95,maskedcontrol<=.60; strictreload and freshrefit exact; team-swap,playerpermutation,allmissingneutral,maskedballNaN invariance. Realshapebatch32x31x46 benchmark10steadysteps; no external/native observations/targets.",
+  "resources": "Existing Torch2.5.0 CPU2threads; two4000step fits projected<=2400seconds,peak<=2GiB. No dependency/network calls, realdata or nativefitting in A.",
+  "continuation": "Only A pass permits separately frozen external B with same7DFLmatches andhistorical4/1/2partitions/R36schedule, label-blindballnoise/missingviews. Do not reuse R36 scalar/representation gate failures as passes. Native interface/gates must be frozen separately before native processing/targetjoin; eventualsubstantial+.04/+1short,allsecondaryprotections/seeds/protocols/replays/fullbuildtwice/review unchanged.",
+  "exclusions": "No manual/private targets/reserved media/newdependency/commit/upload/submission/contact; selected8 unchanged."
+}

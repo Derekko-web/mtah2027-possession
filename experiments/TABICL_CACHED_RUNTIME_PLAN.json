@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-28",
+  "round": 49,
+  "stage": "synthetic_official_cached_runtime_and_compact_storage",
+  "hypothesis": "The unmodified official cache path can support the authors' default eight-member model on a fixed 3000-row context and canonical 512-query batch within six GiB. Compact persistence can regenerate identical caches without retaining large per-fold cache files. This is separate from R45 and the uncached R48 adapter.",
+  "sources": [
+    "https://raw.githubusercontent.com/soda-inria/tabicl/main/src/tabicl/_sklearn/classifier.py",
+    "https://raw.githubusercontent.com/soda-inria/tabicl/main/src/tabicl/_sklearn/base.py",
+    "https://raw.githubusercontent.com/soda-inria/tabicl/main/src/tabicl/_model/kv_cache.py"
+  ],
+  "configuration": "Official acquired TabICL2.2.0 and pinned classifier v2 checkpoint only. No chunk adapter or package changes. CPU float32, n_estimators8, ensemble batch_size1, kv_cacheTrue, n_jobs2, use_ampFalse, use_fa3False, random_state42. All other authors' defaults unchanged. Eight means eight total members, not eight per normalization method.",
+  "synthetic_inputs": "PCG64 seed42 Gaussian float32, missing raw flat indices modulo37, binary targets cycling0/1. Small64trainx8/16queries, medium512trainx32/64queries, full3000trainx166/512queries. External medians fitted on training features only, all-empty training feature median0, no indicators, same fitted medians applied to queries. Preserve raw/filled arrays and medians. No native data or targets.",
+  "parity": "Small and medium official uncached8 versus official cached8 probabilities: max absolute difference<=2e-5, mean absolute difference<=2e-6, identical argmax. Cached repeats and independent saved-cache reloads must be byte-identical. Full cached repeats and independent compact-estimator cache regeneration must be byte-identical, including every cache tensor hash. No large uncached comparison is required.",
+  "cache_proof": "Assert three column and twelve ICL layers, full training context, all feature groups plus four CLS groups, eight total ensemble members, two classes, no row-representation cache, CPU float32. Column keys/values shape(members,features+4,8,128,16); ICL keys/values shape(members,8,train_rows,64). Fingerprint one tensor at a time. Fingerprints before/after predictions and persistence must agree.",
+  "storage": "Source inspection finds that official save(save_kv_cacheFalse) does not remove model_kv_cache_. Prove this once on the small fixture. An explicitly approved persistence-only wrapper temporarily binds model_kv_cache_=None while calling official save(save_training_dataTrue,save_model_weightsFalse,save_kv_cacheFalse), then restores the identical original cache object in finally. Assert unchanged cache tensor fingerprints. Compact files must be <=64MiB. Load compact estimator and call official _build_kv_cache() to regenerate exact cache tensors and predictions. Save full caches only for small/medium reload proof; do not duplicate the large cache on disk.",
+  "resource_gate": "Every worker RSS<=6GiB; cached fit/cache regeneration and each prediction<=300seconds. Same bound also supervises persistence operations. Full workload is exactly3000trainx166/512queries with eight members. A1200second total-worker watchdog remains. No cap relaxation. Every process must reach a verified terminal state.",
+  "phases": ["small", "medium", "small_reload", "medium_reload", "large", "large_reload"],
+  "freeze": "Freeze this plan/new script and original R45 source/acquisition/installed/read-only dependency hash bindings before any model forward. Block network during fit/predict/persistence/reload. Preserve all probabilities, context/median data, cache fingerprints, timings, file sizes and supervision records.",
+  "failure": "Any failed fixed gate rejects this configuration. No ensemble, cache, adapter, device, precision, context-size, feature-count, tolerance, or resource sweep follows. Execution bugs may be repaired only with original source/failure preserved and identical algorithm/settings. Prior R45/R48 outcomes remain unchanged.",
+  "continuation": "A pass permits only a separately frozen native protocol; it establishes no possession accuracy, new score or selected-model change.",
+  "exclusions": "No competition features/images/labels, manual annotations, private fixture targets, sealed/reserved audit, possession scores, candidate changes, dependency mutation, installations, uploads, submissions, commits, publication or external contacts."
+}

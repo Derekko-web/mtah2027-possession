@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "hypothesis": "New detector heads extend the170-column broadcast joint classifier. Replacing that classifier in selected8 may preserve ordered/raw calibration and avoid duplicating broadcast evidence in both raw and closure slots. Prior30-row protocol remains failed.",
+  "methods": [
+    "visual_presence",
+    "visual_geometry"
+  ],
+  "slot": 4,
+  "operation": "Keep all selected8arrays unchanged except broadcast_joint probability at index4;substitute each verified parent OOF array. Shared decode_motion_dead_trim with original blocks. Identity substitution must reproduce selected8 exactly. Dmap must remainexact for everycandidate.",
+  "data": "Reuse immutable parent feature caches,26fitted seed42heads and13folds. No new media,feature construction,fitting,threshold adjustment or manual frame patches.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seed": 42,
+  "rows": 9,
+  "new_fits": 0,
+  "gates": "For everyprotocol require primary>=selected8,Macro>=reference-.001,mean shortIoU>=reference,retain>=.5recall on previouslymostlyrecoveredshorts,falseD<=reference,Drecall>=reference-.02,noextra missedstoppages/noextra officialIoU.5spurious/missed;D maskexact. Buffered primary>=reference+.04 and>=1extra shortIoU.5match. At most1 unchanged finalist beforeseeds43/44;then all9paired protections,fullvalidreproducibleCSV andindependentreview. Matchedcontrol is exact identityslot substitution. No relaxed incremental objective.",
+  "input_sha256": {
+    "data/control_detector_features_v1/screen/manifest.json": "181574edf20a479fc75ea2ee7600525826b80589f01180bcf2bd65a83332b41f",
+    "data/control_detector_features_v1/inputs/manifest.json": "400d8d59fc30053c3b825ac57b0b4d3fb5004fa5b4dd0f4a385c2e5d57359e46",
+    "data/control_detector_features_v1/integrity.json": "f221810b0c6e6200504ed73bb003fc78d888eba7621b084eb8b83ec774e91622"
+  },
+  "privacy": "Local saved arrays only;no privateGT/manualannotations/hostedcompetitionextracts/commits/uploads/submissions/publication/contact. Keep everypriorcandidate,failedmethod,frozenplan andledgerrow.",
+  "limitations": "Adaptive same-match decoder follow-up,not independent evidence or verifiedmaximum/privateaccuracy."
+}

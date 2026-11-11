@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-25",
+  "round": 35,
+  "phase": "A_public_model_runtime_and_schema_feasibility",
+  "objective": "Test one genuinelydifferentball-free learnedplayer-motion source without newfits or any competition/externalobservations/labels. Usergoalcontinues untilsubstantialvalidatedgain.",
+  "rationale": "Round33/34nativeDtransferrejected (.6035balanced,visibleDrecall0); existingball-geometryownershipteacheralsorejected. ReleasedPathCRF supplies ball-free player-motion predictions; transferunknown.",
+  "repo": "https://github.com/hyunsungkim-ds/pathcrf",
+  "commit": "1b7c6f85a6b78c92e4543fde72ca2b86a933f997",
+  "license": "MPL-2.0; preserve notices and exact pinnedsource.",
+  "checkpoint": {
+    "path": "saved/140/model/state_dict_best_acc.pt",
+    "bytes": 19325114,
+    "git_blob_sha1": "f8e48952d01d6d70db986948962822478884a336",
+    "url": "https://raw.githubusercontent.com/hyunsungkim-ds/pathcrf/1b7c6f85a6b78c92e4543fde72ca2b86a933f997/saved/140/model/state_dict_best_acc.pt"
+  },
+  "choices": "Onlycheckpoint140 anditsargs/source. No othercheckpoints, selection bynative/externaltargetperformance,publicscore or candidate.",
+  "synthetic_only": "ShapeB8/T51/nodes26/features8 fromsyntheticplausible playertrajectories, team/keeperflags andoutside nodes; no sourceframe/target/media access. Inspectalgorithm first andrun label-free inference only, alltargetchannelsNone.",
+  "runtime": "Existing isolated CPUtorch2.5.0,numpy2.1.2,2threads; no installs. weights_onlyload,strictstate_dict,expected3431031parameters. PuretorchSetLSTM/CRF; sourceunconditionalPyGimportmaybereplaced bydocumented verbatim extractionofneeded puretorchhelper, preservingkeys/math andlicense. Rejectifrequireschangedmodelmath.",
+  "checks": "Pinnedsource/checkpointpublisheridentity,strictreload,repeatpredictionexact,finitecorrectshapes, documentedfeatureunits/normalization/targetfreeforward; benchmark network+boundedCRF onsyntheticwindows afterwarmup.",
+  "resource_gate": {
+    "peak_RSS_GiB_max": 2,
+    "projected_two_arms_1500_native_windows_seconds_max": 1200
+  },
+  "inference_boundary": "NeverstockwholeepisodePathCRFinference/trueballstatecuts/evaluate=True/correct_episode_lasts/targetfedchannels/unboundedinterpolation/keeperinference. A laterseparatelyfrozenadaptermustresetanddecode eachfixedlocalwindow andemitonlycenter; deriveallroster/keepers/kinematics fromboundedplayerobservations,retainselected8D/X,excludeunsupportedwindows.",
+  "continuation": "Onlyifruntime/schema/labelblindnessgatespass,freeze a separateboundednative-observation support audit beforeanycompetitionadapterfeatureprocessing. Onlyifobservationsupportpassesfreeze native signal audit, samecheckpointcenter-repeatedcontrol, no native fit. Noadvancementbasedonprivateorhumanlabels.",
+  "substantial_requirement": "No candidatepromotionuntil>=.04bufferedspellF1gain,+1shortIoU.5match,all existingsecondaryprotections,42/43/44pairedchecks,official/shared/checkpoint/prefixreplays,reproduciblefullbuildtwiceandindependentreview.",
+  "exclusions": "No newmanualannotations/privatecorrectedfixturetargets/competitionmedia/auditcontent/score/fit/commits/uploads/submission/contact inPhaseA.",
+  "initial_input_sha256": {
+    "experiments/DFL_DEAD_REPORT.md": "58bf8a96a47a24712e3f37ff1b4ee27391f5d6d7fb81ce4fae5b0d37a2ea1b23"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-25",
+  "round": 36,
+  "phase": "B_paired_external_masked_player_training",
+  "matches": [
+    "DFL-MAT-J03WMX",
+    "DFL-MAT-J03WN1",
+    "DFL-MAT-J03WOH",
+    "DFL-MAT-J03WOY",
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "splits": {
+    "train": [
+      "DFL-MAT-J03WMX",
+      "DFL-MAT-J03WN1",
+      "DFL-MAT-J03WOH",
+      "DFL-MAT-J03WOY"
+    ],
+    "development": [
+      "DFL-MAT-J03WPY"
+    ],
+    "held_out": [
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ]
+  },
+  "representation": "PlayerXYonly,normalizebydocumentedpitch to[-1,1],sourceDFLcenteredorigin translated+.5before2x-1. Finite/pitch+5validitymask,46nodeceiling,paddednodesunobserved. No ball/status/owner/IDs/clock/keeper/speedsfeatures. Poolbeforetime; exactnetwork24,321params fromruntimeplan.",
+  "corpus": "Subsampleeachhalfevery5frames to5Hz,halfreset31samples/radius15downsampled=75nativeframes. Buildallobservationviewsbeforetargetjoin. Onlycenterstatus1owner1/2 areHA targets; no truecontextsegmentation ortargetconditionedmask/filters. Traincentersstride5with15samplehalfmargin.",
+  "views": {
+    "clean": "Originalobservations",
+    "dropout": "Maskeachplayerindependentlywithp.2per10downsampledframeblock(50nativeframes).",
+    "crop": "Teamblind75x60mrectangle centereduniformlyinsidepitch per20downsampledframeblock(100nativeframes),keepinside.",
+    "burst": "Dropoutview plusonewhole-observationblackout of3..9downsampledframes atuniformvalidstart per50downsampledframeblock(250nativeframes)."
+  },
+  "noise": "All3noncleanviews add independent.2mGaussianXYnoise beforevalidity/masks; no views/noise dependontargets. Onefixedperhalf RNGseed360000+100*match_index+half_index. Saveobservations/hashes. Trainingviewsuniform4; x/yindependentreflectionBernoulli.5appliedjointwindow,labelunchanged.",
+  "sampling": "Exactly4000stepsx32centers,seed42,equalprobabilityover8trainmatchxclassbuckets thenuniformcenter. Savedsharedcenter/view/xflip/yflipschedule. Samepostcorruptioninput; framemodelrepeatscentersnapshot31times. Independentlyfittedidenticalarchitecture/initseed/optimizer/stepcount; finalweights,noearlystop.",
+  "training": {
+    "steps": 4000,
+    "batch_size": 32,
+    "seed": 42,
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "cpu_threads": 2,
+    "optimizer": "AdamW"
+  },
+  "resources": "Atmost46nodes,2CPUthreads/model,peak2GiB/model; Aprojected1648secondsfortwofits passes1800. Twoindependentfitsmayrunconcurrently(4CPUthreads total). Dropgloballyallmaskednodes frombatchusingprecontrolwindow only; samekeptnodes/shapeinbotharms, targetblind andmathematicallyneutral.",
+  "external_validation": "Cleanandonefixedmaskedviewmixturepervalidationcenter: view1+((localdownsampledindex//10)%3), includingdropout/crop/burst equally,notclean. Sameknownlivehalfmargin/observations forallarms. No reflectionatvalidation. Fixed.5 decision; no calibration/thresholdsweep. Reportallknownlivecentersincludingblackouts, bothclassrecalls,Brier/logloss. Validationpartitionsalreadyseen,reusednotuntouched.",
+  "external_gate": "Atleastonearmseparatelyinall3maskedvalidationmatches:balancedaccuracy>=.75,homerecall>=.65,awayrecall>=.65. Selectatmostoneeligiblearmbyminimum3matchbalancedaccuracydescending,thenmean3matchbalancedaccuracydescending,temporalbeforeframe ties. No nativetargets forarmchoice.",
+  "native_stage": "Onlypassingselectedexternalarmcanadvance. Separatelyfreeze rawplayerinputeligibility>=4observedplayers/teamatcenterandmeanwindow,aimcoverage>=.8ofselectedlivecenters perprotocol,31sampleboundedcontext/actualprefixproof. Thenfreeze native sourceaudit coveringall17possessions/allshort/unmatched/spurious. No publicfittingbefore rawcorrectionprecision/newshortopportunitygatepasses.",
+  "ultimate_requirement": ">=.04bufferedspellF1gain,+1shortIoU.5match,alloriginalsecondary/recovery/Dprotections,3protocolsx42/43/44,official/shared/checkpoint/inputreplays,reproduciblefullbuildtwiceandindependentreview.",
+  "caveat": "Originalcompactmodelunproven; missingnessmixturedoesnotreproduceallnativeerrors; directDFLcontrolmaydifferduringlooseball/restarts. Newexperiment,notPathCRFcheckpointrelaxation.",
+  "input_sha256": {
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_firstHalf.npz": "3bcfde5984ada60ca81561161da5c43174557b50fc0f7867cb169b4765648199",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_secondHalf.npz": "01b6447bc4ea597100ba6020bb53d3e046248dd987c9e44805e72267a6c15ba8",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_firstHalf.npz": "7b2064c32931cc08f961813c2e6dee93953579fad345a94a832aca30d5423231",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_secondHalf.npz": "fe393ffb32d8b48c4467bf43981bed8fbb7658910a29b20418c7ddb88dfbc2d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_firstHalf.npz": "6f3963a0fb984ca5d2aa7c7f4cd6158782cc6780595c05ed6c9aa0e09dc9f0be",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_secondHalf.npz": "6a486fc3b6e853acdedb93fe0c02a37132567bc659e89c4a4beeff649da2bc12",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_firstHalf.npz": "088169495cff493bc975202355f8fc08a1da10f05fad6d90ff5b5faef5f01339",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_secondHalf.npz": "e7a36fcdb25f67ece233bf3936f2084a3d2316f6ed1c6c2a0e49436269378e45",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_firstHalf.npz": "840caa66e8125dbbcd90bc67038233f0074cdef392ed6ae8973ed8cc17bafdc4",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_secondHalf.npz": "009969618cb425f46a4afd09570f5ab6186899398dfd85eaf16135f2cad9f564",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_firstHalf.npz": "0750ed60ee1e655211af83bffaef773b601ab77a291bc4e9d6f09f8a66e1dcba",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_secondHalf.npz": "9504acca2307c2f58b6116ce93a74e5e31fcc52af47efd251dea726c241d5f59",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_firstHalf.npz": "45911dd31489a5d56afa05dfd4a31f13148e91c202d89a881581daeb9ddcb6d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_secondHalf.npz": "d36024a14473c7e74d7f097ca2f4c531b6b76537829c17a47af0a9cff7e11a02",
+    "data/control_dfl_transfer_v1/assessment_A/plan.json": "0ab248d00f1c9e4259a59d0191d46211bb0d12dfff7a8f645b9e4b9e743d533f",
+    "data/control_dfl_transfer_v1/assessment_A/summary.json": "ece597bcc0ab2d2809abf67464af5962657a21a067dc87524fc43c47ea53b3cb",
+    "data/control_dfl_transfer_v1/assessment_A/manifest.json": "f31d5d588d37b55c0ec3debd92bec5fe4b33c66af2659e483326ace1d0335677",
+    "data/control_masked_player_v1/synthetic/summary.json": "3bfc017a298952e62fa3f24eb1137c8fc995f403bea561ad5b55ce8c1d655dcc",
+    "experiments/MASKED_PLAYER_RUNTIME_PLAN.json": "3fb9848ae5a881c69ded5154ac1d09055c191986ec7bae2f0f1b26f7b4f1e9a2"
+  }
+}

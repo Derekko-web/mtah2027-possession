@@ -1,0 +1,84 @@
+{
+  "acquisition_sha256": "24664cab1dc4a65be398033f3d15b3f22fc1f5c38c0b28b0f4d138982c5351a4",
+  "author_deviations": "Fixed final200epochs/no best-validation/earlystopping, exactsigned-orbittied statistics, CPU2 and fixed streams. No architectural,numericalforward,gradient,candidate exclusion,sampling,loss,optimizer or precision changes.",
+  "commands": {
+    "freeze_root_only_after_review": ".venv/bin/python -B experiments/modernnca_isolated_runtime_gate.py --freeze",
+    "preflight": ".venv/bin/python -B experiments/modernnca_isolated_runtime_gate.py --preflight",
+    "puretests": ".venv/bin/python -B -m unittest discover -s experiments -p test_modernnca_isolated_runtime.py -v",
+    "run_root_only_after_resource_schedule": ".venv/bin/python -B experiments/modernnca_isolated_runtime_gate.py",
+    "verify_after_freeze": ".venv/bin/python -B experiments/modernnca_isolated_runtime_gate.py --verify"
+  },
+  "date": "2026-10-31",
+  "determinism": "Python42/NumPyglobal43/Torch44; invented NumPydefault_rng640042; hashseed0; fixedTorch2+interop2+BLAS2; deterministic algorithmsTrue; oneworker at a time. Separatefreshprocess full200epochrefit for eachshape. Require exact tensorstate records, all minibatch/epochlosses, recipe and canonical original/swapped/symmetrized probabilityarrays; do not compare Torcharchive container bytes.",
+  "external_change": {
+    "new_interpreter_sha256": "ab9c532a75ce81eb96562bda04138e7a0b7528bd242c82a436ebeb1405aa361f",
+    "old_R64_results": "Retained historical pass; current strict verifier fails old interpreter binding. This new round must pass independently.",
+    "old_interpreter_sha256": "d59f5251bce588951dc870bde45f0cd93de39327b1ed2431a8d26bfb567aac10",
+    "only_mismatch_in_old_runtime_files": true,
+    "same_version": "3.12.14"
+  },
+  "failure": "Stop at first failed stage and retain logs/supervision/artifacts. Abortedworker never passes even if summary exists. No retry intoexistingoutput and no configuration fallback. A syntheticpass gives no possession-score evidence or nativeauthorization.",
+  "future_native": "Only allfourstagespass may motivate independently reviewed new13fold nativeplan using unchanged exact166features/R54cap/selected8decoder+D/Xoverlay. Must strictly beat .7542857142857143 and all selected8 guards; seed43/44confirmations, exactindependentreplay/public-fullparity/two199319CSVbuilds/validator/review precede promotion. No native work inR64.",
+  "immutability": "Before/after fingerprint all raw/preprocessed inventedarrays, context/targetTorch tensors and fitted modelstate. Read-only NumPyarrays and copy tensors. Freeze exact authorfiles, sourcebasis, runtimehashes/symlinks; no old source/dependency edits.",
+  "interpreter_sha256": "ab9c532a75ce81eb96562bda04138e7a0b7528bd242c82a436ebeb1405aa361f",
+  "isolated_runtime_acquisition_sha256": "e50d6e8a6b5c3464e745b1250805bda0ef36ef7603e5c6df815fe392390b5f6c",
+  "isolated_venv_configuration_sha256": {
+    "head_runtime": "46594e49c80d3200f584e8c779658ed09aa515e546a9c8cda0033f6451eab87b",
+    "torch25_runtime": "e85a800150e8ffd8a668a918c0012ef4c642b13f555c626959a5d4b5c48c7b99"
+  },
+  "learning": "Default PLRlite77frequencies/.04431360576139521/embedding34;dim128;n_blocks0;declaredinactive d_block512/dropout.1;temperature1;sample_rate.5. AdamWlr.01weight_decay.0002, batch1024, float64CPU. Exactly200completeepochs finalcheckpoint only. All remainingnonbatch candidates eligiblebefore uniform.5 sampling; batch appended withselfdiagonalmasked. Inference all trainingneighbors, no querylabels.",
+  "native_cap_scope": "3000 is the existing R54 augmented-row cap;6000 originalframes is NOT this interface. There is no6000 gate, new native context size, context subsampling search or native plan.",
+  "original_runtime_manifest": "data/control_tabpfn_mps_v1/protocol_freeze/implementation.json",
+  "preprocessing": "Projectchoice vs authorStandardScaler: train-only mean imputation/empty0 and populationstandardscale/constant1, tied by signed involution orbits. Compute mean/scale once for representative augmented-context column and assign sign-correct counterpart, force0mean for self-negativeorbit. This avoids floating reduction-order asymmetry. No full/query statistics.166columns retained; NaNs, pairedall-empty/constantcolumns included.",
+  "preservation": "Old frozenPython/scientific trees, selected8/all17artifacts/source symlinks, ledger and failedR54/R56/R57/R59/R60/R62 remain untouched. No private/manual/sealeddata, images, hostedinference, commits, uploads, submission, publishing or messages.",
+  "queries": "Canonical512rows ascending, lastqueryrepeatedpadding discarded, rawlog(prob+1e-7) converted by softmax; H0/A1. Independent swapped/original repeatcalls establish exact final symmetrizationequivariance; first512repeat afterallcalls; strictcheckpointreload canonicalprobabilityexact. Prefix8/reverse512 diagnostic only, no selection.",
+  "query_shapes": {
+    "full": [
+      512,
+      166
+    ],
+    "moderate": [
+      513,
+      166
+    ]
+  },
+  "repair_manifest": "data/control_tabpfn_mps_loader_repair_v1/repair_manifest.json",
+  "repair_symlinks": "data/control_tabpfn_mps_loader_repair_v1/protocol_freeze/symlinks.json",
+  "resource_amendment": "Prospectively root-authorized BEFOREany ModernNCA measurement: fit1800s rather than prior researchnote300s, prediction300s, worker2400s,RSS6GiB,CPU2. Whole200epoch fits actually measured. No initial short timingprojection can reject/accept; no time/precision/epoch/backend waiver after outcome. Existingnote remains unchanged.",
+  "resources": {
+    "cpu_threads": 2,
+    "fit_seconds": 1800,
+    "prediction_seconds": 300,
+    "rss_bytes": 6442450944,
+    "worker_seconds": 2400,
+    "workers": 1
+  },
+  "root_review_required": true,
+  "round": 69,
+  "runtime": "Isolated project-local Python executable and stdlib. Same read-only repaired Torch2.15/NumPy2.1.2 wheels and all source/model/numerical settings; -B -P -S prevents host site-packages. No host-runtime mutation.",
+  "runtime_reference_sha256": {
+    "data/control_tabpfn_mps_loader_repair_v1/protocol_freeze/implementation.json": "fc950d83486b4e46e7cec81ea131ba48e65fd84eedf7c0816a0e855485c78ee0",
+    "data/control_tabpfn_mps_loader_repair_v1/protocol_freeze/symlinks.json": "5f8c1e155b2d6c090b4619cc6d706fd9662ea2767074820d02611edba1a31253",
+    "data/control_tabpfn_mps_loader_repair_v1/repair_manifest.json": "ca6f0f1419bf4a4c9f3b8f00fb6afd409ff45ce79bc3ab4c106acaeed3fa93b8",
+    "data/control_tabpfn_mps_v1/protocol_freeze/implementation.json": "52a77dadc02c8ba595e2a7423c7009bceb741846498b20ce7b2f930dcfaeb389"
+  },
+  "scope": "Repeat all four original invented-data stages under the isolated current interpreter; no native inputs, no new method or parameter search.",
+  "source": "Exact nine acquired author text files bound in acquisition.json; TALENT39b54024902955e51063a34bce17d514cd68ff42 and upstreamTabR17baa9082506f8e7a0f8d11bb1e08212926a1507. No toolkit install. Exact model/helper modules; exact extracted make_random_batches/train_epoch/Averager definitions.",
+  "stage": "isolated_python_revalidation_same_ModernNCA",
+  "swap": "Exact166-column R54 rich_features.swap_teams primitive and R37 latent names reconstructed only from builder source using stdlibsentinels. Source primitive permutes h__/a__ columns and leaves24shared columns; all signs+1, no invented signflips. A separate4column invented signed-involution fixture checks generalized preprocessing without changing actualschema.",
+  "synthetic_shapes": {
+    "full": [
+      3000,
+      166
+    ],
+    "moderate": [
+      64,
+      166
+    ]
+  },
+  "unchanged_numerical_base": {
+    "functions": "All learner/training/preprocessing/initialization/prediction/resource supervision functions exactly retained; only new output/plan/interpreter/test identity and isolated-runtime provenance binding.",
+    "sha256": "ecfc2ed97ebe9277c78995dcfb29543ba363ffc1b8ad66e84fda63c3e09f05d5",
+    "source": "experiments/modernnca_runtime_gate.py"
+  }
+}

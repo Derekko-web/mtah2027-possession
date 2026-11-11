@@ -1,0 +1,70 @@
+{
+  "audit": "Temporary fit observer checks exact original rawX/y fingerprints and expected ordered inner0/1/2/final calls; no outputpath/audit attributes in estimator state. Temporary decision observer checks exactly3 genuine author OOF margin calls with correct held-out rawX. Retain all3inner plus final Pipeline pickles, explicit imputer/scaler/SVC records and every full estimator __dict__, allactualOOFmargins, fitted sigmoid coefficients and complete CalibratedClassifierCV state including unfitted template. Fullstate fingerprints before/after prediction and reload; exact semantic arrays/config rather than pickle container bytes. No extra debug fits.",
+  "calibration": "Author CalibratedClassifierCV(method=sigmoid, cv=explicit3purgedsplits, ensemble=False, n_jobs1). Construct3 chronological original-row chunks with array_split sizes; original frames separated5 actual frames. Purge all training centers whose actual frame distance to any validation center <=250, before mirrored augmentation; original and swapped mates always share role. Validation indices partition augmented rows. Empty groups/training sets reject without fallback. Three discarded inner SVCs plus one final SVC; one final classifier/calibrator at prediction.",
+  "commands": {
+    "freeze_root_only_after_review": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/kernel_svm_runtime_gate.py --freeze",
+    "preflight_source_only": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/kernel_svm_runtime_gate.py --preflight",
+    "prepare_source_only_once": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/kernel_svm_runtime_gate.py --prepare-metadata",
+    "pure_tests": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S -m unittest discover -s experiments -p test_kernel_svm_source_contract.py -v",
+    "run_only_after_root_resource_admission": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/kernel_svm_runtime_gate.py --run",
+    "verify_source_only_after_freeze": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/kernel_svm_runtime_gate.py --verify"
+  },
+  "date": "2026-10-31",
+  "determinism": "No RNG-dependent SVC fit/calibration protocol: classifier seed42 is fixed; source data generator720042; hashseed0; one BLAS/OpenMP thread; fixed call/order/shape and explicit inner indices. Independent fresh-process complete refit at moderate/full must reproduce every actual inner/final learned state, OOF margin, recipe and canonical probability byte. A future seed43/44 head can be identical; seed-matched selected8 other inputs and all9 protocol/seed pair guards still apply. Never select a best seed.",
+  "failure": "Stop after first failed stage. Require exactly all four named stages and complete fresh refits; no missing/duplicate stage can pass. External supervisor independently enforces RSS/operation/worker bounds. Resource-aborted/nonzero workers cannot pass an existing success summary. No retries into existing output, resource waiver or learner/precision/context fallback.",
+  "future_native": "A passing invented gate is technical evidence only and starts no native processing. Any later native freeze must retain exact immutable166 features, corrected full+/-79 encoder footprint admissibility beforeH/Ajoin,250frame outer purge, existing5Hz context/cap, complete six probability slots and finalD/Xoverlay. Replace slot0 only; remaining five slots exact. Main bufferedspellF1 must strictly exceed R37 .7542857142857143 and every selected8 guard. All9seed42/43/44 protocolpairs, complete independent replay, actualpublic/fullparity,twoidentical199319CSVbuilds,validator and independent review precede promotion.",
+  "invented_generation": "np.random.default_rng720042,300/1500 original contiguous5Hz centers at invented frame72000000 onward, append exact swapped copies with complementedH/A labels. Trainlabels from original distance difference before missingness corruption. Generate7500 independent feature-only queries; never generate query labels or accuracy scores. Raw arrays become read-only and all byte fingerprints must remain exact.",
+  "learning": "One RBF C-SVC: C1.0, gamma scale, shrinkingTrue, tol1e-3, cache200MB, max_iter-1 with external300s limit, class_weightNone, random_state42, binaryH0/A1. Omit probability parameter at pinned1.9.1 deprecated default and require effectiveFalse for every actual fit. No hidden random CV, C/gamma search, early stopping or held-out checkpoint selection.",
+  "metadata_sha256": {
+    "data/control_kernel_svm_runtime_v1/runtime_manifest.json": "25117aa192d4625e3cdbc45ae45cab992508fb1ce4beabc1f768935b3492e839",
+    "data/control_kernel_svm_runtime_v1/runtime_symlinks.json": "cd3043819dd05f0204046e5e85007b5e2f71d3939974efd7197a6b4ce337b9c1",
+    "data/control_kernel_svm_runtime_v1/source_metadata.json": "474061797e8246c76be4f9e95fc0c9b1b32dae5b19dbf3cecb5cdd13d3b858b5"
+  },
+  "preprocessing": "166Cfloat64 raw columns with NaNs/positive-negative infinity, paired all-empty and constant columns. Pipeline INSIDE calibration: FunctionTransformer(np.nan_to_num,kw_args={copy:True,nan:NaN,posinf:NaN,neginf:NaN},validate=False), SimpleImputer(median,add_indicatorFalse,keep_empty_featuresTrue), StandardScaler(), SVC. Every actual inner fit learns imputer/scaler from its own purged inner training rows only; final fit uses full permitted invented training pool. No preimputation using outer/inner held-out observations.",
+  "queries": "7500query rows per shape; canonical512rows ascending, repeat last real row for final padding then discard padded outputs. Original and swapped queries, average full two-column probabilities after swapping columns back. First canonical original/swapped calls repeated independently after all queries, strict vector symmetry, diagnostic8prefix/reverse512 only; no selection from diagnostics. Complete checkpoint reload repeats all canonical original/swapped queries exactly. All this belongs to one <300s query operation.",
+  "resource_admission": "Before scientific imports or any worker launch require new root resource_admission.json: approved_for_model_callsTrue,scopeinvented_only_r72,predecessor_r65_closed_or_passedTrue,other_model_workers_stoppedTrue,freeze_sha256 matching reviewed protocol_freeze/freeze.json. Preparation/preflight/tests do not grant this admission.",
+  "resources": {
+    "cpu_threads": 1,
+    "fit_seconds": 300,
+    "prediction_seconds": 300,
+    "rss_bytes": 6442450944,
+    "worker_seconds": 900,
+    "workers": 1
+  },
+  "root_review_required": true,
+  "round": 72,
+  "runtime": "Read-only private data/control_isolated_python_v1/head_runtime/bin/python with -B -P -S for workers (source-only preparation may use -I -S); explicitly isolated sys.path admits its existing read-only site-packages target and copied private Python3.12 stdlib only. Hash entire significant private Python/head-runtime/acquisition and existing site-packages trees, including binaries and symlink targets. No Torch. Network blocked during workers; one numerical thread and one worker. Worker must verify active private base prefix and resolved executable, -P/-S/-B, ignore_environmentFalse and hash_randomizationFalse before scientific imports. Inherited PYTHON* path redirects are removed before the exact fixed environment is set.",
+  "runtime_guard_amendment": "Preserved initial source-only draft under before_runtime_guard. The initial -I worker flag would ignore PYTHONHASHSEED=0; no model or freeze occurred. Use -P -S -B, active-private-identity/effective-flag assertions, clean environment and pure rejection fixtures. Scientific SVC/calibration/preprocessing/query/replay functions unchanged.",
+  "scope": "Source preparation now; no scientific imports, model calls or freeze until independent final-source review. Four sequential workers only after separate root resource admission following R65 closure/pass. No native arrays, labels, possession scoring, private/manual/sealed data, pretrained weights, installations, old source/runtime edits, external messages, commits, uploads or submissions.",
+  "source": "Unchanged installed scikit-learn1.9.1 author source at 866c0f51e7560ef0303cbcc5f159df5382ea9e3f. Exact author CalibratedClassifierCV fit/cross_val_predict/sigmoid/finalclone path; temporary Pipeline.fit and decision_function observers delegate original methods, preserving wrapped names, inputs and mathematics. No installed source change or private calibration reimplementation.",
+  "stage": "invented_only_rbf_svc_purged_calibration_runtime_gate",
+  "stages": [
+    [
+      "moderate",
+      "first"
+    ],
+    [
+      "moderate",
+      "rebuild"
+    ],
+    [
+      "full",
+      "first"
+    ],
+    [
+      "full",
+      "rebuild"
+    ]
+  ],
+  "swap": "Use exact unchanged modernnca_schema_contract.py stdlib AST/sentinel extractor, binding it and seven original builder source hashes. Schema is original102 plus R37latent64, exact rich_features.swap_teams h__/a__ permutation;166columns,24shared,all signs+1. No synthetic sign-flip presented as actual schema. No native data or feature cache loaded.",
+  "synthetic_shapes": {
+    "full": [
+      3000,
+      166
+    ],
+    "moderate": [
+      600,
+      166
+    ]
+  }
+}

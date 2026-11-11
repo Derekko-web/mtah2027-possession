@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-25",
+  "round": 39,
+  "phase": "B_external_relative_ball_context",
+  "matches": [
+    "DFL-MAT-J03WMX",
+    "DFL-MAT-J03WN1",
+    "DFL-MAT-J03WOH",
+    "DFL-MAT-J03WOY",
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "splits": {
+    "train": [
+      "DFL-MAT-J03WMX",
+      "DFL-MAT-J03WN1",
+      "DFL-MAT-J03WOH",
+      "DFL-MAT-J03WOY"
+    ],
+    "development": [
+      "DFL-MAT-J03WPY"
+    ],
+    "held_out": [
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ]
+  },
+  "validation_matches": [
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "source": "Existing7publicDFL directowner matches, historical4train/1dev/2test partition reused transparently. All R36 player XY/masks/groups/half boundaries and4000x32 equal-match/class center/view/reflection schedule unchanged. Training centers60,259,validation50,148,liveowner target H=1,A=0;no BallStatus input or status-conditioned contextcut.",
+  "ball_observations": "DFL actual ballXY normalized by metadata;4views built/hashed before target access. Perhalf fixedseed390000+100matchindex+halfindex. Clean unchanged. View1:block10downsampleframes(2s)dropout.35,Gaussian.5m;view2:dropout.35,noise1m andballinside observed-player boundingrectangle expanded.2 normalizedunits;view3:dropout.5,noise1m,20%blocks shiftball byuniform5..15m atuniformangle. Allviews finite andfieldbounds[-5,pitch+5],someplayerobserved. No trueowner/status in corruption. No nativecondition calibration.",
+  "architecture": "A passed24,417params,5-featureplayerstem XY+relativeballXY+ballobserved; originalmaskedattention/teammean-countpool/sharedantisymmetric31sampletemporalnetwork. Ballarm vs identicalcapacity masked-ballarm, sameinitialization(seed42),schedule,optimizer and budgets; onlythreeballfeatures differ. Both fitted fromscratch. No native/publiccompetition targets.",
+  "training": {
+    "steps": 4000,
+    "batch_size": 32,
+    "seed": 42,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "grad_clip": 1,
+    "threads": 2
+  },
+  "external_inference": "All fixed clean/maskedvalidationcenters, canonicalB64padlast/N46, no datadependentnode-trim duringvalidation. Maskedview1+((localdownsampleframe//10)%3), identicalR36. Strictcheckpointreload byteexact probabilities. No checkpoints/epochs selected.",
+  "gate": "InEVERYWPY/WQQ/WR9 maskedmatch: ballbalancedaccuracy>=.80,bothclassrecalls>=.70,ballbalancedaccuracy>=matchedmaskedcontrol+.02. All4000stepsandmodelcounts equal,strictreload/provenance/resourcegates pass. Failureclosesball-contextsource model without epoch/noise/architecturethresholdsweeps.",
+  "resources": "ExistingTorch2.5.0CPU2threads,peak<=2GiB/model. A measured.236s/step,projected1889seconds forboth4000fits below2400. R38independentpublicdetectoraudit mayoverlap, no R38outputs/features/targets used here.",
+  "continuation": "Only externalpass permits separatelyfrozennativeinput/interface/opportunityplan before native modelprocessing/targetjoin. RawXYonlyprovided data, no newmanualannotation. Originalsubstantial+.04/+1short,allsecondaryprotections,allseeds/protocols,replays/fullbuildtwice/review unchanged.",
+  "input_sha256": {
+    "data/control_masked_player_v1/corpus/observed.npy": "769b4859ea036d501d43e2ff5a29533d302b780a815b15d8eb2a587a359b8bed",
+    "data/control_masked_player_v1/corpus/half_id.npy": "fa9bf51b7f7b2fe8f69cb6de70519691612379f919e66de8324775a0c9b74fd9",
+    "data/control_masked_player_v1/corpus/labels.npy": "ea347476fd7ac5b95bfc33f6822aa500c66f0abef16ccae429f466edf9871098",
+    "data/control_masked_player_v1/corpus/xy.npy": "1e8982ffce29de92148d7143f97d8ebf38347039f6360ad5396e79c3d3eece2b",
+    "data/control_masked_player_v1/corpus/teams.npy": "877a1504c21f2becfc4bdff9439331c2827574116f116ba24ca822072a56cf98",
+    "data/control_masked_player_v1/corpus/segments.json": "847e18832a5848bd6c70bfee0c2b8e04dd5770d3344ad3c0410f0f4fcaae12e1",
+    "data/control_masked_player_v1/corpus/schedule.npz": "dd7b247a1a0189b09dea646de02d7ddd73be1cd27405e4123b0f8b32d9b6f59d",
+    "data/control_masked_player_v1/corpus/validation.npz": "d36b2adb4f27a1b733ee2544caabb8ad3e7dd650057fe5d210662d1225e457d5",
+    "data/control_masked_player_v1/corpus/observations_before_targets.json": "50ae43d4ef08f54f809d85b1f571485c1aafa53037ac5fd20a43bcb5346dde27",
+    "data/control_masked_player_v1/corpus/manifest.json": "c598e47e68a070d8a6ca2250a4bbebadc5c15baf27649f958f7eba8729948075",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_firstHalf.npz": "3bcfde5984ada60ca81561161da5c43174557b50fc0f7867cb169b4765648199",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_secondHalf.npz": "01b6447bc4ea597100ba6020bb53d3e046248dd987c9e44805e72267a6c15ba8",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_firstHalf.npz": "7b2064c32931cc08f961813c2e6dee93953579fad345a94a832aca30d5423231",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_secondHalf.npz": "fe393ffb32d8b48c4467bf43981bed8fbb7658910a29b20418c7ddb88dfbc2d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_firstHalf.npz": "6f3963a0fb984ca5d2aa7c7f4cd6158782cc6780595c05ed6c9aa0e09dc9f0be",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_secondHalf.npz": "6a486fc3b6e853acdedb93fe0c02a37132567bc659e89c4a4beeff649da2bc12",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_firstHalf.npz": "088169495cff493bc975202355f8fc08a1da10f05fad6d90ff5b5faef5f01339",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_secondHalf.npz": "e7a36fcdb25f67ece233bf3936f2084a3d2316f6ed1c6c2a0e49436269378e45",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_firstHalf.npz": "840caa66e8125dbbcd90bc67038233f0074cdef392ed6ae8973ed8cc17bafdc4",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_secondHalf.npz": "009969618cb425f46a4afd09570f5ab6186899398dfd85eaf16135f2cad9f564",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_firstHalf.npz": "0750ed60ee1e655211af83bffaef773b601ab77a291bc4e9d6f09f8a66e1dcba",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_secondHalf.npz": "9504acca2307c2f58b6116ce93a74e5e31fcc52af47efd251dea726c241d5f59",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_firstHalf.npz": "45911dd31489a5d56afa05dfd4a31f13148e91c202d89a881581daeb9ddcb6d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_secondHalf.npz": "d36024a14473c7e74d7f097ca2f4c531b6b76537829c17a47af0a9cff7e11a02",
+    "experiments/BALL_CONTEXT_RUNTIME_PLAN.json": "3f8e31a05cbb41f080099d3700a0f9ad6f62fc1f1cd1a4cae4476fa75b5bb0bc",
+    "data/control_ball_context_v1/synthetic/summary.json": "5dc8be35f3a8f1f99d135c5cade567eac9a95eae372c8ad009457b15d8d95d8f"
+  }
+}

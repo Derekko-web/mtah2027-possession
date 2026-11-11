@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-25",
+  "round": 35,
+  "phase": "C_paired_native_player_motion_signal_audit",
+  "chronology": "Frozen after runtime/targetblindobservationsupport passes, before native modeloutputs or targetconditioned PathCRFmetrics. Same17publicpossessionsadaptivelyreused,notindependentvalidation.",
+  "checkpoint": "Onlyfixed140dynamicmasked,exactPhaseAweights/source; nofit/refit/alternatecheckpoint.",
+  "arms": {
+    "temporal": "Actual51samplewindow",
+    "repeat": "Repeatcenter complete8-feature snapshot51times; same sourcecenter/roles/eligiblewindows/weights/CRF. Instantaneousderivedmotionretained; mechanisticinferenceablation,nottrainedmatchedmodel."
+  },
+  "inference": "AlltargetchannelsNone. IndependentwindowforwardandCRF,last_node_idxNone,centeronly. No true episode/state/initializer. Save immutablemodeloutputs beforetargetjoin.",
+  "ownership": "CenterViterbiedgesenderteam retainscontrolinflight,outsidesenderunsupported. Confidence rawemissionsoftmax(valid576edges) senderteam sums: outside<=.10, chosensender conditionalHA mass>=.65. Theseareemission supports,notCRFposteriororcalibratedprobabilities.",
+  "mapping": "Uniformcentersstride5. Mapqualifiedcenterteamtocell[c-2,c+2],clippedpublic. Forconservative diagnostic overlay require>=3consecutivequalifiedsame-labelcenters(step5); referenceD/X exact,unsupportedreferencekept. No smoothing/proposalvariant.",
+  "diagnostics": "Coverall17publicpossessions,all6shorts,all4oldmissesandallspuriouscases; unsupportedkeptindenominators. RawcenterHAstats,confidentcorrectionC/referencecorrectdamageH,casecoverage,originalvsdiagnosticoverlayIoU.5matching. No officialpossessionF1orledgerrows inthisaudit.",
+  "signal_gate": "Foronearmseparatelyineveryprotocol:supportedtrue-livebalancedaccuracy>=.70,C>=25,C/(C+H)>=.55,C-H>=25; diagnostic overlaymustaddatleastonecommonoriginallyunmatchedshortIoU.5caseacrossall3protocols,retainallpriorGTmatchesandhavenoextraspurious. Undefinedfails.",
+  "arm_selection": "Atmostonepassingarm:commonnewshortcountdescending,minimumprotocolnetcorrectiondescending,temporalbefore repeatonties. Controlcomparisonreported; temporaladvantageisnotrequiredifrepeatarmitselfpassesallgates.",
+  "continuation": "Passonlyjustifiesone separatelyfrozeninferenceintegrationofficialscore/43/44confirmation experiment. Nopromotionwithout>=.04bufferedspellF1gain,+1shortmatch,allprotections,replays,fullbuildtwiceandindependentreview. AnyfailedconjunctionstopsPathCRFcheckpointavenue;norelaxedroster,threshold,window,keeperorcheckpointsearch.",
+  "source_and_prefix": "Additionalvalidwitnessfeature rebuildsfrombothactualprefixes andteamrenaminginvariance before model. Independentfresh support/input/model/metricreplays required. OriginalD/Xandbaselineidentities exact.",
+  "input_sha256": {
+    "data/control_pathcrf_v1/observation_support/summary.json": "218d11f8e00336171568cd2c0b55685bb5d4af1bb9206297e75e01fd1c8b4f4a",
+    "data/control_pathcrf_v1/observation_support/frames.npy": "8031797983e4f62f5216cb1ca001afb03741ed2cf46b72747f8fb93757ccdfd9",
+    "data/control_pathcrf_v1/observation_support/windows.npy": "e363cfe901b38692738f3a75930a1a2414d198d2c1eb46a82907aa5546b4a572",
+    "data/control_pathcrf_v1/observation_support/buffered_100_seconds_eligible_frames.npy": "8031797983e4f62f5216cb1ca001afb03741ed2cf46b72747f8fb93757ccdfd9",
+    "data/control_pathcrf_v1/observation_support/buffered_minutes_eligible_frames.npy": "6ab8b71a055b7fdd3bb32e7483b5d5480252a697e5b7027169a130ad9409761c",
+    "data/control_pathcrf_v1/observation_support/manifest.json": "7f965d06e3bc8f3f7355866094cc18b7133c2775d41e7d4a2a255ea3132e9c2a",
+    "data/control_pathcrf_v1/observation_support/purged_spells_eligible_frames.npy": "d5d0279529b3efb6e5146eaaacc248eea86bad5609ecaa589a481a0092b805ec",
+    "data/control_pathcrf_v1/observation_support/left_team_is_home.npy": "ba4977b0e4a00036483508eba2a34b266e5bb5e0504bcea37c59c073348efea6",
+    "data/control_pathcrf_v1/source_manifest.json": "1b7f7eb038cb4601584320d2129c3312ed983bfe205e73da472bfa52f3bbe6d7",
+    "data/control_pathcrf_v1/runtime_source_manifest.json": "5c5e496b679a2a930bc4c7f1dd14b8a0e9821b9bab463fe5ce73782b4cd98290",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "data/control_dfl_dead_v1/public_trial/buffered_minutes/oof_predictions.csv": "209dc3d7098cd0733e84b1e7e018620bb54835795c63eacd21284e7db9fa9a1f",
+    "data/control_dfl_dead_v1/public_trial/purged_spells/oof_predictions.csv": "64cd6d80ef17a98183988612a939dbcc46b0cfebd25ec5930922d00d95ee029d",
+    "data/control_dfl_dead_v1/public_trial/buffered_100_seconds/oof_predictions.csv": "f0dfc08d3643cc0d986e5def2cc16fe84d51d7060434141085cfafeb27769fcf"
+  }
+}

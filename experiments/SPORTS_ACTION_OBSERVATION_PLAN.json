@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "hypothesis": "Football-specific pretrained event/side features may supply missing control-change evidence. Treat every output as fallible features,never correctedtracking or possessiontruth. Runtime-only success remains separate from accuracy.",
+  "sampling": "Native tacticalvideo,globalcenters11000..18950inclusive every50frames(mod50=0). Each100-frameclip usescenter-100+2*arange100. Requirewholeclipwithinofficialhalf andsourceprefix. Exclude anyclipintersectingreserved24windows+/-250orheld60weakballframes+/-250. No target-basedreplacement. Futurefull-matchscheduleusesidenticalglobalgridandhalfguard.",
+  "video": "Pinnedoriginal tacticalvideo,25fps1920x1080start0;localffmpegaccurateseek,selectneeded2-framegrid,scale796x448bilinear,RGBuint8. Streambounded100framebuffer;3fixedsourceframes mustmatchindependentaccurateseekpixelbytes. Neverdisplay/save/uploadframes.",
+  "network": "Useisolatedpinnedruntime/MPSfloat32,per-processmemoryfraction.6,CPUthreads2,same600-entrystrictcheckpoint. Disablepretraineddownloads,denyPythonnetworkconnectionsduringload/inference. NoWandB/trainingentrypoint. Saveonlylocalrawheadarrays,inputhashes,schedule/provenance,progress andaggregatecounts.",
+  "outputs": "Raw100x31jointlogits,100team/displacementheads perclip. First13softmax arebackground+12actions inofficialclassfile order. No learned/officialdisplacementscatter is applied. SideoutputisnotdirectH/Atruth.",
+  "dense": "Forframefchooseclosestavailableclipcenterwithin25frames,tieearlier. Linearlyinterpolateitsadjacent2-frame outputsforoddframes. No across-clip interpolation or fillingbeyond25. MissingremainNaN/seen0. Sourceinputreach<=125nativeframes.",
+  "features": "events_only:13probs,eventmax,entropy,displacement,seen;all12actions+eventmax addfixedpast/future25/50meansandmaxima. events_actor addsharedqRight andgeometryseen;perteamvisibleplayerfootmedianimagex relativetoopponentmedian/width,fallibleactorprob viawhichmedianisleft,qRight,12actorweightedactionprobs,andactorprob*eventmax withpast/future25/50mean/max. Geometrysameframe only,>=3visibleplayersperteam,Herror<=1,medianseparation>=10pixels. Teamlabelswapexchangesallh__/a__fields. These arefeatures,notteamrelabeling.",
+  "footprint": "Closestclip<=25+input100+summary50=175sourceframes;inside250targetbuffer. Halfboundaries honored. Actual18935vs19060featureconstructionmustmatchall7500publicrowsbitexact;prefixdropsclipswhoseinputend>=18935.",
+  "support": "Beforepublictargetloading require>=5000/7500publicframesobserved and>=25nonbackgroundmax localpeaks>=.3 separated25frames. Reportvariation/entropy. Thesearesupport,notactionaccuracy. Failurestopsthisprotocolbeforefitting/densefullmatch. events_actoronlyeligibleifpublicgeometrycoverage>=.5;otherwisepredeclared events_onlyscreenwith13newfits/21rows.",
+  "fitting": "Reusefit_renewal frameobjective depth3/160trees seed42 withteam-symmetricfitting/prediction,eligibletrainlabelsonly,250targetbuffer. Matchedcontrol existing170columnBCjointOOF. events_only=170+eventfeatures;events_actor=170+allfeatures. Saveactualtargets/weights/indices. No calibration/tuning/earlystopping.",
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "heads": [
+      "events_only",
+      "events_actor"
+    ],
+    "decoders": [
+      "replace_current",
+      "live_replace",
+      "dead_trim"
+    ],
+    "maximum_rows": 30,
+    "maximum_new_fits": 26,
+    "conditional_rows": "3selectedreferences+9matchedcontrols+9pereligiblehead;13fitspereligiblehead"
+  },
+  "promotion": "Freezeatmost1unchangedfinalistbefore43/44. Everyprotocolprimary>=selected8andmatchedsame-decodercontrol,Macro>=reference-.001,meanshortIoU>=reference,retainpreviously>=.5shortrecall,falseD<=reference,Drecall>=reference-.02,noextramissedstoppagesorofficialIoU.5spurious/missed. Bufferedprimary>=reference+.04and>=1extrashortIoU.5match. Thenall9seed/protocolchecks,official/shared/model/input/source/prefixreplay,reproduciblevalidfullCSVandindependentStandards/Spec review. No manualframepatch or silentgaterelaxation.",
+  "input_sha256": {
+    "experiments/SPORTS_ACTION_RUNTIME_PLAN.json": "c2bec8efc13c28a9113b8408af333a24ddb1adcb5944f0d6d87302c4e36a4cc6",
+    "data/control_sports_action_v1/runtime_preflight/summary.json": "59e922b044a6db16faf069bab1c44311746bd51d27dcfd42d1fa139893d1d8ff",
+    "data/control_sports_action_v1/full_resolution_benchmark/summary.json": "204d3a23e1c5bf89e2bc441911d9bcb46a2b2192a23cd1aa2460f354472a01ff",
+    "data/control_sports_action_v1/wheel_manifest.json": "f451fe6607e1d702bec8b2c06ed86a7c524e6a41ed3d730d67b66f4cb66f87c5",
+    "data/control_jersey_v1/feasibility/manifest.json": "b87d8e8a79a12f5037bb5075391e9a2fb77462d9ecfa2af1d998066c7191411f",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83"
+  },
+  "privacy": "Allcompetitionimages/tracking/probabilitieslocalignoreddata;noscreenshots,hostedextracts,private/correctedGT,manualannotations,commits,uploads,submission,publicationorcontacts. Preserveallfailedmethods/plans/candidates.",
+  "limits": "Broadcast-pretrainedactionfeaturesmaynottransfer. Sidegeometrymappingisfallible. PublicadaptiveOOFchecksarecorrelatedsame-matchdevelopment,notprivateaccuracyormaximumproof."
+}

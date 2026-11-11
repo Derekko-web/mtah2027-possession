@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "round": 24,
+  "scope": "Target-blind diagnosis of absent/rejected strict formation anchors; metadata/tracking only. No new alignment, threshold/profile/sampling search, image decoding, actual action heads, possession labels, fits, scores, candidate changes or automatic next round.",
+  "hypothesis": "Distinguish unavailable observations from spatial ambiguity, temporal neighborhood inconsistency, fine uncertainty and final mapping filters. Attribute the actual frozen algorithm; internal consistency can motivate a future protocol but does not establish correct synchronization.",
+  "frozen_algorithm": "Recompute original formation_anchors using BOTH original strict and relaxed profiles: coarse25grid,4reflections, capped10m directed broadcast->tactical same-team nearest neighbors; far alternative strictly>250frames across orientations. Fine prefilter therefore cost<=3.5 and far margin>=.25 over3neighbor anchors, common orientation, coarse increments0..50inclusive. Fine search+/-25 and comparison offsets-25/0/+25; <=best+.05 uncertainty span. Strict acceptance finecost<=2.5/span<=10 then all3neighbor coarsecosts<=2.5/margins>=.5. Mapper requires adjacent allowed anchors/common orientation/fine rate.8..1.2, then broadcast usable gate. Preserve inclusive knot overwrite order and all arrays exactly; no production source modifications.",
+  "anchor_first_failure_order": [
+    "prefix_grid_edge",
+    "tactical_source_unusable",
+    "coarse_neighborhood_nonfinite",
+    "prefilter_coarse_geometry",
+    "prefilter_far_ambiguity",
+    "prefilter_orientation_change",
+    "prefilter_coarse_increment",
+    "fine_no_usable_triplet",
+    "fine_nonfinite_geometry",
+    "strict_fine_geometry",
+    "strict_fine_uncertainty_span",
+    "strict_neighbor_coarse_geometry",
+    "strict_neighbor_far_ambiguity",
+    "allowed"
+  ],
+  "attribution": "First failing condition in declared diagnostic order, not unique physical cause. Preserve overlapping predicate counts separately and distinguish own coarse failure from neighbor-only veto. Fine missingness must reflect original permissive prefilter, not recomputation with strict-only profiles. Positive-infinite far margin intentionally passes; strict NaN comparisons use original semantics. Never diagnose from interpolated mapping.margin alone.",
+  "frame_first_failure_order": [
+    "no_incident_anchor_interval",
+    "no_allowed_endpoint_pair",
+    "no_common_orientation_after_allowed_pair",
+    "fine_rate_after_allowed_orientation",
+    "broadcast_source_unusable",
+    "mapped"
+  ],
+  "frame_attribution": "For each tactical query, OR all incident interpolation intervals (two at exact knots), retaining forward overwrite behavior. Use the furthest stage achieved by any incident interval. For unmapped frames, additionally count overlapping UNION of first-failure anchor reasons of every disallowed endpoint in all incident intervals; these counts are nonadditive. Save all per-frame attribution ignored; expose aggregates only.",
+  "additional_consistency": {
+    "candidates": "Only existing coarse winner and finite existing fine winner; never replace winners. All eligible public anchors with +/-50 tactical context inside one half/prefix and outside sealed24/held60 +/-250 exclusions.",
+    "geometry": "Current forward same-team cost, reciprocal tactical->reflectedbroadcast cost, balanced RMS. Same cap10 and no identities. Forward/reverse differences are geometric asymmetry, not error rates.",
+    "unused_offsets": [
+      -12,
+      12
+    ],
+    "unused_offsets_rule": "At fixed candidate, compute forward cost at paired tactical/broadcast offsets-12/+12 if both source frames usable. Not included in original fine matching. Report worst available value only when both valid, and missingness separately. These correlated internal observations are not independent validation.",
+    "diagnostic_cutoff": 2.5,
+    "cutoff_rule": "Existing geometry threshold only for descriptive counts, not used to change mappings. No new fitted thresholds or profile sweep.",
+    "quantiles": [
+      0,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      1.0
+    ],
+    "minimum_numeric_group": 5
+  },
+  "reporting": {
+    "public_start": 11185,
+    "public_stop": 18685,
+    "anchor_scope": "Global25grid anchors within fixed7500public-frame time band; no possession boundaries/labels read. Separately aggregate broadcast/tactical source availability flags.",
+    "required": "Anchor stage counts and overlapping gates; per-frame3359mapped/4141missing reconciliation; final interval/fine-rate/broadcast-validity impact; additional geometry/offset diagnostics by original strict allowed vs rejected; identify dominant ordered category and caveats. No invented causal ground truth or potential score gain."
+  },
+  "prefix": "Actually recompute tracer anchors and strict mapping from both18935 and19060 tactical source prefixes. Full19060 anchor arrays must equal all cached original arrays; each prefix mapping must equal inherited independently rebuilt mapping. Diagnostic flags, first-failure reasons and frame attribution must agree on public rows plus50 context. Metadata parity only, not actual new action-feature parity.",
+  "preservation": "All17 protected selected/reference artifacts unchanged; entire1468-row ledger byte-exact. Production source untouched. No retuning rejected rounds; keep all sources/results/failures under ignored new round directory.",
+  "completion": "Complete when exact production replay/attribution reconciliation, actual-prefix parity, synthetic invariants, separate output replay, source/input/cache hashes and preservation audits pass; close with cited diagnosis and next hypothesis without starting it. Any numerical/parity failure stops for an execution repair, preserving failure evidence. No alignment or model promoted.",
+  "promotion": "All existing substantial+.04/extra-short/falseD/Drecall/macro/official paired gates,42/43/44confirmation, actual-feature/source/input/model replay and independent review remain unchanged for any later candidate. None are bypassed by diagnostic results.",
+  "privacy": "Competition media/tracking/XML/boxes/per-frame extracts/raw arrays remain local ignored data and unshown. No manual labels, private/correctedGT, commits, uploads, submission, publication or external contact.",
+  "input_sha256": {
+    "experiments/BROADCAST_ALIGNMENT_PLAN.json": "23414370c80d9f3daeee12b7499f6027a137374de803020d4ec07cbd36b399b5",
+    "experiments/ALIGNMENT_COVERAGE_PLAN.json": "1001ff2799a43bc36f4f6611e31c06835f3c7bc3c3640991014f3977359d1a3c",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_broadcast_v1/inputs/tactical_observations.npz": "4abe483317e72757eb3b4c6ae16f353453d19e5f44f549c2f94f0518130ae808",
+    "data/control_broadcast_v1/inputs/broadcast_observations.npz": "5ea2edd905d8ee6bb4101ebb832bb24146c916e62669b03d1526f34f80b83863",
+    "data/control_broadcast_v1/inputs/anchors.npz": "1395ad068aa63bcef0cbe66d4c35dd0ff6f2d1349165f334aa531c5e20a6bb11",
+    "data/control_broadcast_v1/inputs/strict_mapping.npz": "8b2fa3bf6085bb2da92fe67a0d52e4d8b58e584b3b993ce259501a3c955fe0e4",
+    "data/control_broadcast_action_v1/prefix_replay/summary.json": "5cd8b6cac4d8300816f3f3524cde57f541a7e4972a01c49f20364042c8866174",
+    "data/control_broadcast_action_v1/prefix_replay/mapping_18935.npz": "16f74c90e0607ef28af1b7921b12f1cee8795cd1ed0f89380d3619414538e245",
+    "data/control_broadcast_action_v1/prefix_replay/mapping_19060.npz": "26af6af3e9f80db9c8f3543684d53f5cb6647695345acf0a40c035b3fbd14cfe",
+    "data/control_alignment_coverage_v1/round_closeout.json": "0807d9b209544b4865aa94f13911ddc326163b1b02262b63ca42b9e9c57d076f",
+    "data/control_alignment_coverage_v1/assessment/summary.json": "3d2e9c65a69abc0968ed63b302eb7188c2def9815668def59e744fb193db3d4b",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "experiments/EXPERIMENT_LEDGER.csv": "c7c2b0383f799e3f192285b230254a28860f955b36511ddbeee6687c2b3cfaa1"
+  },
+  "limits": "Observation-derived alignment without correspondence truth, global broadcast formation search, correlated single-match adaptive development on17publicpossessions. No private/fullmatch accuracy or maximum score claim."
+}

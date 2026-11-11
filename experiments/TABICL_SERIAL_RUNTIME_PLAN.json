@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-28",
+  "round": 53,
+  "stage": "synthetic_serial_execution_reproducibility",
+  "hypothesis": "A fixed single-thread BLAS/Torch execution environment may make independent official cache/context reconstruction bit-reproducible. No ranking/accuracy gate changes. R49 resource failure and R51 exactness failure remain failures.",
+  "evidence": "R51 fresh context reconstructions stayed under6GiB and produced identical cached tensors and exact within-process repeats. Its second independent process differed from the original by at most1.013279e-6, failing its exact probability contract. No probability tolerance is substituted for independent exactness.",
+  "method": "Same official TabICL2.2.0, checkpoint, default8members,batch1,kvTrue,fp32,seed42,3000x166 binary syntheticcontext,512queries. Pin n_jobs1/Torchintraop1/inter-op1 and all BLAS thread environment variables1 before imports, PYTHONHASHSEED0, deterministic algorithms and highest float32 matmul precision. No package/neural/cache code or model parameter changes. No fitted-object pickle reload.",
+  "parity": "To the saved original two-thread R49 baseline require existing predeclared backend tolerance max2e-5,mean2e-6 and identical argmax. Between two NEW independent serial reconstructions require ALL probability bits and all cached tensors identical; within-process repeats exact. Inputs and checkpoint weights exact.",
+  "gate": "Both fits and all predictions <=300seconds each, processRSS<=6GiB, workerwall<=900seconds. Both independent stages pass, or reject. Store probabilities/fingerprints before assertions so failed numerical evidence survives. No thread-count/backend/precision/limit sweep within protocol.",
+  "continuation": "Only a pass permits a separately frozen native screen using this exact serial context reconstruction. All original possession score/secondary/protocol/seed/fullCSV reproducibility guards remain unchanged.",
+  "exclusions": "No competition data/labels/images, manual/private/sealed data, possession scores, dependency mutation, uploads, commits, contacts or promotion."
+}

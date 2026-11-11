@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hypothesis": "A broadcast-trained action checkpoint may transfer better to the broadcast source. This initial stage counts safe alignment-supported clip windows without decoding images, running models, reading targets, or scoring.",
+  "sampling": "Original tactical global center grid every50 frames from11000..18950. Require local tactical interval c-150..c+150 fully inside one official half and sourceprefix, valid strict mapping throughout and constant orientation. Broadcast clip center is mapped tactical center; its100 sourceframes b-100+2*arange100 must all have a nearest locally mapped tactical frame within1broadcastframe. Reject sealed24windows and held60 frames plus250 buffer over whole tactical local interval. No manual replacement centers.",
+  "footprint": "Every mapped source clip is confined by the conservative local tactical interval +/-150. Closest-center dense reach25 plus feature summary50 gives225, below250 targetbuffer. This is a fallible tracking alignment, not corrected synchronization truth.",
+  "output": "Aggregate eligible centers/public dense coverage; schedule and hashes stay ignored. No NN or target fitting in this stage. Freeze a separate full observation/support/feature/fitting protocol before processing broadcast images.",
+  "promotion": "Any later candidate retains original substantial +.04 buffered spellF1 and extra short IoU.5 match, all three protocols, D/short/official gates, seeds42/43/44, full reproduction and independent review. No promotion/gate changes in this metadata feasibility stage.",
+  "input_sha256": {
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_broadcast_v1/inputs/strict_mapping.npz": "8b2fa3bf6085bb2da92fe67a0d52e4d8b58e584b3b993ce259501a3c955fe0e4",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "data/control_sports_action_v1/round_closeout.json": "394ca7b583168d38db6ebeabfd74f7cd8f4d5f6208cff02523a0e2f9bc24b908",
+    "experiments/EXPERIMENT_LEDGER.csv": "80d9de04f0562c997ceb43100f75bc95268bb3d4a8381c09de4ca17f0a7f36eb"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-24",
+  "round": 29,
+  "hypothesis": "Three reviewed native video windows add useful supervision to the existing ordered current head without changing its representation or the selected pipeline.",
+  "included_clips": [
+    1,
+    3,
+    4
+  ],
+  "training_seconds": 90,
+  "reviewed_training_frames": 2250,
+  "unreviewed_drafts_excluded": true,
+  "partial_export_authorization": "User explicitly requests using reviewed work now; separate immutable snapshot; UI all12 export gate stays unchanged.",
+  "model": {
+    "role": "slot0 original ordered current head",
+    "feature_columns": 102,
+    "parameters": "Existing depth3/160-tree frame-objective settings, original team-symmetric augmentation and symmetrized prediction; no preprocessing, tuning or calibration.",
+    "human_to_public_weight_mass": 0.5,
+    "weights": "Class balanced within source after H/A swap; public row weights identical to original; human total mass=.5 public total mass."
+  },
+  "screen": {
+    "seed": 42,
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "folds": 13,
+    "new_fits": 13,
+    "matched_control": "Reload all13 original ordered seed42 models; exact probability and full selected8 identity before fitting any alternate."
+  },
+  "inference": "Replace slot0 only through full unchanged selected8 pipeline. Then accept alternate H/A only where both selected8 and alternate are live. Original D/X exact, other seven model artifacts untouched.",
+  "validation_buffer_frames": 250,
+  "feature_prefix_extra_rows": [
+    251,
+    376
+  ],
+  "feature_checks": "Both actual feature prefixes must match all public and snapshotted human training rows exactly; public features must match frozen ordered102 cache. Prefix end before all audit windows minus250.",
+  "continuation_gates": {
+    "buffered_spell_gain_at_least": 0.04,
+    "extra_buffered_short_iou50_match_at_least": 1,
+    "all_protocols": "No primary or mean-fold primary regression; macro>=reference-.001; mean short IoU nondecreasing; all previously matched GT controls retained; official spurious/missed counts nonincreasing; D/X exact."
+  },
+  "confirmation": "Only if every seed42 gate passes: same frozen trial at43/44, no seed or weight selection. Candidate promotion requires reproducible official replay and independent review; sealed human audit remains unopened.",
+  "limits": "Adaptive reused public validation,not private accuracy. Human video labels differ from corrected-tracking target. Three correlated clips do not establish broad generalization. No annotation frame patches enter inference.",
+  "no_new_images_or_video_calls": true,
+  "audit_remains_sealed": true,
+  "input_sha256": {
+    "data/control_human_annotations_v1/annotation_snapshot/window_13.json": "8ed934526937a5134affb993600ce50a724cd00af6b73db41234be4f9cfd020d",
+    "data/control_human_annotations_v1/annotation_snapshot/training_labels.csv": "3801840089c4ff54e2db5b99259c38bc0e377ea5f4c7cbc8bd7969c0e14c3bb5",
+    "data/control_human_annotations_v1/annotation_snapshot/window_15.json": "3af731dbe54aa245bee6208886b8f18c65ac9a024b4d9c8efd317c1e08e68b45",
+    "data/control_human_annotations_v1/annotation_snapshot/snapshot.json": "695194d97c464c661bed50227d6adee07449a041f8d731e5cc7b1c32d635045d",
+    "data/control_human_annotations_v1/annotation_snapshot/window_16.json": "a17f227a7d3a2ca267c0e62a8438fc8fb703a976ee912e5b64b1b48f6345b8ca",
+    "data/control_human_annotations_v1/annotation_snapshot/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_human_annotations_v1/annotation_snapshot/media_manifest.json": "d962c87c9b076482d5c2c9f17944a7638be63b4d5e3acc68b2f03d0dad2c5a28",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "data/advanced_validation/ordered.pkl": "749dc86c612ec552af5cd98c1627bb7517f00241ed395994ec5cdba9a8bd63d3",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f"
+  }
+}

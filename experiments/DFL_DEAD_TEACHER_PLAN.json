@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-25",
+  "round": 33,
+  "phase": "B_single_external_D_model",
+  "objective": "Learn direct live/dead evidence from4external matches and assess the same predeclared3whole-match validation sets before any competition feature/target test.",
+  "matches": [
+    "DFL-MAT-J03WMX",
+    "DFL-MAT-J03WN1",
+    "DFL-MAT-J03WOH",
+    "DFL-MAT-J03WOY",
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "splits": {
+    "train": [
+      "DFL-MAT-J03WMX",
+      "DFL-MAT-J03WN1",
+      "DFL-MAT-J03WOH",
+      "DFL-MAT-J03WOY"
+    ],
+    "development": [
+      "DFL-MAT-J03WPY"
+    ],
+    "held_out": [
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ]
+  },
+  "features": "Original91XY-only geometry columns made team-invariant by pairedmin/max; add anonymous mutual-nearest player displacements at5/25frames (ceiling12m/s),median/p75,moving>1fraction,matchedfraction; teamshape radiusmedian/p90; pairedmin/max. Bounded25/75past/future mean/std/fraction for min/max of speedmedian_lag5,speedmedian_lag25,movingfraction_lag25. Ball/player coords only; no identities,suppliedscalars,clocks,absoluteXY,status,ownership,tags.",
+  "footprint": "Maximum100frames from25lag+75summary; per-half reset. Exact prefix,playerpermutation,teamswap,translation/rotation invariance synthetic checks before real features.",
+  "corruption": "Same one frozen prior label-independent corruption: .2mXYnoise,20%player50frame dropout,Markov ballvisibility stationary.6, seed270000+100*match_index+half_index. Bothcleanandmasked trainingviews; no view or parameter selection.",
+  "training": {
+    "stride": 5,
+    "known_status_only": true,
+    "equal_match_class_weights": true,
+    "params": {
+      "objective": "binary:logistic",
+      "eval_metric": "logloss",
+      "tree_method": "hist",
+      "max_depth": 3,
+      "n_estimators": 240,
+      "learning_rate": 0.04,
+      "reg_lambda": 10,
+      "min_child_weight": 50,
+      "subsample": 0.8,
+      "colsample_bytree": 0.9,
+      "random_state": 42,
+      "n_jobs": 2
+    },
+    "early_stopping": false,
+    "models": 1
+  },
+  "external_gate": {
+    "each_masked_validation_match_balanced_accuracy": 0.8,
+    "dead_precision": 0.85,
+    "dead_recall": 0.7,
+    "visible_dead_recall": 0.7,
+    "live_false_dead_rate_max": 0.1,
+    "threshold": 0.5
+  },
+  "diagnostics": "Reportcleanandmasked rawDframe metrics atfixed.5, calibration/Brier/logloss, visibilitystrata. Onlymaskedpermatchconjunction advances; no threshold sweep. Validate existing4/1/2splits; alreadyinspectedownershipmatchsetsare not described as untouched.",
+  "continuation": "If every external gate passes, separately freeze one matched physical-head teacher-feature integration and public evaluation before computing target-conditioned competition results. Failure stops this DFLmodel, preserving failures and selected8; other supported avenues remain authorized by user.",
+  "substantive_promotion": "Main buffered spellF1 gain>=.04 and >=1additionalshortIoU.5match; otherprotocolprimary and meanfoldprimarynonregression, macro>=ref-.001, shortIoUnonregression, previousmatches/mostlyrecalledshort retained, noextraspurious/missed, Drecallnonregression,falseD<=ref+10. Same gates at42/43/44; official/shared/reload/actualprefix replays, fullcandidate twice andindependentreview.",
+  "exclusions": "Current selected8,1510ledgerrows,pastfailures,source symlinks,reservedmetadata/audit. No humanannotations/privatecorrectedfixturetargets/media/hostedcalls/install/commits/uploads/submission/contact.",
+  "input_sha256": {
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_firstHalf.npz": "3bcfde5984ada60ca81561161da5c43174557b50fc0f7867cb169b4765648199",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_secondHalf.npz": "01b6447bc4ea597100ba6020bb53d3e046248dd987c9e44805e72267a6c15ba8",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_firstHalf.npz": "7b2064c32931cc08f961813c2e6dee93953579fad345a94a832aca30d5423231",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_secondHalf.npz": "fe393ffb32d8b48c4467bf43981bed8fbb7658910a29b20418c7ddb88dfbc2d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_firstHalf.npz": "6f3963a0fb984ca5d2aa7c7f4cd6158782cc6780595c05ed6c9aa0e09dc9f0be",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_secondHalf.npz": "6a486fc3b6e853acdedb93fe0c02a37132567bc659e89c4a4beeff649da2bc12",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_firstHalf.npz": "088169495cff493bc975202355f8fc08a1da10f05fad6d90ff5b5faef5f01339",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_secondHalf.npz": "e7a36fcdb25f67ece233bf3936f2084a3d2316f6ed1c6c2a0e49436269378e45",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_firstHalf.npz": "840caa66e8125dbbcd90bc67038233f0074cdef392ed6ae8973ed8cc17bafdc4",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_secondHalf.npz": "009969618cb425f46a4afd09570f5ab6186899398dfd85eaf16135f2cad9f564",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_firstHalf.npz": "0750ed60ee1e655211af83bffaef773b601ab77a291bc4e9d6f09f8a66e1dcba",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_secondHalf.npz": "9504acca2307c2f58b6116ce93a74e5e31fcc52af47efd251dea726c241d5f59",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_firstHalf.npz": "45911dd31489a5d56afa05dfd4a31f13148e91c202d89a881581daeb9ddcb6d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_secondHalf.npz": "d36024a14473c7e74d7f097ca2f4c531b6b76537829c17a47af0a9cff7e11a02",
+    "data/control_dfl_transfer_v1/assessment_A/plan.json": "0ab248d00f1c9e4259a59d0191d46211bb0d12dfff7a8f645b9e4b9e743d533f",
+    "data/control_dfl_transfer_v1/assessment_A/summary.json": "ece597bcc0ab2d2809abf67464af5962657a21a067dc87524fc43c47ea53b3cb",
+    "data/control_dfl_transfer_v1/assessment_A/manifest.json": "f31d5d588d37b55c0ec3debd92bec5fe4b33c66af2659e483326ace1d0335677",
+    "experiments/DFL_TRANSFER_FEASIBILITY_PLAN.json": "0ab248d00f1c9e4259a59d0191d46211bb0d12dfff7a8f645b9e4b9e743d533f",
+    "experiments/DFL_TRANSFER_TEACHER_PLAN.json": "304550b0380bfe68a985f76840f8656bc5f46196d4c0cd5a448c2308cb7dacb5",
+    "data/control_dfl_dead_v1/assessment_A/summary.json": "358ab812e8eab2fe7270d5a91d5f3e3b468f15e7e9e6e69b1367da4bfa203960",
+    "experiments/DFL_DEAD_FEASIBILITY_PLAN.json": "652d8ac502bf74995ad8045b8d71e5ef2ef7704c9b266f90f64891d04d8633c1"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-25",
+  "round": 30,
+  "goal": "Incremental automatic primary possession-score improvement using provided tracking and official public labels only.",
+  "hypothesis": "A compact learned temporal D/live head can distinguish approach, stoppage and restart order beyond existing fixed summaries; a parameter-identical repeated-center control isolates access to neighboring frames.",
+  "training_sources": "Only eligible H/A/D rows of the official public CSV. Binary D target. No human labels, external match labels, pseudo-labels, pretrained model weights, media calls or new dependencies.",
+  "feature_view": "Existing team-invariant physical stoppage_context features, no restart kernels, absolute coordinates, player IDs, clock/frame number, probabilities or target-derived inputs.",
+  "temporal_model": {
+    "width": 16,
+    "dilations": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "kernel": 3,
+    "context_radius": 31,
+    "window": 63,
+    "dropout": 0.1,
+    "residual": true,
+    "output": "center-frame binary D logit"
+  },
+  "control": "Same parameters, architecture, seed, batches and optimizer; every context position repeats the center observation, removing neighboring-time information.",
+  "preprocessing": "Mean/std fitted only on eligible training centers, missing flags, normalization clip[-8,8], all-missing columns mean0/scale1; no held-out preprocessing.",
+  "training": {
+    "steps": 600,
+    "batch_size": 128,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "weights": "eligible binary classes balanced",
+    "early_stopping": false,
+    "seed": 42,
+    "device": "CPU float32,2threads,deterministic algorithms",
+    "runtime": "existing data/control_sports_action_v1/runtime Python,torch2.5.0,numpy2.1.2; no pretrained action checkpoint loaded"
+  },
+  "footprint": "Physical inputs <=150frames plus31 learned radius =181frames, inside250-frame target buffer. Windows reset at official half bounds.",
+  "actual_prefix_checks": "Rebuild physical context from actual18935 and19060prefixes; compare all public +/-31 rows and original full physical cache exactly.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "screen": {
+    "heads": [
+      "frame",
+      "temporal"
+    ],
+    "decoders": [
+      "trim",
+      "union"
+    ],
+    "folds": 13,
+    "new_models": 26,
+    "score_rows": 15
+  },
+  "decoders": {
+    "trim": "Replace only current slot0 D probability, preserving its conditional H/A; run unchanged selected8; accept only referenceD->alternateH/A.",
+    "union": "Raise physical-head D probability to max(original,new) in slot3column0; run unchanged selected8; accept only referenceH/A->alternateD."
+  },
+  "quality_gates": {
+    "buffered_primary_gain_minimum": 0.01,
+    "other_protocol_primary_nonregression": true,
+    "mean_fold_primary_nonregression": true,
+    "macro_tolerance": 0.001,
+    "mean_short_iou_nonregression": true,
+    "retain_previously_matched_gt_iou50": true,
+    "retain_previously_mostly_recalled_short": true,
+    "official_spurious_and_missed_nonincrease": true,
+    "dead_recall_nonregression": true,
+    "additional_false_dead_frames_at_most": 10,
+    "unknown_exact": true,
+    "no_H_A_switch_on_shared_live": true
+  },
+  "objective_history": "A new prospective incremental D objective, consistent with the prior separately selected motion D trim. Original+.04/extra-short-match objectives remain reported separately; they are not silently declared satisfied.",
+  "selection": "At most1passing seed42 method. Sort by buffered primary descending,minimum other-protocol primary delta descending,total changed frames ascending,then temporal before frame and trim before union. No parameter sweep.",
+  "confirmation": "If eligible, freeze exact selected head/decoder before seeds43/44; run same13folds and all3protocols. Require every same quality protection in all9pairs. No seed selection.",
+  "promotion": "Only after passing confirmation,official/shared/reload/feature/source checks,a reproducible valid full candidate and independent Standards/Spec review. Preserve selected8 on failure.",
+  "exclusions": "All human annotation files,private/corrected labels,reserved/audit media and held image contents excluded. Future full candidate may use supplied full tracking for prediction,never audit targets.",
+  "limitations": "Only17 reused public possessions; protocols/seeds remain correlated adaptive development. No private accuracy,statistical significance,or optimality promise.",
+  "input_sha256": {
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f",
+    "data/advanced_validation/base.pkl": "3800b755ca2fe52191c74aa6ecc9177ffebece4a914d0d489794bf821d70a27b",
+    "data/control_renewal_v1/stoppage_inputs/physical.pkl": "e46b7e9a93a847d6196aa7f6e19f55ca870c0baefd54cb91f661362af4462a14",
+    "data/control_renewal_v1/stoppage_inputs/manifest.json": "3926bc127a6936fe92f10c44b0aa59e6182a0f522b332397f14633c2a6e1a9a5",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_pair_motion_v1/inputs/manifest.json": "eeff0bd48316cec2d8a8c78bbc7abcb0a47dd45790474fa71f8983ab1a31f10d",
+    "data/control_pair_motion_v1/dead_trim_confirmation/manifest.json": "3241f939cb68904e4cea307b0be34e6523a5507096a92a30fe85bf952df848a8",
+    "data/tactical/BAR-ATH_tactical_atd.xml": "327e35e32e46a647389b88f883d4f9a2ab931e3e6148aef2fcf8f22b1e93c43a",
+    "data/tactical/BAR-ATH_tactical_atd.txt": "f130e350d2bfdf734b7e32f072931fccc6d015c1e837d082064875fe0a700431",
+    "data/tactical/BAR-ATH_tactical_smart_tagging.xml": "0594d35e3df01b9c5002372d8615e2e8ef5379ac8f4e84c5ef7a53f4304c9019"
+  },
+  "documentation": [
+    "https://docs.pytorch.org/docs/2.14/generated/torch.nn.Conv1d.html",
+    "https://docs.pytorch.org/docs/2.14/notes/randomness.html"
+  ],
+  "api_verification": "Actual installed Torch2.5.0 signatures inspected locally; cross-version determinism is not assumed; actual pinned CPU repeat tests required."
+}

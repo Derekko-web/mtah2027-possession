@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "hypothesis": "Local temporal vision may recognize actual team control missed by tracking/color proximity models. Prior local VLM probes asked only live/stopped; neither their failure nor detector agreement proves this ownership task.",
+  "model": "qwen3-vl:4b",
+  "model_digest": "a1b29c246319cdcb1f3842f36d29f198f737c0cf516ba1bcba34b1b974e87980",
+  "runtime_version": "0.32.3",
+  "endpoint": "http://127.0.0.1:11434",
+  "network": "Onlyloopback,proxybypass,noredirects,NoCloudserver. Requirelocaltagdigestbeforeeveryrequest. No modelpull/providerfallback. No images/responses displayed or uploaded.",
+  "schedule": "Uniformcenters arange11310,18685,250;triples center-12,center,center+12. Require officialsamehalf andvalidhomographies. Exclude any actual tripleframe within reserved24+/-250 or held60weakballcenters+/-250. Sourceballcenter is nearestfinite originalballxy within25of eachtarget;noextrapolationbeyond25. Missingcropcenter excludes sample,notlabel-basedreplacement. No source-label-basedoversampling.",
+  "reference": "Useexistingweakjerseytrainingfirst240framesonly. Existingprofile0_logisticpredictsweak-mask playercolors;teamconfidence>=.99,finitefeatures,torsoheight>=8pixels. Choosefirst3distincteligibleframesperteam inframe/slotorder,excludingpublic+/-250,reserved+/-250,heldweakball+/-250. Torsoimagecropsbyexistingratio1;oneboard2rowsHOME/AWAY3examplesperrow. Automaticweakreferences,notmanualtruth.",
+  "scene": "Accurateseek960x540RGBviaexistingjersey_color.decode_frame. Homographyproject16x16m ball-centered pitchsquare,extra20pixelstop/10bottom,cliptoimage,min40pixelwidth/height. Preserveaspect,thumbnailmax768. SavePNG,nooverlaysorballmarkers. Referenceboardthen3timeorderedscenes.",
+  "prompt": "The first image is a jersey reference sheet. Its top row is HOME and its bottom row is AWAY. The next three images show the soccer ball area in chronological order, 0.48 seconds apart. Judge controlled team possession at the middle image. A pass in flight stays with the last deliberate controlling team until the other team controls it; a mere deflection is not new possession. Answer stopped if play is stopped or players are waiting to restart. If the ball or controlling action is not clear, answer unclear. Output exactly one word: home, away, stopped, or unclear.",
+  "generation": {
+    "temperature": 0,
+    "seed": 42,
+    "num_predict": 16,
+    "num_ctx": 8192,
+    "think": false,
+    "stream": false
+  },
+  "parser": "Strip/lowercase;acceptonlyexacthome/away/stopped/unclear withoptionalone trailingperiod/exclamation. Everythingelseunclear. No retrywithdifferentprompt.",
+  "feasibility": "Afterallsource/inferenceoutputs frozen,scorepublicH/A/D samplelabels. Require>=15samples,>=3trueeachH/A/D,balanced3classrecall>=.75,Hrecall>=.75,Arecall>=.75,Drecall>=.5,unknownfraction<=.2. Missingcoverageisnotapassinggate. Adaptivefeasibility,notfullpossessionvalidation. Failurestopsbeforefitting/densegeneration;preservealloutputs. Passingwouldrequireseparatefrozenpossessionhypothesis,originalsubstantial/short/paired/D/repro/reviewprotections.",
+  "input_sha256": {
+    "data/control_jersey_v1/feasibility/manifest.json": "b87d8e8a79a12f5037bb5075391e9a2fb77462d9ecfa2af1d998066c7191411f",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83"
+  },
+  "privacy": "No private/correctedGT,manualannotations,hostedextracts,commits,uploads,submissions,publicationorcontacts. Allprivatearrays/images/responsesignoreddata. Preserveallpriorfailedmethods/candidates. Reserved24andheld60actualimagesremainunused.",
+  "limits": "Weakreferencekitsmaybewrong;localVLMmayhallucinate. Reusedpublicsamplescorrelatedadaptivefeasibility,notindependent/privateaccuracyormaximumproof."
+}

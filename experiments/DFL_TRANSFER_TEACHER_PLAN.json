@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "round": 27,
+  "phase": "B",
+  "scope": "Conditional on all frozen Phase A gates and byte-exact fresh XML replay. One external binary ownership model, then one paired public H/A trial only if external gates pass.",
+  "matches": [
+    "DFL-MAT-J03WMX",
+    "DFL-MAT-J03WN1",
+    "DFL-MAT-J03WOH",
+    "DFL-MAT-J03WOY",
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "splits": {
+    "train": [
+      "DFL-MAT-J03WMX",
+      "DFL-MAT-J03WN1",
+      "DFL-MAT-J03WOH",
+      "DFL-MAT-J03WOY"
+    ],
+    "development": [
+      "DFL-MAT-J03WPY"
+    ],
+    "held_out": [
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ]
+  },
+  "features": "One shared XY-only geometry builder, physical metres, arbitrary common origin;19base fields plus72 bounded summaries=91. Base ballfinite, lag5/25endpoint-displacement speeds clipped above80m/s; perteamfinitecount,nearest3distances,within1/3/5mcounts,softshare(othernearest+.1)/(sumnearest+.2). Missing supportNaN. Ballseen,lag25speed,perteamnearest1/share add past/future25/75 mean,std,finitefraction. Fixed-window reductions; half resets; maxnative observationreach100, then existing5framesmoothing. No IDs,clock,coordinates,tags,provider scalars/status/owner/height asfeatures. BothdomainsinputXYlimitedtopitchplus5mtolerance usingnative/centeredmetadataorigin; nativehomographyvalidfalse yieldsmissing observations. Externalnohomographyflagassumedvalid, a remaining observation-domain gap.",
+  "corruption": "Train/evaluate both clean and one fixed masked view. GaussianXYjitter sigma.2m; independent20percent player-slotdrop per50frameblock; ballMarkov stationaryseen.6, seen->missing1/75,missing->seen1/50. Mask before featurederivation, wholly independent oflabels/status. Perhalfseed270000+100*catalogmatchindex+halfindex. No empiricalschedulefit or choicebetweenviews.",
+  "training": "Only4frozen trainmatches; known liveH/A rows at canonicalhalf index%5==0, bothclean/maskedviews. Equalmatch/class totalweight, normalizedmean1. Team-swapaugmentation, probabilityaverage(pHome(x),1-pHome(swapx)). binaryXGB depth2,120trees,lr.04,lambda10,minchild15,subsample.8,colsample.9,hist,seed42,njobs2. NativeNaN, nofittedpreprocessing/calibration/earlystopping/sweep. Externalteacher neverfitscompetitiontargets.",
+  "external_gate": {
+    "matches": [
+      "DFL-MAT-J03WPY",
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ],
+    "minimum_masked_balanced_accuracy": 0.7,
+    "minimum_gain_over_nearest": 0.02,
+    "conjunction": "Require both inequalities per held/development complete match, all3pass. Baselineframeconditionalsoftnearestshare,missing=.5, sameXYview. Allprobabilitiesfinite. Clean metrics are diagnostic; no clean/maskedselection. Failedgate endsround withnopublictargetreads/fits/scores."
+  },
+  "external_diagnostics": "Percomplete match andview: H/A balancedaccuracy/recall,accuracy,Brier,logloss,10binECE,predictedshare; rawconditional possessionmatching across5officialIoUs andshort<=125framesIoU.5matches withtrue D/X referencefixed andhalfXseparator. ClearlyconditionalH/A, notfullH/A/Dinference or labelaccuracy.",
+  "public_screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "heads": [
+      "matched_control",
+      "external_teacher"
+    ],
+    "new_models": 26,
+    "score_rows": 9,
+    "model": "Samebinary120treeparams,publicliveeligiblefoldrows only,frameclassbalanced,teamsymmetric. Controlshared91XY;newshared91+pairedconditionalteacherprobabilityH/A. Hideineligibletraininglabels; save actualtrain/live/val/targets/weights. Existing13folds and250frame exclusion preserved.",
+    "decoder": "Only provided_speed.decode_provided_speed live_replace: reuse selected8 referenceD exact, existing smooth5+switch3 liveownershipDP resetD/X/half/evaluationblocks. No proposal/joint/deadvariants.",
+    "native_prep": "Pinnednative tactical observationcache only,prefixrawlen19060; sharedbuilderactual18935vs19060publicparityexact, >=80percent publicframeswith>=4finiteplayerseachteam and>=80percentballXY beforepublictargets. No reserved/held sampleaccess."
+  },
+  "promotion": "One unchanged finalist only. Everyprotocolprimary>=selected8 andsame-decodercontrol;Macro>=reference-.001;meanshortIoU>=reference;retainprevious>=.5shortrecall;falseD<=reference;Drecall>=reference-.02;noextramissedstoppages or officialIoU.5spurious/missed. Bufferedprimary>=reference+.04 and>=1extrashortIoU.5match. Thenunchanged43/44,all9checks,official/shared/model/input/source/prefixreplay,reproduciblevalidfullCSVandindependentStandards/Spec review. No threshold/model/split retuning.",
+  "preservation": "Allpriorartifacts and17protectedhashes remain; ledgeroriginal1468rowsbyteprefixexact,onlyverified authorized9scoreappendvia detector_ledger helper ifpublicscreenruns. No publicfittingbeforeexternalgate;allprivate/correctedcompetitionGT excluded, reserved24windows and60heldweakimagesuninspected. Raw/deriveddata ignoredlocal; no uploads,commits,submissions,publication,contacts,installs/toolchainchange. ExternalattributionCCBY4.0 retained.",
+  "input_sha256": {
+    "experiments/DFL_TRANSFER_FEASIBILITY_PLAN.json": "0ab248d00f1c9e4259a59d0191d46211bb0d12dfff7a8f645b9e4b9e743d533f",
+    "experiments/DFL_TRANSFER_DESIGN_RESEARCH.md": "e7934c71c2b62a4235b7379715970aa15c2984829238aa8fe496e3560692a8a2",
+    "data/control_dfl_transfer_v1/assessment_A/manifest.json": "f31d5d588d37b55c0ec3debd92bec5fe4b33c66af2659e483326ace1d0335677",
+    "data/control_dfl_transfer_v1/assessment_A/summary.json": "ece597bcc0ab2d2809abf67464af5962657a21a067dc87524fc43c47ea53b3cb",
+    "data/control_dfl_transfer_v1/phase_A_integrity.json": "de4a48ca67c44cb2e90adb7c693eafe5fa68ff51ac780ac94ee6c677e162a159",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_pair_motion_v1/inputs/manifest.json": "eeff0bd48316cec2d8a8c78bbc7abcb0a47dd45790474fa71f8983ab1a31f10d",
+    "data/control_pair_motion_v1/dead_trim_confirmation/manifest.json": "3241f939cb68904e4cea307b0be34e6523a5507096a92a30fe85bf952df848a8",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f",
+    "data/advanced_validation/ordered.pkl": "749dc86c612ec552af5cd98c1627bb7517f00241ed395994ec5cdba9a8bd63d3",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7"
+  },
+  "verification": "Fresh-process actual external feature reconstruction and byte-exact pickle/probability/metric replay; checkpoint reload; training rows/targets/groups/match-class weights reconstruct exactly. Preserve allPhaseAevidence. Beforepossiblepublicfit, verify frozenexternalgate; thenactualnativeprefixparity,selectedreferenceexact,allOOFcheckpointreload/targetweightprovenance/officialscores. Runfulltests; verifyallsource/input/cache/protected/ledgerprefix/symlinkidentities. No extra externalrefit/sweep."
+}

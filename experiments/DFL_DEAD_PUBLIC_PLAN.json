@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-25",
+  "round": 33,
+  "phase": "C_paired_teacher_feature_public_integration",
+  "hypothesis": "The externally validated direct-status probability may help the existing rich physical stoppage heads distinguish live from dead, without replacing ownership evidence.",
+  "methods": [
+    "selected8",
+    "matched_control",
+    "teacher_heads"
+  ],
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "initial_seed": 42,
+  "native_features": "Actualprovided tactical XY observations, samecleaning/halfreset and identical183featurebuilder as external; independentlyload18935,19060,199319source rows; publicfeatures and probabilities mustagree exactly. No public labels in teacher feature construction.",
+  "native_training": "Append one external_dead probability to each existing physical114/restart-context view. Exact existing fit_context settings, .5weakmass,publictargets ateligibleindicesonly, samecachedweakrows/labels and reserved/public250exclusions. No external label rows added to native fitting, no new preprocessing or threshold.",
+  "control": "Refit all26originalDheads atseed42 and verify probability identity pluscomplete selected8H/A/D/X before26augmentedhead fits. Samepairing at43/44 ifeligible. Savedmodel replay verifies fittingarrays and allprobabilities/labels/scores.",
+  "integration": "Replace only twoDhead probabilities array3; run unchangedcomplete selected8 then restore originalHA whereverbothsequenceslive and retainoriginalX. BothD->live andlive->D allowed; no alternative decoder or parameter screen.",
+  "promotion": "Main buffered spellF1 gain>=.04 and >=1additionalshortIoU.5match; otherprotocolprimary and meanfoldprimarynonregression, macro>=ref-.001, shortIoUnonregression, previousmatches/mostlyrecalledshort retained, noextraspurious/missed, Drecallnonregression,falseD<=ref+10. Same gates at42/43/44; official/shared/reload/actualprefix replays, fullcandidate twice andindependentreview.",
+  "progression": "Onlypassesall3seed42conjunctions advance tosameexactcandidate43/44. Requireallninepairs,official/shared/checkpoint/feature/source replays,fullbuildertwiceandindependentreview. No seed choice or thresholdchange.",
+  "caveat": "Same17adaptivelyreusedpublicpossessions,notindependent/private score. Externalmatchmetricsdo notestablishtransfer. No manualannotations/competitionmedia/audittargets/privatecorrectedfixturedata.",
+  "input_sha256": {
+    "data/control_dfl_dead_v1/external_trial/teacher_seed42.ubj": "c8c6bb008999c79dd6c9ebb6acbca4c4ca238b8a98affc55eb4605f9f3547ce2",
+    "data/control_dfl_dead_v1/external_trial/summary.json": "24598decaf5b83d9a24e12752f8081c1091beb38a64220a5e4284c1d7fd64a43",
+    "data/control_dfl_dead_v1/external_trial/manifest.json": "b4bf80f6eb3e3b0ad7178e98045845a64339e5ab6c1e1ff3c0c6e7d185e9ee54",
+    "experiments/DFL_DEAD_TEACHER_PLAN.json": "fac57a87d6f3c7c2c197def9debe324d3f9b0b0b7980ba4278a0f8ef730e76b1",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f",
+    "data/control_renewal_v1/stoppage_inputs/raw.pkl": "f75702b6e720448236be119b69714aff130a470645c4955de83a25f9bf6f88ef",
+    "data/control_renewal_v1/stoppage_inputs/physical.pkl": "e46b7e9a93a847d6196aa7f6e19f55ca870c0baefd54cb91f661362af4462a14",
+    "data/control_renewal_v1/stoppage_inputs/restart.pkl": "0841668aea68f0ef5f4abb1549d7cb6e8139f0a758dfd4e03184811a95acbd3e",
+    "data/control_renewal_v1/stoppage_inputs/weak_samples.npz": "ad401870393083224a571c475cbbc672674bdf5d099b21569aeb15066cfd16e1",
+    "data/control_renewal_v1/stoppage_inputs/manifest.json": "3926bc127a6936fe92f10c44b0aa59e6182a0f522b332397f14633c2a6e1a9a5",
+    "data/control_broadcast_v1/inputs/combined_inputs.pkl": "ef4f92b99b1de9477002d1f0dbbf29b33b9e1feef64263fdaeec88dbd07d3841",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_pair_motion_v1/inputs/motion_info.pkl": "58bbb3f194213702c6ac6216a61edfd81e88c883c7b88435b3ec5e12cd640b9f",
+    "data/control_pair_motion_v1/inputs/manifest.json": "eeff0bd48316cec2d8a8c78bbc7abcb0a47dd45790474fa71f8983ab1a31f10d",
+    "data/tactical/BAR-ATH_tactical_atd.xml": "327e35e32e46a647389b88f883d4f9a2ab931e3e6148aef2fcf8f22b1e93c43a",
+    "data/tactical/BAR-ATH_tactical_atd.txt": "f130e350d2bfdf734b7e32f072931fccc6d015c1e837d082064875fe0a700431",
+    "data/tactical/BAR-ATH_tactical_homography.csv": "421c81abe16f0912dc45c2541f9bf19dd5660066397a3dcc043038a1b61c28c3"
+  }
+}

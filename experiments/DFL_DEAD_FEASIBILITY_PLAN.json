@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-25",
+  "round": 33,
+  "phase": "A_dead_label_support_audit",
+  "objective": "Find substantial automatic possession-score improvement. First audit direct public DFL live/dead supervision without fitting or new competition target access.",
+  "hypothesis": "713direct D intervals across7downloaded matches may supply useful live/dead supervision that the earlier ownership-only trial excluded.",
+  "source": "Bassek et al.2025,ScientificData12:195,DFL,CC-BY4.0,figshare28196177.v1;https://www.nature.com/articles/s41597-025-04505-y",
+  "source_semantics": "BallStatus0=inactive,1=active. Prior keyed verified parser maps status0 toD and active owners toH/A. No changed conversion or manual targets.",
+  "matches": [
+    "DFL-MAT-J03WMX",
+    "DFL-MAT-J03WN1",
+    "DFL-MAT-J03WOH",
+    "DFL-MAT-J03WOY",
+    "DFL-MAT-J03WPY",
+    "DFL-MAT-J03WQQ",
+    "DFL-MAT-J03WR9"
+  ],
+  "splits": {
+    "train": [
+      "DFL-MAT-J03WMX",
+      "DFL-MAT-J03WN1",
+      "DFL-MAT-J03WOH",
+      "DFL-MAT-J03WOY"
+    ],
+    "development": [
+      "DFL-MAT-J03WPY"
+    ],
+    "held_out": [
+      "DFL-MAT-J03WQQ",
+      "DFL-MAT-J03WR9"
+    ]
+  },
+  "gates": {
+    "per_match_minimum_dead_frames": 2500,
+    "per_match_minimum_dead_intervals": 20,
+    "per_match_status_valid_fraction": 0.99,
+    "per_match_dead_ball_xy_fraction": 0.5,
+    "per_match_dead_player_geometry_fraction": 0.95,
+    "minimum_players_each_team": 4
+  },
+  "audit": "Count knownstatus,dead/live frames,contiguous dead intervals resetting eachhalf; validballXY and >=4finiteplayersperteam separatelyforD/live. Check both classes with ball observed to reject missing-ball-only supervision. No example exclusions based on performance.",
+  "split_caveat": "Keep historical4train/1development/2test matches. All7alreadyseen for ownership; do not describe them as untouched general validation. NoDmodelhasbeenevaluated.",
+  "continuation": "Only if all7matches pass, freeze a separate single-model external live/dead trial and numeric cross-match gates before feature processing/fitting. Only after external transfer evidence passes may a frozen paired public integration be tested. Failure stops this avenue without changing cutoffs.",
+  "substantial_promotion": "Main buffered spellF1 gain>=.04 and >=1additionalshortIoU.5match; otherprotocolprimary and meanfoldprimarynonregression, macro>=ref-.001, shortIoUnonregression, previousmatches/mostlyrecalledshort retained, noextraspurious/missed, Drecallnonregression,falseD<=ref+10. Same gates at42/43/44; official/shared/reload/actualprefix replays, fullcandidate twice andindependentreview.",
+  "preservation": "Current selected8,1510ledgerrows,pastfailures,source symlinks,reservedmetadata/audit. No humanannotations/privatecorrectedfixturetargets/media/hostedcalls/install/commits/uploads/submission/contact.",
+  "input_sha256": {
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_firstHalf.npz": "3bcfde5984ada60ca81561161da5c43174557b50fc0f7867cb169b4765648199",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WMX_secondHalf.npz": "01b6447bc4ea597100ba6020bb53d3e046248dd987c9e44805e72267a6c15ba8",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_firstHalf.npz": "7b2064c32931cc08f961813c2e6dee93953579fad345a94a832aca30d5423231",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WN1_secondHalf.npz": "fe393ffb32d8b48c4467bf43981bed8fbb7658910a29b20418c7ddb88dfbc2d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_firstHalf.npz": "6f3963a0fb984ca5d2aa7c7f4cd6158782cc6780595c05ed6c9aa0e09dc9f0be",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOH_secondHalf.npz": "6a486fc3b6e853acdedb93fe0c02a37132567bc659e89c4a4beeff649da2bc12",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_firstHalf.npz": "088169495cff493bc975202355f8fc08a1da10f05fad6d90ff5b5faef5f01339",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WOY_secondHalf.npz": "e7a36fcdb25f67ece233bf3936f2084a3d2316f6ed1c6c2a0e49436269378e45",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_firstHalf.npz": "840caa66e8125dbbcd90bc67038233f0074cdef392ed6ae8973ed8cc17bafdc4",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WPY_secondHalf.npz": "009969618cb425f46a4afd09570f5ab6186899398dfd85eaf16135f2cad9f564",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_firstHalf.npz": "0750ed60ee1e655211af83bffaef773b601ab77a291bc4e9d6f09f8a66e1dcba",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WQQ_secondHalf.npz": "9504acca2307c2f58b6116ce93a74e5e31fcc52af47efd251dea726c241d5f59",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_firstHalf.npz": "45911dd31489a5d56afa05dfd4a31f13148e91c202d89a881581daeb9ddcb6d1",
+    "data/control_dfl_transfer_v1/assessment_A/DFL-MAT-J03WR9_secondHalf.npz": "d36024a14473c7e74d7f097ca2f4c531b6b76537829c17a47af0a9cff7e11a02",
+    "data/control_dfl_transfer_v1/assessment_A/plan.json": "0ab248d00f1c9e4259a59d0191d46211bb0d12dfff7a8f645b9e4b9e743d533f",
+    "data/control_dfl_transfer_v1/assessment_A/summary.json": "ece597bcc0ab2d2809abf67464af5962657a21a067dc87524fc43c47ea53b3cb",
+    "data/control_dfl_transfer_v1/assessment_A/manifest.json": "f31d5d588d37b55c0ec3debd92bec5fe4b33c66af2659e483326ace1d0335677",
+    "experiments/DFL_TRANSFER_FEASIBILITY_PLAN.json": "0ab248d00f1c9e4259a59d0191d46211bb0d12dfff7a8f645b9e4b9e743d533f",
+    "experiments/DFL_TRANSFER_TEACHER_PLAN.json": "304550b0380bfe68a985f76840f8656bc5f46196d4c0cd5a448c2308cb7dacb5"
+  }
+}

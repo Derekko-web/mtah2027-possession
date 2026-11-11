@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "hypothesis": "Independent jersey-color team probabilities at optically localized ball contacts may recover short ownership missed by classifiers using automatic track-team metadata. The prior jersey-only and detector-only protocols remain failed.",
+  "data": "Reuse fixed per-player color probabilities,static automatic player positions and both pretrained detector outputs. No images decoded,new classifier fitting,private/corrected labels or track-coordinate replacement. Every source artifact checksum verified.",
+  "variants": [
+    "detected_metadata",
+    "tracked_color",
+    "detected_color"
+  ],
+  "contact": "At original detector sample frames require the same mutual-nearest two-model sports-ball consensus>=.25 within8pixels. Require nearest detected-person-foot gap<=2expected_ball_diameters. Candidatepoint is nominal homography-unprojected consensus for detected variants,original finiteballxy for tracked_color;point within pitch+/-5m. For colors use same-frame per-player P(team),finite,max>=.8;metadata control uses onehot tracking teams. Score perteam=max_i[P_i(team)*exp(-.5*(distance_i/2m)^2)]. Strongwinner score>=.5and lead>=.2. Only actual sample frames supply support;no slot-identity interpolation.",
+  "memory": "Inside each selected-reference live episode and each validation block independently,carry the most recent strong contact posterior scores/sum for<=75frames. Contact memory resets atD/block/episode boundaries. Otherwise use reference-owner fallback.9/.1. D fallback.5/.5. No future contact or one-sided image extrapolation.",
+  "decoder": "Use fixed ownership_prediction short_proposals: smooth5/decode,8..125frames,mean posterior>=.65,>=3actualsample support votes,opposite13frame flanksboth>half. Reject any proposed component that entirely encloses an opposite reference island oflength8..125. All D/X exact. Generic full-timeline rules only;no target endpoints or special frames.",
+  "footprint": "Sourcecenterfuturebracket<=25,pastcontactmemory75,smoothing5:<=105frames. Existing250buffer intact. Color observation is same-frame,not player-slot time interpolation. Actual18935vs19060publicsource/memoryparity required.",
+  "observability": "Before public target loading require fusedstrong-contact samples>=100total and>=10perteam inpublic interval. These are source-support gates,not correctedteam/possessionaccuracy.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seed": 42,
+  "rows": 12,
+  "new_fits": 0,
+  "promotion": "At most1unchanged finalist before seeds43/44. Everyprotocol primary>=selected8,Macro>=reference-.001,mean shortIoU>=reference,retain>=.5recall on previouslymostlyrecoveredshorts,exactDmask/falseD/Drecall,noextra missedstoppages/noextra officialIoU.5spurious/missed. Buffered primary>=reference+.04 and>=1extra shortIoU.5match. Fusedvariant also primary>=each matchedcontrol everyprotocol. Then unchanged finalist all9seed/protocol checks,fullvalidreproducibleCSV andindependentreview. No relaxedincrementalcriterion.",
+  "input_sha256": {
+    "data/control_detector_features_v1/observations/manifest.json": "905db860f39d6ce220014a5033ede79b34f1266304a8d42a1bd4e7c773820995",
+    "data/control_detector_features_v1/inputs/manifest.json": "400d8d59fc30053c3b825ac57b0b4d3fb5004fa5b4dd0f4a385c2e5d57359e46",
+    "data/control_jersey_v1/feasibility/manifest.json": "b87d8e8a79a12f5037bb5075391e9a2fb77462d9ecfa2af1d998066c7191411f",
+    "data/control_jersey_v1/inputs/manifest.json": "1691ec92cd7b1dc1ba7195a53f1bae499ea2f7fafba7a41bd3b0bddd38376c30",
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef"
+  },
+  "privacy": "All private arrays local in ignoreddata;no hostedimages,rawtracking/XML/detections,manualannotations,framepatches,commits/uploads/submissions/publication/contact. Preserve allpreviouscandidates/failedmethods/frozenplans.",
+  "limitations": "Colorlabels and automatic tracking are fallible weakproxies. Detectoragreement is not trueballaccuracy. Public adaptive checks are correlatedsame-matchdevelopment,not privateaccuracy or verifiedmaximum."
+}

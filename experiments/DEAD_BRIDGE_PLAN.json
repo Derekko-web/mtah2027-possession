@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-25",
+  "round": 31,
+  "stage": "prospective_independent_no_fit_decoder",
+  "hypothesis": "A short decoded D island with same-team flanks, observed moving-ball contact and fast-head agreement can be a false interruption of an ongoing possession.",
+  "chronology": "Frozen while the independent temporal neural trial is still fitting, before any bridge eligibility count or bridge score. No neural output is used.",
+  "rule": "Start from unchanged selected8. D gap<=63frames,13same-H/A frames immediately on both sides inside the evaluation block/half; no automatic restart active in gap;>=.5observed ball fraction;>=3direct close-exclusive moving-ball observations for owner,zero for opponent;mean fast-owner probability>=.65. Fill gap with flanking owner. Evaluate all proposals against unchanged reference; no cascading.",
+  "rationale": "63frames is the already frozen temporal observation window;13-frame flanks and .65fast agreement reuse existing source settings. No public endpoint, duration target or label is an inference input.",
+  "restrictions": "Only provided tactical tracking, automatic tagging and existing public-only model checkpoints; no human annotations, external match labels, new fits, media inference or private targets.",
+  "protocols": [
+    "buffered_minutes",
+    "purged_spells",
+    "buffered_100_seconds"
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "initial_seed": 42,
+  "quality_gates": "Buffered spellF1 gain>=.01 per seed; allprotocol primary and meanfold primary nonregression,macro>=ref-.001,shortmeanIoU nondecreasing,retain previous matched GT and mostly recovered short,official spurious/missed nonincrease,D recall>=ref exactly,falseD<=ref,existing live/X exact.",
+  "continuation": "If seed42 passes every gate, unchanged rule at43/44. Then fresh shared/official replay and reproducible full candidate plus independent review. No threshold sweep or parameter amendment after results.",
+  "legacy_objective": "Original substantial+.04/extra-short-match goals reported separately; this is an explicitly incremental automatic false-stoppage objective.",
+  "limits": "Same17adaptively reused public possessions,not independent/private accuracy. Short real stoppages may exist outside public labels; physical/restart gates are fallible evidence.",
+  "input_sha256": {
+    "data/advanced_validation/splits.json": "cd1bbefeaa29e30331bb2094e89042a7c023243e315cd9f249ebe50ed2991bb7",
+    "data/advanced_validation/raw.pkl": "140f41b8b61c9e13460796d57ee2ff6b3a3ba4993118986de34e58194e85956f",
+    "evaluation/gt/BAR-ATH_possession_gt_public.csv": "e596a9af9626c623bb94be6fd350e12ee9a75c76a696cfadca3bc01735e92487",
+    "data/tactical/BAR-ATH_tactical_smart_tagging.xml": "0594d35e3df01b9c5002372d8615e2e8ef5379ac8f4e84c5ef7a53f4304c9019"
+  }
+}

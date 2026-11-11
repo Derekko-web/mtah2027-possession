@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-25",
+  "round": 36,
+  "phase": "A_original_missing_aware_set_temporal_runtime",
+  "objective": "Findsubstantialautomaticscoregain withplayer-only representationthatneednostableidentities,complete22playerroster,keeperinferenceorball. PathCRF140avenueclosed,nochangeitsgates.",
+  "evidence": "PathCRFaccurateonpartialnativecoveragebutallshort/unmatchedcasesunsupported; directDFLballgeometrytransferfailed. Newmask-awarelearnermayfillcoveragegap,bututilityunproven.",
+  "architecture": "NormalizeXYtocommonfield[-1,1]. Shared2->32->32ReLUplayerstem; one32wide4headTransformerEncoderLayer(FF64,dropout.1) overplayerstokensandexplicitnulltoken, keypaddingmask. SanitizeNaNsBEFOREembedding,excludeunobserved/paddedqueriesfrompool. Maskedteammeans/counts pooledBEFOREtime. Oriented(H,A)/(A,H) vectorsshared66->32projection,4residualkernel3Conv1ddilations1/2/4/8,ReLU/dropout.1,centerlinearhead;logit=f(H,A)-f(A,H). No perplayer timeaxis/IDs/velocities/ball/keeper.",
+  "context": "31samplesat5Hz,maximum75sourceframes,fixedhalfreset; center-onlycontrolrepeatssamecorruptedcentersnapshotthroughall31slots. Equalcapacity/initialseed/schedule/optimizer, independentlyfitted.",
+  "future_training": {
+    "steps": 4000,
+    "batch_size": 32,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.01,
+    "gradient_clip": 1.0,
+    "seed": 42,
+    "early_stopping": false
+  },
+  "synthetic_gate": "Order-onlytaskwithidenticalcenters:temporalaccuracy>=.95,center-only<=.60; permutationinvariance,exactevalteamswapantisymmetry,allmissingneutral.5,maskedNaNsanitization,checkpointstrictreloadanddeterministicrefit. Syntheticdataonly,noactualDFL/nativeobservations/labels inPhaseA.",
+  "runtime": "ExistingCPUtorch2.5.0,numpy2.1.2,2threads,float32,deterministicalgorithms,MHAfastpathdisabled; noinstalls. BenchmarkfulltrainstepB32,T31,N46withforward/backward/optimizer afterwarmup.",
+  "limits": {
+    "peak_RSS_GiB_max": 2,
+    "projected_two_4000step_fits_seconds_max": 1800
+  },
+  "continuation": "OnlyifallAchecks pass,freezeexternaldirectHAdata/corruption/training/validationplanbeforeprocessingnewmodelinputsorfittingrealdata. Retainhistorical4train/1dev/2testmatchsplit(reused,notuntouched). Onlyafterexternal/nativesignalopportunitygatesmaypublicintegrationrun.",
+  "ultimate_gate": ">=.04bufferedspellF1gain,+1shortIoU.5match,allsecondary/oldrecovery/Dprotections,all3protocols and42/43/44,official/shared/feature/checkpointreplays,fullbuildtwice,independentreview.",
+  "exclusions": "Nomanualannotation/privatefixturetargets/media/newdependencies/commits/uploads/submission/contact. Preserveexistingcandidate1519ledgerrowsandallfailures.",
+  "input_sha256": {
+    "experiments/PATHCRF_REPORT.md": "1ad02fc14a7358ebda4782c4ba9b05441a5a2282beb4ad846bcdaf9240bd8de7",
+    "experiments/MASKED_PLAYER_OWNERSHIP_RESEARCH.md": "d37ad44c37d412308b0f1aab714c6cc59a4947a93fe20572cfabffca80cd1ba2"
+  }
+}

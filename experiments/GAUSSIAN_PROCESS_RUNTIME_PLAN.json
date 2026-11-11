@@ -1,0 +1,70 @@
+{
+  "clocks": "Own new helper, no R73 helper dependency. Atomic active operation marker records UTC time_ns and monotonic_ns before complete operation; completed event retains both exact elapsed integers. Worker and external supervisor both enforce nonnegative finite clocks, <300seconds each complete operation and <900seconds entire worker, plus <=6GiB peak. Supervisor independently validates exactly two complete events and final atomic marker. No sleep exception or retrospective waiver.",
+  "commands": {
+    "freeze_root_only_after_review": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/gaussian_process_runtime_gate.py --freeze",
+    "preflight_source_only": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/gaussian_process_runtime_gate.py --preflight",
+    "prepare_source_only_once": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/gaussian_process_runtime_gate.py --prepare-metadata",
+    "pure_tests": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S -m unittest discover -s experiments -p test_gaussian_process_source_contract.py -v",
+    "run_only_after_separate_root_admission": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/gaussian_process_runtime_gate.py --run",
+    "verify_source_only_after_freeze": "data/control_isolated_python_v1/head_runtime/bin/python -B -I -S experiments/gaussian_process_runtime_gate.py --verify"
+  },
+  "date": "2026-11-01",
+  "determinism": "One thread, fixed data seed740042/head42/hashseed0 and call order/shapes. Independent new-process complete refit at both sizes must reproduce recipe, exact fit/state/kernel records, both actual posterior traces and canonical raw/symmetrized probabilities byte-for-byte. Timing events excluded from semantic byte comparisons. Fixed-kernel binary path has no RNG draw; record full RandomState state anyway. No best seed or retry.",
+  "failure": "First failed stage closes this fixed method; require all four distinct stages in exact order and complete independent refits. A nonzero/resource-aborted worker cannot pass an existing summary. No overwrite/retry in an old output, resource waiver, partial cohort rescue or method/precision/context fallback.",
+  "future_native": "No native authorization follows from this gate. Later native binding must preserve only7500released labels11185..18684/17possessions;13temporal5/5/3folds,250purge, owntrain5Hz H/A and paired max3000; full actual+/-79 R37 encoder footprint beforeHAjoin; immutable166features; replace slot0 only with conditionalH/A while retaining originalDmass, unsupported fullvectorfallback, otherfive inference slots, exact decoder and finalD/Xoverlay. No clock/framefeatures/manual/private/sealedlabels/hosted inference. Beat strongest observed comparable main score, currently R65exact136/175 (~.777142857143) although that worker-aborted learner is ineligible, and all unchanged selected8 safeguards including spurious<=4. All9seed/protocolpairs, independent replay, actualpublic/fullfeatureparity, twoidentical199319CSVbuilds,validator and independentreview precede any promotion. A lower/tied/partial result cannot promote.",
+  "invented_generation": "NumPydefault_rng740042;300/1500 original166-column normal vectors, labels from original h__distance_1-a__distance_1 before missingness corruption; append exact actual-schema team-swapped copies and complemented targets. Feature-only7500queries, no query targets. Nonfinite values, paired all-empty/constant columns. Invented frames74000000+5i. Every raw array becomes read-only and its exact fingerprint remains unchanged.",
+  "learning": "Exactly one author GaussianProcessClassifier fit: ConstantKernel(1.0,fixed)*RBF(ell,fixed). ell=sqrt(166*Z.var()/2) using actual finite transformed train global population variance; zero variance ell=sqrt(.5). optimizerNone,n_restarts_optimizer0,max_iter_predict100,warm_startFalse,copy_X_trainTrue,random_state42,multi_classone_vs_rest,n_jobs1,binaryH0/A1,float64. No kernel/scale/amplitude/optimizer grid, calibration, class weights, early-stop tuning, approximation fallback, jitter, WhiteKernel or source modification.",
+  "metadata_sha256": {
+    "data/control_gaussian_process_runtime_v1/runtime_manifest.json": "25117aa192d4625e3cdbc45ae45cab992508fb1ce4beabc1f768935b3492e839",
+    "data/control_gaussian_process_runtime_v1/runtime_symlinks.json": "cd3043819dd05f0204046e5e85007b5e2f71d3939974efd7197a6b4ce337b9c1",
+    "data/control_gaussian_process_runtime_v1/source_metadata.json": "1c60d95bf2d0255e45ccae24aa688347031305cb3994a43eac2b7b4c22285123"
+  },
+  "posterior_observer": "Wrap exact author _posterior_mode once and delegate original unchanged. Scope sys.settrace to original frame.f_code identity, bind full author hash and pristine compiled code object/hash; AST identifies exact iteration, convergence-if and actual Break line events. Read locals only, never alter locals/model state or Newton math. Require exactly two actual author calls, both from zero, contiguous iteration histories, finite LML and all actual new arrays, explicit first previous=-inf; actual source break must execute before iteration100. Reject any later delta<-1e-10; final actual delta must lie in [-1e-10,1e-10). No later data-based tolerance. Trace array hashes/likelihood records are semantic artifacts; all observation overhead belongs to complete fit operation.",
+  "preprocessing": "Complete outer-training pool only: np.nan_to_num(copyTrue,nanNaN,posinfNaN,neginfNaN), SimpleImputer(median,keep_empty_featuresTrue,add_indicatorFalse), StandardScaler. Preserve166 columns. No inner calibration, preprocessing fit on queries, feature removal/selection, PCA or missingness indicators.",
+  "queries": "Canonical ascending512-row float64 calls, repeat final real row to512 then discard padding;7500original plus7500actual-team-swap inputs; average full class vectors after reversing swapped columns. Repeat first swapped/original calls exactly after full schedule; strict symmetry identity. Prefix8 and reverse512 raw diagnostic differences recorded without selection; finite normalization checked. Save/reload checkpoint and rerun complete canonical original/swapped schedule exactly. All calls/diagnostics/checkpoint I/O and reload checks belong to one <300second complete query operation. No query-result cache.",
+  "research": "experiments/GAUSSIAN_PROCESS_LEARNER_RESEARCH_20261101.md",
+  "resource_admission": "New root resource_admission.json must have approved_for_model_callsTrue,scopeinvented_only_gaussian_process_v1,predecessor_r73_closed_or_passedTrue,other_model_workers_stoppedTrue and reviewed freeze_sha256 match. No preparation/test/preflight/freeze grants admission.",
+  "resources": {
+    "cpu_threads": 1,
+    "fit_seconds": 300,
+    "prediction_seconds": 300,
+    "rss_bytes": 6442450944,
+    "worker_seconds": 900,
+    "workers": 1
+  },
+  "root_review_required": true,
+  "runtime": "Private copied Python3.12.14 with existing head-runtime site-packages; full significant Python/stdlib/acquisition/resolved package/binary/symlink inventory hashed before imports. Source-only commands -B-I-S; worker -B-P-S, private prefix/base/executable/effective flag assertions, cleaned PYTHON environment, PYTHONHASHSEED0. No Torch. Worker network blocked.",
+  "scope": "Source-only preparation. No science imports, scientific arrays, fitting, native input, scoring, freeze or admission now. A separate final-source independent review, source freeze and root resource admission after R73 closes/passes are required before model calls.",
+  "source": "Unchanged existing scikit-learn1.9.1 at author commit866c0f51e7560ef0303cbcc5f159df5382ea9e3f. Retain exact source and all existing relevant distribution notices. No package, weight or installed-source change.",
+  "stage": "source_preparation_only_fixed_laplace_gaussian_process_invented_gate",
+  "stages": [
+    [
+      "moderate",
+      "first"
+    ],
+    [
+      "moderate",
+      "rebuild"
+    ],
+    [
+      "full",
+      "first"
+    ],
+    [
+      "full",
+      "rebuild"
+    ]
+  ],
+  "state": "Own copied full semantic serializer includes ndarray/scalar bits, every __dict__, all preprocessing and GP/kernel/template/cache/training fields and RandomState.get_state() read-only. No field exclusions. Never call log_marginal_likelihood(theta) during state checks; only cached no-argument getter. Compare complete fitted semantic state before/after all queries and checkpoint reload. Do not use pickle-container byte equality as semantic proof.",
+  "swap": "Reuse unchanged modernnca_schema_contract.py stdlib AST/sentinel extractor and bind its seven original builder hashes. Exact original102+R37latent64 order/permutation,166columns,all signs+1. Never present a synthetic sign flip as actual schema. No native feature/cache read.",
+  "synthetic_shapes": {
+    "full": [
+      3000,
+      166
+    ],
+    "moderate": [
+      600,
+      166
+    ]
+  }
+}

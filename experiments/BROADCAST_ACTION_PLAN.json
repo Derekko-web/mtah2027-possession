@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "round": 22,
+  "hypothesis": "Broadcast-trained event evidence may improve short possession recovery and false-D errors over selected8. No new actor/team inference; use event-only features to avoid adding unvalidated broadcast side-to-team geometry.",
+  "observation": {
+    "schedule": "Use exactly the 40 frozen feasibility rows; regenerate at n=19060 and n=18935. No replacement centers. Sort unique broadcast centers, infer duplicate source centers once and preserve every tactical association.",
+    "source_frames": "b-100+2*arange(100), full broadcast bounds 0..164487, conservative tactical footprint c-150..c+150. Validate half, strict mapping complete/monotone/orientation constant, every source frame within1 of a locally mapped frame, all sealed24 and held60 +/-250 exclusions.",
+    "decode": "Input-side ffmpeg -ss and -t before -i; exact union of per-clip source frames. Each contiguous stride2 range has its own parity relative to decode start. Three independent accurate-seek RGB checks at first/middle/last needed indices. No image output or display.",
+    "runtime": "Pinned offline strict600 checkpoint, disable pretrained downloads and Python socket connections. MPSfloat32 deterministic seed42 threads2 memoryfraction.6 persistentuint8 buffers and cache release from sports_action_memory.py. Save raw heads only under ignored data. Verify all outputs finite and exact shapes."
+  },
+  "dense": "For tactical f choose nearest eligible tactical center within25, tie earlier. Require query and center same continuous strict mapping component; split at invalid map, orientation change, decreasing map or forward step>2, half edge. Interpolate this clip at mapping.frames[f] (broadcast time) between adjacent stride2 outputs. Never across clips, out of clip bounds, across cuts, or invent alignment. Missing NaN, seen0. Duplicate source centers never increase support clip counts.",
+  "features": "121 event-only columns exactly: 13 softmax class probabilities in upstream official order, nonbackground max, entropy, displacement, seen; for 12 actions+eventmax add fixed past/future25/50 means/maxima inclusive of query. Summaries run only within contiguous observed/same-map-component/half runs, truncate at their edges, and remain NaN on unobserved queries. No actor/team logits or data-dependent preprocessing.",
+  "footprint": "Every raw clip bounded by c+/-150 tactical interval; nearest center25 + summary50 => maximum225 tactical frames, within existing250 label buffer. For actual shorter prefix require c+150<n, not merely a center test. Freeze features BEFORE inference and compare actual full 19060 versus shorter18935 complete feature construction byte-exact incl NaNs on all7500 public rows. Do not claim missingness features have denser image support.",
+  "support": {
+    "assess_before_possession_targets": true,
+    "public_start": 11185,
+    "public_stop": 18685,
+    "min_observed_frames": 1500,
+    "min_confident_local_peaks": 8,
+    "peak_threshold": 0.3,
+    "peak_separation": 25,
+    "min_unique_peak_source_clips": 3,
+    "min_observed_event_max_std": 0.01,
+    "peak_rule": "Local value>=.3, strictly greater than previous and >=next (missing treated0). Greedily descending confidence, ties earlier; separate by>=25 tacticalframes. Count unique broadcast clips that provide accepted peaks.",
+    "failure": "Close rejected without public target loading, fitting, score rows or densefullmatch. No threshold adjustment after outputs.",
+    "interpretation": "Frozen sparse-source engineering support only, no action or possession accuracy claim."
+  },
+  "fitting": "Reuse fit_renewal frame objective, depth3/160trees seed42 team-symmetric fit/predict; 170-column matched BCjoint control +121 event features. Existing frozen splits and250 exclusion; labels outside train replacedX before fit/weight creation. No calibration, tuning, earlystopping, featureselection or imputation. Held inputs receive predictions; labels used only through fixed evaluation after prediction. Matched controls reused with exact schema/model reload checks.",
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "heads": [
+      "events_only"
+    ],
+    "decoders": [
+      "replace_current",
+      "joint_slot",
+      "live_replace",
+      "dead_trim"
+    ],
+    "maximum_rows": 27,
+    "expected_rows": 27,
+    "maximum_new_fits": 13,
+    "counts": "3selected references+12matchedcontrols+12eventonly decoder comparisons.13fold fits total."
+  },
+  "promotion": "Freezeatmost1unchangedfinalistbefore43/44. Everyprotocolprimary>=selected8andmatchedsame-decodercontrol,Macro>=reference-.001,meanshortIoU>=reference,retainpreviously>=.5shortrecall,falseD<=reference,Drecall>=reference-.02,noextramissedstoppagesorofficialIoU.5spurious/missed. Bufferedprimary>=reference+.04and>=1extrashortIoU.5match. Thenall9seed/protocolchecks,official/shared/model/input/source/prefixreplay,reproduciblevalidfullCSVandindependentStandards/Spec review. No manualframepatch or silentgaterelaxation.",
+  "confirmation": "If and only if all seed42 gates pass, freeze at most one unchanged head/decoder finalist; predeclared ranking: higher bufferedspellF1, then macroF1, then decoder order above. Run seeds43/44 for only that finalist, all3protocols, same gates including+.04/extra short for each bufferedseed. Max26additionalfits and18additional pairedscore rows (reference/control/finalist). No refit/tuning after screen. Fullmatch inference/build and independent Standards/Spec review only after all9checks pass; preserve selected until all gates pass.",
+  "stopping": "Support failure ends round. Otherwise screen all predeclared comparisons; no eligible finalist ends round. No seeds43/44 or fullmatch for rejected screens. Negative result completes Round22; do not start another round.",
+  "privacy": "No competition images, clips, descriptions, raw heads/tracking/boxes in hosted context. All derived artifacts ignored under data. No manual labels, private/correctedGT, commits, uploads, submissions, publication or contact.",
+  "input_sha256": {
+    "experiments/BROADCAST_ACTION_FEASIBILITY_PLAN.json": "2d567015817b2dddc8aa69ca3ffe40ab388e95ce1910d29b6240a17a6a8b1548",
+    "data/control_broadcast_action_v1/feasibility/manifest.json": "f1536bcee60706264c3088cf550db8bb39bec1ddf39daca3ffb788c51a0f98ab",
+    "data/control_broadcast_action_v1/feasibility/schedule.json": "977eda424de6e09724db31d4058064275c7bb2b7d2644f513aaf07bf0fb56dce",
+    "data/control_broadcast_v1/inputs/strict_mapping.npz": "8b2fa3bf6085bb2da92fe67a0d52e4d8b58e584b3b993ce259501a3c955fe0e4",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "experiments/SPORTS_ACTION_FITTING_PLAN.json": "2f86acb96fecf642473b050c7e2bf2aab9c60a0a20c23d95df3e04556bc5f0bf",
+    "data/control_sports_action_v1/memory_execution_plan.json": "133927290bf60fa1f09f4180978b325577d8437e50344306b778851248e707f3",
+    "data/control_sports_action_v1/memory_endurance/summary.json": "fa0f523e132cc8d3c22b92cfd23613c5db91dae04d57fc76cbb9e7b15a8ed5ba",
+    "data/control_sports_action_v1/model_assets/checkpoint_best.pt": "ed7c558d575eba1918be8f67813571723962eeff807dba68a12a2d794dd1c72a"
+  },
+  "limits": "Sparse fallible observation alignment; extensive adaptive correlated single-match public development,17possessions. No private/fullmatch accuracy or maximum score established."
+}

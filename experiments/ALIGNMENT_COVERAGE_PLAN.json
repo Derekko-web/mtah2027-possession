@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "round": 23,
+  "stage": "target_blind_alignment_coverage_metadata_only",
+  "hypothesis": "Removing a blanket +/-150 complete-map requirement and using exact inverse clip witnesses inside a bounded +/-125 search may expand safe broadcast action observation coverage without weakening strict correspondence thresholds. A25-frame center grid may improve coverage further.",
+  "scope": "Metadata only. No video/image decode, neural calls, cached action heads, possession target rows, fitting, scoring, new candidate or automatic downstream round. A positive outcome licenses only a later separately frozen action observation/fitting protocol.",
+  "inputs": "Preserved strict observation-derived mapping only. No relaxed profile, interpolation across rejected anchors, forced alignment, new synchronization truth, or new threshold search. Broadcast actual video frames164487; tracking164488. Use broadcast frame_usable from preserved local observations to reject any unavailable intervening source frame.",
+  "variants": [
+    {
+      "name": "original50",
+      "meaning": "Exact retained Round22 schedule, query radius25, for descriptive coverage comparison; retain its original certified IMAGE bound225, do not claim full tactical footprint250."
+    },
+    {
+      "name": "inverse50",
+      "grid": 50
+    },
+    {
+      "name": "inverse25",
+      "grid": 25
+    }
+  ],
+  "scheduling": {
+    "grid_start": 11000,
+    "grid_stop_inclusive": 18950,
+    "inverse_radius": 125,
+    "alignment_context_radius": 50,
+    "decision_radius": 175,
+    "query_radius": 25,
+    "summary_radius": 50,
+    "source_frames": "100 frames b-100+2*arange(100). Every one of the199 video indices b-100..b+98 must be in actual bounds and broadcast frame_usable.",
+    "eligibility": "Require c+/-175 inside source prefix and a single official half. Exclude any such decision interval intersecting each sealed24/held60 +/-250 exclusion. Then inspect only mapping[c-125:c+126]. Center must be mapped; find its within-window component, stopping at missing mapping, orientation change, decreasing map or step>2. The entire sampled clip must be bracketed by component mapped range, with each sample a nearest mapped witness<=1. Never search beyond this bounded125 interval or whole components. Store exact bracketing tactical image span and fixed dependency interval c+/-175. Source clips remain100frames stride2; no shortening/padding.",
+    "duplicates": "Deduplicate broadcast centers for any future inference and retain all tactical associations. Coverage clips and distinct source centers reported separately."
+  },
+  "query": "For tactical f, among eligible centers within25 choose the closest whose bounded mapping component contains f and whose clip brackets mapping.frames[f]; ties earlier tactical center. No candidate => missing. Additional centers cannot remove an eligible alternative. Missing mapping always remains missing. Source summaries, if later built, stop at unobserved gaps and alignment cuts.",
+  "footprint": {
+    "image_radius_bound": 200,
+    "tactical_observation_dependency_radius_bound": 250,
+    "derivation": "Bounded inverse scan125 + strict alignment tactical context50 + closest center25 + summary50 =250. Image content125+25+50=200. Eligibility, absence, duplicate decisions and missingness included. Existing formation search still scans the global broadcast observation timeline:250 is a tactical-axis bound, not an all-source locality claim. No held-out labels enter any decision."
+  },
+  "prefix": "Compare actual independent saved mappings rebuilt from18935/19060 tactical prefixes (verify their original reconstruction source/hash records), all new schedules and actual query plans on7500public rows plus future/past50 context. Exercise full121 event feature construction with fixed synthetic heads generated only from source frame ids; do not read actual action head outputs. Metadata/synthetic parity does not certify actual newly observed action features, which remain required before any future fit.",
+  "source_support_gate": {
+    "primary_variant": "inverse25",
+    "public_start": 11185,
+    "public_stop": 18685,
+    "min_observed_frames": 3000,
+    "min_net_additional_frames": 750,
+    "min_original_coverage_retention": 0.98,
+    "all_safety_and_prefix_checks": true,
+    "interpretation": "Engineering source opportunity, not action/possession accuracy. These thresholds predate new coverage counts. No fallback selection or threshold retuning if inverse25 fails."
+  },
+  "diagnostics": "For every variant report safe association/source counts, observed public coverage, added/lost vs original mask, strict mapping coverage ceiling, eligibility rejection counts, and fixed label-free windows of25/50/75/125frames starting every25publicframes: >=50% and>=80% observed. No possession labels identify windows or change schedule/thresholds. Full arrays/schedules stay ignored.",
+  "promotion": "Selected8 remains unchanged regardless of this metadata result. All original substantial+.04/extra-short/falseD/Drecall/macro/official paired gates, seeds42/43/44, actual-feature/source/input/model replay, valid reproducible fullCSV and independent Standards/Spec review remain prerequisites for any later promotion.",
+  "stopping": "Close Round23 accepted_metadata_opportunity or rejected_metadata_opportunity according to frozen primary gate. Zero fitting and score rows either way. Do not automatically start action observations or another round.",
+  "privacy": "Restricted inputs and derived per-frame artifacts local ignored data only; no images/tracking excerpts/raw arrays in hosted context, manual labels, private/correctedGT, commits, uploads, submissions, publication or external contact.",
+  "input_sha256": {
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_broadcast_v1/inputs/strict_mapping.npz": "8b2fa3bf6085bb2da92fe67a0d52e4d8b58e584b3b993ce259501a3c955fe0e4",
+    "data/control_broadcast_v1/inputs/broadcast_observations.npz": "5ea2edd905d8ee6bb4101ebb832bb24146c916e62669b03d1526f34f80b83863",
+    "data/control_broadcast_action_v1/prefix_replay/summary.json": "5cd8b6cac4d8300816f3f3524cde57f541a7e4972a01c49f20364042c8866174",
+    "data/control_broadcast_action_v1/prefix_replay/mapping_18935.npz": "16f74c90e0607ef28af1b7921b12f1cee8795cd1ed0f89380d3619414538e245",
+    "data/control_broadcast_action_v1/prefix_replay/mapping_19060.npz": "26af6af3e9f80db9c8f3543684d53f5cb6647695345acf0a40c035b3fbd14cfe",
+    "data/control_broadcast_action_v1/feasibility/schedule.json": "977eda424de6e09724db31d4058064275c7bb2b7d2644f513aaf07bf0fb56dce",
+    "data/control_broadcast_action_v1/inputs/support.json": "f0828a8bfed9d293cee6fa445dc085bc775b0c85478484718ef4e4202b90c3fb",
+    "data/control_broadcast_action_v1/round_closeout.json": "9b7bf6a2f153ed42c98a657896849ddc9a9fb93ffabaa3ae18bf3c9a2b5f43f5",
+    "data/continuation_20261021/annotation_freeze/windows.json": "5499723c34d803fbc2d15270510cab494687e2e2e37c59d87e246ce302cf4d1c",
+    "data/control_native_ball_v1/confirmation_frames.npy": "a24b3e73b99cd508b22ae71476b4cb37b42246e688f91f1066f108858069ca83",
+    "experiments/BROADCAST_ALIGNMENT_PLAN.json": "23414370c80d9f3daeee12b7499f6027a137374de803020d4ec07cbd36b399b5",
+    "experiments/BROADCAST_ACTION_PLAN.json": "6543e35f4f131ce6b3743e2338d55cce6c0eef34b88eaec8419cbcf36cee90e1",
+    "experiments/EXPERIMENT_LEDGER.csv": "c7c2b0383f799e3f192285b230254a28860f955b36511ddbeee6687c2b3cfaa1"
+  },
+  "limitations": "Fallible existing strict alignment, sparse source, extensive adaptive public development on17possessions; no private accuracy or maximum score claim. Round22 was rejected, and its225 image-bound claim must not be read as a complete tactical-input dependency audit."
+}

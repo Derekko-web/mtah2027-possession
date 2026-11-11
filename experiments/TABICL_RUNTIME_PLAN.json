@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-27",
+  "round": 45,
+  "stage": "synthetic_runtime_feasibility_only",
+  "hypothesis": "An openly pretrained tabular in-context learner is a genuinely distinct alternative to fitting more native boosted trees; establish local deterministic runtime feasibility before any competition feature/label use.",
+  "sources": [
+    "https://github.com/soda-inria/tabicl",
+    "https://arxiv.org/html/2602.11139v1",
+    "https://huggingface.co/general-forecast/tabicl-v2-classifier/blob/main/LICENSE"
+  ],
+  "model": "TabICL2.2.0 official release, classifier v2 tabicl-classifier-v2-20260212.ckpt only; pin downloadablepublicwheel andcheckpoint hashes/licenses beforemodelinference. No othercheckpoint orvariant sweep.",
+  "setup": "Use existingCPUtorch2.5 runtime executable data/control_sports_action_v1/runtime/bin/python. Install only needed publicdependencywheels into NEW data/control_tabicl_v1/runtime_deps using --target; do not mutateoldruntime,basevenv,existingpackages orselectedartifacts. Recordmetadatahashes/versions. No login/gatedagreement/APIupload.",
+  "configuration": "CPU,fixedfloat32,use_ampFalse,use_fa3False,n_estimators1,batch_size1,n_jobs2,random_state42. Use publicofficialAPI. Any implementationadaptation only documentedexecutionrepair; no checkpoint/math/precision/defaultsweep.",
+  "synthetic": "NumPyrng42, gaussiancontinuousfeatures with deterministicmissingentries; y cycling0,1,2. First small64trainx8/16query sanity, then15000trainx166/1500query resourceproof. Repeat same inputs twice, finite nonnegative normalized3class outputsandexactrepeat parityrequired. Save arrays/probabilities/hashes. No sourcefeature/targetinputs.",
+  "gate": "Bothsizescomplete with exactrepeatedoutput, maxRSS<=6GiB andelapsed<=300seconds perlargepredict. Independent savedruntime/model reloadsmallparity. Walltimeout andRSSmonitor abortpastlimits. Failure closes this fixedCPUfeasibilityconfiguration; no native trial begins.",
+  "exclusions": "No competitionobservations,images,targets,manualannotations,privatefixturedata,sealed/reservedaudit,scorecalls,modelselection,candidatebuild,selectedartifactchange,commits,uploads,submission,publication orcontacts.",
+  "continuation": "Only syntheticpass allows separatelyfrozen native protocol with explicitclassweight semantics, trainingindicesandqueryindependence audit. No accuracyclaim followsfromtechnicalpass.",
+  "machine": "AppleM1Pro16GiB; fixedCPU2threads/6GiBprocessbudget."
+}

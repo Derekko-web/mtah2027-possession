@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "hypothesis": "Full-team spatial shape and surrounding-space control may distinguish ownership when nearest-ball evidence is misleading. Earlier local graph features pooled only players within10m and selected views omit formation. Test joint versus independent spatial representation, without target-based frame exceptions.",
+  "heads": [
+    "shape_joint",
+    "shape_reduced"
+  ],
+  "features": "Native tactical cached positions/teams/ball/valid only. No player IDs,absolute coordinates,matchtime,tags,images or fitted preprocessing. Perteam require>=5finite players. Count,centered covariance ridge1 eigen scale/ratio/logdet,mean pairwise distance,nearest opponent center distance; if ball finite: centroid distance,regularized Mahalanobis distance,normalized Gaussian density2/5/10/20m,teamrelative ball projection along centroid-to-opponent vector,along/across spread,softcontrolshare averaged at8equally spaced ringpoints radius5/10/20m (sigmoid((opponentnearest-ownnearest)/2m)). Ballseen and bounded5frame speed<=80m/s. Perteam logarea,normalized centroid-ball distance and ring10share add bounded past/future25/75mean and std. No slot-identity matching. Half boundaries respected; nonfinite unsupported features staymissing.",
+  "views": "shape_joint=existing170ordered+broadcast+allshape;shape_reduced=allshapeonly. Matchedcontrol existing170column broadcast_joint_frame OOF,unchangedmodels. Both newheads samefitsettings.",
+  "footprint": "At most75summary+5ballspeed=80nativeframes,inside250buffer. Actual18935vs19060publicarrayparity exact. No targets in sourceprep.",
+  "observability": "Before labels/fitting require>=80percent publicframes with>=5playersperteam and>=80percent ballobserved. These are coverage checks,not ownershipaccuracy.",
+  "fitting": "Unchanged fit_renewal frame depth3/160trees seed42,eligibletrainlabels only,team-symmetric augmentation/prediction. Save actualtargets/weights/train/validationindices;250targetbuffer.26newcheckpoints/13folds. No tuning,earlystopping orcalibration.",
+  "screen": {
+    "protocols": [
+      "buffered_minutes",
+      "purged_spells",
+      "buffered_100_seconds"
+    ],
+    "seeds": [
+      42
+    ],
+    "decoders": [
+      "replace_current",
+      "live_replace",
+      "dead_trim"
+    ],
+    "rows": 30
+  },
+  "decoders": "Reuse provided_speed.decode_provided_speed. replace_current replaces onlyraworderedprobability slot0;other5arrays unchanged. live_replace keepsreferenceD exact. dead_trim accepts alternativeH/A onlywherereferenceD,existingH/A/X exact,noaddedD.",
+  "promotion": "Atmost1unchangedfinalistbefore43/44. Everyprotocolprimary>=selected8andmatchedsame-decodercontrol,Macro>=reference-.001,meanshortIoU>=reference,retainpreviously>=.5shortrecall,falseD<=reference,Drecall>=reference-.02,noextra missedstoppages or officialIoU.5spurious/missed. Bufferedprimary>=reference+.04and>=1extrashortIoU.5match. Thenall9seed/protocolchecks,official/shared/model/input/source/prefixreplay,reproduciblevalidfullCSVandindependentreview. No silentgaterelaxation.",
+  "input_sha256": {
+    "data/control_broadcast_v1/inputs/manifest.json": "3429373acb8ce09826a4e05d79c7a11c868edb5ad936867734da60efe26a15ef",
+    "data/control_broadcast_v1/closure_confirmation/manifest.json": "bc2c7cb8f26eb7159f6ace2c722af3cd80caede9012a969c18c57143d0cedf1b"
+  },
+  "privacy": "Allprivatearrayslocalignoreddata. No private/correctedGT,manualannotations,hostedcompetitionextracts,commits,uploads,submissions,publicationorcontacts. Reserved24windowsandheld60weakimagesremainunused. Preserveallpriorartifacts.",
+  "limitations": "Adaptivecorrelatedsame-matchpublicdevelopment. Spatialcontrolofspaceisnotballownershiptruth. Maximum/privateaccuracyunverified."
+}
